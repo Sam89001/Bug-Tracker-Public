@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap" rel="stylesheet">
+    <link rel="icon" href="/icons/icon.ico">
+    <link rel="stylesheet" href="css/login styles/login.css">
+    <link rel="stylesheet" href="css/general styles/general.css">
+</head>
+
+<body>
+  <main>
+		<section class="loginSection">
+      
+      <form action="/login" method="POST">
+      
+        <div class="mainlogo">
+        <img class="logo" src="/icons/logo.png">
+        </div>
+        <div class="loginpass">
+        <div class="loginDiv">
+          <input class="login" type="email" placeholder="Email" required>
+        </div>
+        <div class="passwordDiv">
+          <input class="password" type="password" placeholder="Password" required>
+        </div>
+        </div>
+			  <div class="login-button">
+        <button class="loginbutton">Login</button>
+        </div>
+    </form>
+		
+  </section>
+
+    <section class="buttonLayoutSection">
+      <div class="buttons-div">
+        <button class="createAccButton" onclick="location.href = '/register';">Create an Account
+        </button>
+        <button class="forgotPassButton">Forgot Password?</button>
+      </div>
+
+    </section>
+  </main>
+</body>
+</html>

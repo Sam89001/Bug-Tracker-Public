@@ -1,0 +1,141 @@
+.header-bugtracker {
+  background-color: aliceblue;
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: rgb(219, 223, 226);
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 125px;
+  display: flex;
+  align-items: center;
+  z-index: 200;
+}
+
+.leftsection{
+  height: 100px;
+  width: 800px;
+  max-width: 800px;
+  background-color: orchid;
+  
+}
+
+.middlesection {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex: 1;
+  max-width: 510px;
+}
+
+.headerlogo {
+  height: 100px;
+  width: 100px;
+  transition: transform 1.5s;
+}
+.headerlogo:hover{
+  transform: rotate(360deg);
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+}
+
+.right-section{
+  height: 100px;
+  width: 600px;
+  max-width: 800px;
+  background-color: rgb(42, 151, 57);
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.settings-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height:80px;
+  width:1fr;
+}
+
+.settings-icon{
+  height: 60px;
+  cursor:pointer;
+  transition: transform 3s;
+}
+
+
+.settings-icon:hover{
+  transform: rotate(180deg);
+
+}
+
+
+.notifications-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height:80px;
+  width:1fr;
+}
+  
+.notifications-icon{
+  height: 60px;
+  cursor:pointer;
+  transition: transform 1s;
+}
+
+.notifications-icon:hover{
+  transform: rotate(60deg);
+}
+
+.help-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height:80px;
+  width:1fr;
+}
+
+.help-icon{
+  height: 60px;
+  cursor:pointer;
+}
+
+.profile-picture-container{
+  margin-right: 20px;
+  background-color: aquamarine;
+  border-radius: 30px;
+  width: 60px;
+  height: 60px;
+  cursor:pointer;
+}
+
+.report-bug-button-container{
+  height: 80px;
+  width: 170px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.report-bug-button{
+  background-color: rgb(238, 232, 170);
+  border-radius: 10px;
+  font: Montserrat 100, Arial; /* not working for some reason */
+  height: 60px;
+  width: 150px;
+  padding: 10px;
+  border: none;
+}
+
+.report-bug-button:hover{
+  height: 70px;
+  width: 160px;
+
+}

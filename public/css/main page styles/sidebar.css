@@ -1,0 +1,39 @@
+.sidebar {
+      background-color: aliceblue;
+      border-right: solid;
+      border-width: 1px;
+      border-color: rgb(219, 223, 226);
+      color: white;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      top: 125px;
+      width: 150px;
+      z-index: 100;
+} 
+
+.current-section{
+  background-color: rgb(216, 222, 228);
+  border-bottom: solid;
+  border-width: 3px;
+  border-color: rgb(184, 184, 184);
+}
+
+.current-section,
+.section {
+  color: rgb(68, 68, 68);;
+  height: 125px;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+  cursor: pointer;
+}
+
+.section:hover {
+  border-bottom: solid;
+  border-width: 3px;
+  border-color: rgb(184, 184, 184);
+  background-color: rgb(216, 222, 228);
+}

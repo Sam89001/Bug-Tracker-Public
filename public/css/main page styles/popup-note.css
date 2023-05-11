@@ -1,0 +1,116 @@
+
+
+.popupNote{
+
+   /* positioning*/
+   position: fixed;
+   width: 300px;
+   height: 100px;
+   padding: 20px;
+   z-index: 300;
+
+   top: 20%;
+   left: 48%; /* these set the postitioning of a fixed element */
+   margin-top: -100px;  /* these typically need to be half the width and height of the div */
+   margin-left: -250px;
+
+   /* styles */
+   
+   background-color: rgb(238, 232, 170);
+   border-radius: 30px;
+   opacity: 0;
+   visibility: hidden;
+}
+
+#popupnote.active{
+   width: 700px;
+   height: 750px;
+   visibility: visible;
+   opacity: 1;
+	 transition: 0.3s;
+}
+
+ .main#blur.active{
+filter: blur(15px);    
+} 
+
+
+.popup-close-button{
+	display: block;
+	float: right;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	transition:0.3s;
+}
+
+.popup-close-button:hover{
+	width: 40px;
+	height: 40px;
+	box-shadow: 20px 20px 20px rgba(0,0,0,0.1);
+}
+
+.popup-titlegrid{
+   height: 75px;
+	 width: 100%;
+   display: grid;
+   grid-template-columns: 2fr 1fr;
+	 margin-bottom: 20px;
+}
+
+.popup-title{
+   color: rgb(100, 100, 100);
+    background-color: rgb(228, 224, 190);
+    font-size: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    word-break: break-word;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-urgency-container{
+	display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.popup-urgency{
+   height: 40px;
+   width: 40px;
+   background-color: brown;
+   border-radius: 20px;
+}
+
+/* want to make these fr's at some point */
+
+.popup-bugtype,
+.popup-deadline,
+.popup-bugenvironment,
+.popup-bugdescription,
+.popup-bugassignby {
+	color: rgb(100, 100, 100);
+    background-color: rgb(228, 224, 190);
+    font-size: 15px;
+    display: block;
+    word-break: break-word;
+		padding: 7px;
+		margin-bottom: 20px;
+}
+
+.popup-typegrid{
+   height: 50px;
+   width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+   column-gap: 20px;
+}
+
+.popup-bugdescription{
+	height: 400px;
+}
+
+.popup-bugassignby{
+	height: 50px;
+}

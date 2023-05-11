@@ -1,0 +1,101 @@
+
+.grid-format{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    min-width: 400px;
+    column-gap: 30px;
+    padding: 10px;
+}
+
+.notes-grid-background{
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 450px;
+    box-shadow: inset 10px 10px 15px rgba(150, 150, 150, 0.1);
+    
+} 
+
+.grid-title{
+    font: Montserrat 300, Arial;
+    color: rgb(68, 68, 68);
+    display: block;
+    text-align: center;
+    margin: 8px;
+    margin-bottom: 15px;
+    background-color: rgb(235, 235, 235);
+    
+}
+
+.grid-section{
+    display: grid;
+    min-width: 300px; 
+    grid-template-columns: 180px 180px;
+    column-gap: 30px;
+    row-gap: 30px;
+    
+}
+
+.note{
+    background-color: rgb(238, 232, 170);
+    box-shadow: 5px 5px 15px rgba(219, 218, 198, 0.1);
+    height: 160px;
+    border-radius: 5px;
+    transition: box-shadow 0.2s;
+    transition: height 0.5s;
+
+}
+
+.note:hover{
+    height: 250px;
+    width: 200px;
+    box-shadow: 15px 15px 20px rgba(128, 127, 127, 0.2);
+    cursor: pointer;
+}
+
+.bug-title-row{
+    display: grid;
+    height: 50px;
+    grid-template-columns: 2fr 1fr;
+    
+}
+
+.bug-title{
+    
+    color: rgb(100, 100, 100);
+    background-color: rgb(228, 224, 190);
+    font-size: 15px;
+    margin: 7px;
+    padding: 3px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    word-break: break-word;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.urgency{
+    place-self: center;
+    height: 20px;
+    width: 20px;
+    background-color: brown;
+    border-radius: 10px;
+}
+
+.description {
+    font-size: 11px;
+    font: Montserrat 100, Arial;
+    color: rgb(100, 100, 100);
+    margin: 7px;
+    padding: 5px;
+    border-radius: 5px;
+    height: 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    word-break: break-word;
+    background-color: rgb(228, 224, 190);
+     /*not working */
+}

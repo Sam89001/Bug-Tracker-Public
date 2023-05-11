@@ -1,0 +1,69 @@
+.loginSection {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+padding-bottom: 20px;
+}
+
+.logo {
+    width: 300px;
+    background-color: blue;
+    padding: 150px 100px 75px 100px;    
+}
+
+.loginDiv,
+.passwordDiv {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+padding: 20px;	
+background-color: brown;
+}
+
+.passwordDiv {
+padding-bottom: 40px;
+
+}
+
+.login,
+.password {
+padding: 10px;
+height: 30px;
+width: 240px;
+text-align: center;
+}
+
+.login-button{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+
+.loginbutton {
+	background-color: aqua;
+	padding: 10px;
+	height: 50px;
+	width: 80px;
+	border-radius: 20px;
+}
+
+.buttons-div {
+display: flex;
+justify-content: center;
+}
+
+.createAccButton,
+.forgotPassButton {
+	display: flex;
+	justify-content: center;
+}
+
+.createAccButton {
+	margin-right: 5px;
+}
+.forgotPassButton {
+	margin-left: 5px;
+}
