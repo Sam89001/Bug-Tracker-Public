@@ -5,16 +5,22 @@ if(process.env.NODE_ENV !== 'production') {
 const express = require('express') //these lines are running express
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
+
+//folder it comes from
+
+app.use(expressLayouts)
+app.use(express.static('public')) //this adds public for all files, dosent appear in filepath
+app.use(express.urlencoded({ extended: false })) //this allows us to access the req variable in our post method
+
 const indexRouter = require('./routes/index')
+const loginRouter = require('./routes/login') //dont need this either, setup for app.use login
 
 app.set('views', 'views')
 app.set('view engine', 'ejs') //sets the engine
 app.set('layout', 'layouts/layout') //directory for template html, common html we will reuse for each file such as header and footer
 
-app.use(expressLayouts)
-app.use(express.static('public')) //this adds public for all files, dosent appear in filepath
-app.use(express.urlencoded({ extended: false })) //this allows us to access the req variable in our post method
 app.use('/', indexRouter)
+app.use('/login', loginRouter) //dont need this because i dont need 'index/login' would need this if i want this
 
 //database connections vv
 
@@ -24,7 +30,7 @@ const db = mongoose.connection
 db.on('error', error => console.error(error))
 db.once('open', () => console.log('Connected to Mongoose'))
 
-
+app.listen(process.env.PORT || 3000) //the port the server is listening on, right now we are using local host 3000 and therefore it is listening on port 3000.
 
 
 
@@ -33,6 +39,8 @@ db.once('open', () => console.log('Connected to Mongoose'))
 
 
 //this will likely alllll change...sigh....
+
+/*
 
 app.use('/css', express.static(__dirname + 'public/css'))
 app.use('/javascript', express.static(__dirname + 'public/javascript'))
@@ -61,6 +69,5 @@ app.post('/register', (req, res) => {
     req.body.email //this needs to be completed
 })
 
+*/
 
-
-app.listen(process.env.PORT || 3000) //the port the server is listening on, right now we are using local host 3000 and therefore it is listening on port 3000.
