@@ -5,12 +5,14 @@ if(process.env.NODE_ENV !== 'production') {
 const express = require('express') //these lines are running express
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
+const bodyParser = require('body-parser')
 
 //folder it comes from
 
 app.use(expressLayouts)
 app.use(express.static('public')) //this adds public for all files, dosent appear in filepath
 app.use(express.urlencoded({ extended: false })) //this allows us to access the req variable in our post method
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }))
 
 const indexRouter = require('./routes/index')
 const loginRouter = require('./routes/login') //dont need this either, setup for app.use login
@@ -21,6 +23,7 @@ app.set('layout', 'layouts/layout') //directory for template html, common html w
 
 app.use('/', indexRouter)
 app.use('/login', loginRouter) //dont need this because i dont need 'index/login' would need this if i want this
+
 
 //database connections vv
 
