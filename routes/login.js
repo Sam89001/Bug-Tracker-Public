@@ -17,34 +17,36 @@ router.get('/register', (req, res) => {
   });
 
 
-  router.post('/', (req, res) => {
+  router.post('/', async (req, res) => {
     const email = new Email({
-      email: req.body.email,
+      email: req.body.email
     });
     const password = new Password({
-      password: req.body.password,
+      password: req.body.password
     });
     const username = new Username({
-      username: req.body.username,
+      username: req.body.username
     });
-
-    email.save((err, newEmail) => {
-        password.save((err, newPassword) => {
-          username.save((err, newUsername) => {
-            if (err) {
-              res.render('login/register', {
-                email: email,
-                password: password,
-                username: username,
-                errorMessage: 'Error'
-              });
-            } else {
-              res.redirect('/login');
-            }
-          });
-        });
+  
+    try {
+      const Email = await email.save();
+      const Password = await password.save();
+      const Username = await username.save();
+  
+      res.redirect('/login');
+    } catch (err) {
+      res.render('login/register', {
+        email: email,
+        password: password,
+        username: username,
+        
+        errorMessage: 'Error' 
       });
-    });
+    }
+  });
+
+  //this isnt sending data for some reason not sure why
+
 //this is where the page takes you after submit, im assumiing this is where the website reads the data
 
 module.exports = router
