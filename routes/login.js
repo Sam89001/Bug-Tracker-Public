@@ -1,12 +1,17 @@
 const express = require('express')
 const router = express.Router()
+
+
+const AccountSchema = require('../models/accountsSchema')
+
+
 const Email = require('../models/accountsSchema')
 const Password = require('../models/accountsSchema')
-const Username = require('../models/accountsSchema')
+const Username = require('../models/accountsSchema') 
 
 router.get('/', (req, res) => {
     res.render('login/login')
-})
+}) 
 
 router.get('/register', (req, res) => {
     res.render('login/register', {
@@ -16,35 +21,23 @@ router.get('/register', (req, res) => {
     });
   });
 
-
   router.post('/', async (req, res) => {
-    const email = new Email({
-      email: req.body.email
-    });
-    const password = new Password({
-      password: req.body.password
-    });
-    const username = new Username({
+    const user = new AccountSchema({
+      email: req.body.email,
+      password: req.body.password,
       username: req.body.username
     });
   
     try {
-      const Email = await email.save();
-      const Password = await password.save();
-      const Username = await username.save();
-  
-      res.redirect('/login');
+      await user.save();
+      res.redirect('/login'); // Redirect to the login page after successful registration
     } catch (err) {
       res.render('login/register', {
-        email: email,
-        password: password,
-        username: username,
-        
+        user: user,
         errorMessage: 'Error' 
       });
     }
   });
-
   //this isnt sending data for some reason not sure why
 
 //this is where the page takes you after submit, im assumiing this is where the website reads the data
