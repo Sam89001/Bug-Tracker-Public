@@ -6,6 +6,7 @@ const express = require('express') //these lines are running express
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
 const bodyParser = require('body-parser')
+const bcrypt = require('bcrypt')
 
 //folder it comes from
 

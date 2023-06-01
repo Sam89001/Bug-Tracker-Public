@@ -40,6 +40,7 @@ router.get('/register', (req, res) => {
   });
   //this isnt sending data for some reason not sure why
 
+  
 //this is where the page takes you after submit, im assumiing this is where the website reads the data
 
 module.exports = router
