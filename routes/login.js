@@ -7,44 +7,21 @@ const passport = require('passport')
 
 
 const AccountSchema = require('../models/accountsSchema')
-const initialisePassport = require('../routes/passport-config')
+const UserDetails = require('../models/accountsSchema')
 
-/* const Email = require('../models/accountsSchema')
-const Password = require('../models/accountsSchema')
-const Username = require('../models/accountsSchema') */
 
 router.get('/', (req, res) => {
     res.render('login/login')
 }) 
 
-// VV this get block isnt correct, but is working, this is the problem. Other code is fine
-
 router.get('/register', (req, res) => {
 
     res.render('login/register', {
-      email: new Email(),
-      password: new Password(),
-      username: new Username()
+      email: new UserDetails(),
+      password: new UserDetails(),
+      username: new UserDetails()
     });
   });
-
- /* router.post('/', async (req, res) => {
-    const user = new AccountSchema({
-      email: req.body.email,
-      password: req.body.password,
-      username: req.body.username
-    });
-  
-    try {
-      await user.save();
-      res.redirect('/login'); 
-    } catch (err) {
-      res.render('login/register', {
-        user: user,
-        errorMessage: 'Error' 
-      });
-    }
-  }); */
 
 // VV new test block using brypt below
 
@@ -75,15 +52,18 @@ router.post('/login', passport.authenticate('local', {
   failureFlash: true
 }))
 
-
-initialisePassport ( passport, email => {
+const initializePassport = require('../routes/passport-config')
+initializePassport(passport, async (email) => {
   try {
-  const databaseCheck = AccountSchema.find(user => user.email === email)
-  } catch {
-
+    const user = await AccountSchema.findOne({ email });
+    return user;
+    console.log(user)
+  } catch (error) {
+    throw error;
   }
-})
-    //^^ this looks for database which is useraccount. needs to be reworked to accept into async await or promise
+});
+
+    //^^ this looks for database which is useraccount.
 
 
 
