@@ -1,9 +1,15 @@
-const express = require('express') //this is the file that is handling my routing, running all webpages.
-const router = express.Router()
+const express = require('express');
+const router = express.Router();
+const { checkAuthenticated, checkNotAuthenticated } = require('../routes/authentication-check.js');
 
-module.exports = router
+router.get('/', (req, res) => {
+  if (req.isAuthenticated()) {
+    // User is authenticated, redirect to the main page
+    res.redirect('/mainpage');
+  } else {
+    // User is not authenticated, redirect to the login page
+    res.redirect('/login');
+  }
+});
 
-router.get('/', (req, res) => { //here is a route request, it is currently rendering index.
-    //res.render('index')
-    res.redirect('login')
-})
+module.exports = router;
