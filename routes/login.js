@@ -47,7 +47,7 @@ router.post('/', async (req, res) => {
 //VV login post
 
 router.post('/login', passport.authenticate('local', {
-  successRedirect: '/working',
+  successRedirect: '/mainpage/',
   failureRedirect: '/login',
   failureFlash: true
 }))

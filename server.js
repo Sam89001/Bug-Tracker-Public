@@ -18,7 +18,8 @@ if (process.env.NODE_ENV !== 'production') { //loads in environment variables in
   
   const indexRouter = require('./routes/index')
   const loginRouter = require('./routes/login')
-  
+  const mainpageRouter = require('./routes/mainpage')
+
   app.set('views', 'views')
   app.set('view engine', 'ejs')
   app.set('layout', 'layouts/layout')
@@ -33,6 +34,7 @@ if (process.env.NODE_ENV !== 'production') { //loads in environment variables in
   
   app.use('/', indexRouter)
   app.use('/login', loginRouter)
+  app.use('/mainpage', mainpageRouter) //this is the root name
   
   //database connections vv
 
