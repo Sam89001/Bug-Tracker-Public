@@ -57,10 +57,10 @@ initializePassport(passport, async (email) => {
   try {
     const user = await AccountSchema.findOne({ email });
     return user;
-    console.log(user)
   } catch (error) {
     throw error;
   }
+  
 });
 
     //^^ this looks for database which is useraccount.
