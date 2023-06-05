@@ -5,10 +5,10 @@ Accounts edit page for <%= id %>
 <section class="accEditSection">
     <form action="/mainpage/<%= id %>?_method=PUT" method="POST"> <!-- form action is where its getting the information from, POST is the fetch method for writing to databases-->
         <!-- <input class="confEmailBox" type="email" name="confirmEmail" placeholder="Confirm Email" required> -->	
-        
-        <input class="firstNameBox" type="text" name="firstname" placeholder="<%= firstname %>" > 
-        
-        <input class="lastNameBox" type="text" name="lastname" placeholder="<%= lastname %>"> 
+        <p> Current First Name: </p>
+        <input class="firstNameBox" type="text" name="firstname" placeholder="<%= firstname %>" minlength="1" required="text"> 
+        <p> Current Last Name: </p>
+        <input class="lastNameBox" type="text" name="lastname" placeholder="<%= lastname %>" minlength="1" required="text"> 
         <!-- <input class="confPasswordBox" type="password" name="confirmPassword" placeholder="Confirm Password" maxlength="15" required> -->
         
         <button type="submit">Update</button> 
