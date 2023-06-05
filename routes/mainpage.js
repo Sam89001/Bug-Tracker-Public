@@ -15,7 +15,7 @@ router.get('/', checkAuthenticated, userDetailsCheck, (req, res) => {
   res.render('mainscreen/main-screen', { username: username, id: id });
 });
 
-router.get('/bugscreen', checkAuthenticated, (req, res) => {
+router.get('/bugscreen', checkAuthenticated, userDetailsCheck, (req, res) => {
   res.render('mainscreen/bug-page');
 });
 
@@ -40,7 +40,7 @@ router.get('/user-account-details/:id/edit', checkAuthenticated, (req, res) => {
   }
 })
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', checkAuthenticated, async (req, res) => {
   try {
     const id = req.params.id;
     const { firstname, lastname } = req.body;

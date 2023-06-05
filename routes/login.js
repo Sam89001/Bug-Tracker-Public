@@ -26,7 +26,7 @@ router.get('/register', checkNotAuthenticated, (req, res) => {
 router.post('/', async (req, res, next) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    const nullValue = ' '
+    const nullValue = ' ' //ideally would be a null value that is saved here
     const user = new AccountSchema({
       email: req.body.email,
       password: hashedPassword,
