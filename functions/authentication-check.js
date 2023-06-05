@@ -14,7 +14,8 @@ function checkAuthenticated(req, res, next) {
 
   function userDetailsCheck(req, res, next) {
     if (req.user.firstname == ' ' || req.user.lastname == ' ') {
-      res.redirect('/mainpage/user-account-details');
+      const id = req.user._id;
+      res.redirect('/mainpage/user-account-details/' + id + '/edit');
        // Proceed to the next middleware or route handler
     }
     next(); 
