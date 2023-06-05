@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { checkAuthenticated, checkNotAuthenticated } = require('../routes/authentication-check.js');
+const { checkAuthenticated, checkNotAuthenticated } = require('../functions/authentication-check.js');
 
 router.get('/', (req, res) => {
   if (req.isAuthenticated()) {

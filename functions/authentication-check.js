@@ -7,10 +7,17 @@ function checkAuthenticated(req, res, next) {
   
   function checkNotAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
-      res.redirect('/mainpage');
+     return res.redirect('/');
     }
     next();
   }
-  
+
+/*
+
+ function accountDetailAuthentication(req, res, next) {
+
+ }
+
+ */
   module.exports = { checkAuthenticated, checkNotAuthenticated };
   

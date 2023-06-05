@@ -5,13 +5,13 @@ const passport = require('passport');
 
 const AccountSchema = require('../models/accountsSchema');
 const UserDetails = require('../models/accountsSchema');
-const { checkAuthenticated, checkNotAuthenticated } = require('../routes/authentication-check.js');
+const { checkAuthenticated, checkNotAuthenticated } = require('../functions/authentication-check.js');
 
-router.get('/', (req, res) => {
+router.get('/', checkNotAuthenticated, (req, res) => {
   res.render('login/login');
 });
 
-router.get('/register', (req, res) => {
+router.get('/register', checkNotAuthenticated, (req, res) => {
   res.render('login/register', {
     email: new UserDetails(),
     password: new UserDetails(),
@@ -43,7 +43,7 @@ router.post('/login', passport.authenticate('local', {
   failureFlash: true
 }));
 
-const initializePassport = require('../routes/passport-config');
+const initializePassport = require('../functions/passport-config');
 initializePassport(passport, async (email) => {
   try {
     const user = await AccountSchema.findOne({ email });
@@ -52,5 +52,7 @@ initializePassport(passport, async (email) => {
     throw error;
   }
 });
+
+
 
 module.exports = router;
