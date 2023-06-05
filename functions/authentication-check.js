@@ -12,12 +12,13 @@ function checkAuthenticated(req, res, next) {
     next();
   }
 
-/*
-
- function accountDetailAuthentication(req, res, next) {
-
- }
-
- */
-  module.exports = { checkAuthenticated, checkNotAuthenticated };
+  function userDetailsCheck(req, res, next) {
+    if (req.user.firstname == ' ' || req.user.lastname == ' ') {
+      res.redirect('/mainpage/user-account-details');
+       // Proceed to the next middleware or route handler
+    }
+    next(); 
+  }
+  
+  module.exports = { checkAuthenticated, checkNotAuthenticated, userDetailsCheck };
   

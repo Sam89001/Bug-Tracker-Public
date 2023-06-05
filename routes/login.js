@@ -15,17 +15,24 @@ router.get('/register', checkNotAuthenticated, (req, res) => {
   res.render('login/register', {
     email: new UserDetails(),
     password: new UserDetails(),
-    username: new UserDetails()
+    username: new UserDetails(),
+    firstname: new UserDetails(),
+    lastname: new UserDetails(),
   });
 });
+
+
 
 router.post('/', async (req, res, next) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    const nullValue = ' '
     const user = new AccountSchema({
       email: req.body.email,
       password: hashedPassword,
-      username: req.body.username
+      username: req.body.username,
+      firstname: nullValue,
+      lastname: nullValue
     });
     await user.save();
     res.redirect('/login');
@@ -44,6 +51,7 @@ router.post('/login', passport.authenticate('local', {
 }));
 
 const initializePassport = require('../functions/passport-config');
+
 initializePassport(passport, async (email) => {
   try {
     const user = await AccountSchema.findOne({ email });
@@ -52,7 +60,5 @@ initializePassport(passport, async (email) => {
     throw error;
   }
 });
-
-
 
 module.exports = router;

@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 const methodOverride = require('method-override');
 const passport = require('passport');
-const { checkAuthenticated, checkNotAuthenticated } = require('../functions/authentication-check.js');
+const { checkAuthenticated, checkNotAuthenticated, userDetailsCheck } = require('../functions/authentication-check.js');
 
-router.get('/', checkAuthenticated, (req, res) => {
+router.get('/', checkAuthenticated, userDetailsCheck, (req, res) => {
   if (!req.user) {
     res.redirect('/login');
     return;
@@ -17,6 +17,10 @@ router.get('/bugscreen', checkAuthenticated, (req, res) => {
   res.render('mainscreen/bug-page');
 });
 
+router.get('/user-account-details', checkAuthenticated, (req, res) => {
+  const username = req.user.username;
+  res.render('accounts/account', { username: username })
+})
 //VV logout button
 
 router.delete('/logout', (req, res, next) => {
