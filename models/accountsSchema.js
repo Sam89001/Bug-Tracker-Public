@@ -13,8 +13,6 @@ const accountSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-
-    //this is testing code V
     firstname: {
         type: String,
         required: true

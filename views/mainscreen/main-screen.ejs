@@ -22,6 +22,17 @@ i am working!
   <a href="mainpage/user-account-details/<%= id %>/edit">Edit Account</a>
 
 <div class="createProjButton" onclick="openProjectPopUp()">Create Project</div>
-<div class="popUpCreateProject" id="popUp">AAAAAAAAAAAAAAA</div>
+<div class="popUpCreateProject" id="popUp">
+  <form action="/mainpage" method="POST">
+    <p> Project Name: </p>
+    <input class="projectNameBox" name="projectname" type="text" placeholder="Project Name" required="text" minlength="2" maxlength="20">
+    <p> Group Name: </p>
+    <input class="groupNameBox" name="groupname" type="text" placeholder="Group Name" required="text" minlength="2" maxlength="20">
+    <p> Sprint Name: </p>
+    <input class="sprintNameBox" name="sprintname" type="text" placeholder="Sprint Name" required="text" minlength="2" maxlength="20">
+    <p></p>
+    <button type="submit">Save</button> 
+  </form>
+</div>
 
 </div>
