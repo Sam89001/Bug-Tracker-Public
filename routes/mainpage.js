@@ -95,9 +95,9 @@ router.post('/', async (req, res, next) => {
     const groupId = savedGroup._id;
     const sprintId = savedSprint._id;
 
-    console.log(projectId);
-    console.log(groupId);
-    console.log(sprintId);
+    console.log("projectid " + projectId);
+    console.log("groupid " + groupId);
+    console.log("sprintid " + sprintId);
     
   } catch (err) {
     console.log(err);
