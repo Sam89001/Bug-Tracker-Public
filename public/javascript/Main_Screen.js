@@ -12,7 +12,6 @@ function openBigNote()
 
 //test function
 
-
 function closeBigNote ()
 {
 		var blur = document.getElementById('blur')

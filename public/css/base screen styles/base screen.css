@@ -1,0 +1,16 @@
+.createProjButton {
+    background-color: blueviolet;
+    color: white;
+    padding: 10px;
+    display: inline-block;
+    height: 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.createProjButton:hover {
+    cursor: pointer;
+    height: 30px;
+    width: 150px;
+
+}

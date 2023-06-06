@@ -1,0 +1,24 @@
+.popUpCreateProject {
+   
+    position: fixed;
+    z-index: 300;
+    top: 15%;
+    left: 35%;
+
+    height: 300px;
+    width: 200px;
+    padding: 20px;
+    background-color: aquamarine;
+    opacity: 0;
+   visibility: hidden;
+}
+
+#popUp.active {
+    height: 600px;
+    width: 525px;
+    background-color: rgb(255, 127, 127);
+    visibility: visible;
+   opacity: 1;
+	 transition: 0.3s;
+
+}
