@@ -9,15 +9,24 @@ const sprintSchema = require('../models/sprintSchema');
 const groupSchema = require('../models/groupSchema');
 const groupMemberSchema = require('../models/groupMemberSchema');
 
+let projectId 
+
 router.get('/', checkAuthenticated, userDetailsCheck, (req, res) => {
   if (!req.user) {
     res.redirect('/login');
     return;
   }
+  
   const username = req.user.username; 
   const id = req.user._id // Extract the username from req.user
-  res.render('mainscreen/main-screen', { username: username, id: id });
+  res.render('mainscreen/main-screen', { username: username, id: id, projectId: projectId });
 });
+
+//just edit inside this code block here VVV
+
+
+
+//working past here
 
 router.get('/bugscreen', checkAuthenticated, userDetailsCheck, (req, res) => {
   res.render('mainscreen/bug-page');
@@ -67,10 +76,12 @@ router.put('/:id', checkAuthenticated, async (req, res) => {
 });
 
 
+
 //VV create a project
 
 router.post('/', async (req, res, next) => {
   try {
+   
     const id = req.user.id;
     const projectSave = new projectSchema({
       userid: id,
@@ -91,40 +102,21 @@ router.post('/', async (req, res, next) => {
     const savedGroup = await groupSave.save();
     const savedSprint = await sprintSave.save();
 
-    const projectId = savedProject._id;
+    projectId = savedProject._id;
     const groupId = savedGroup._id;
     const sprintId = savedSprint._id;
 
     console.log("projectid " + projectId);
-    console.log("groupid " + groupId);
-    console.log("sprintid " + sprintId);
-    
+    res.redirect(`/mainpage/main-screen-project-id-edit/${projectId}`);
+
   } catch (err) {
     console.log(err);
   }
 });
 
-/* router.put('/:id', checkAuthenticated, async (req, res) => {
-  try {
-    const projectid = req.params.id;
-    const { firstname, lastname } = req.body;
+// put request VV
 
-    const updatedUser = await AccountSchema.findByIdAndUpdate(
-      id,
-      { $set: { firstname: firstname, lastname: lastname } },
-      { new: true }
-    );
 
-    if (updatedUser) {
-      res.redirect('/mainpage');
-    } else {
-      res.redirect(`/mainpage/user-account-details/${id}/edit`);
-    }
-  } catch (err) {
-    console.error(err);
-    res.redirect(`/mainpage/user-account-details/${id}/edit`);
-  }
-}); */
 
 
 //VV logout button
