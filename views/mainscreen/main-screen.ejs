@@ -29,10 +29,6 @@ i am working!
 <div class="createProjButton" onclick="openProjectPopUp()">Create Project</div>
 
 <div class="popUpCreateProject" id="popUp">
-  
-  <% if (projectId !== '') { %>
-    <p>Project ID: <%= projectId %></p>
-  <% } %>
 
   <form action="/mainpage/" method="POST">
     <p> Project Name: </p>
@@ -44,5 +40,6 @@ i am working!
     <p></p>
     <button type="submit">Save</button>
   </form>
+  
 </div>
 </div>

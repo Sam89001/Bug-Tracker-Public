@@ -77,12 +77,13 @@ router.put('/:id', checkAuthenticated, async (req, res) => {
 
 
 
-//VV create a project
+//VV FUCKING WORKING LETS GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
 
 router.post('/', async (req, res, next) => {
   try {
-   
     const id = req.user.id;
+
+    // Save the data to the database
     const projectSave = new projectSchema({
       userid: id,
       groupid: ' ',
@@ -102,23 +103,19 @@ router.post('/', async (req, res, next) => {
     const savedGroup = await groupSave.save();
     const savedSprint = await sprintSave.save();
 
-    projectId = savedProject._id;
-    const groupId = savedGroup._id;
-    const sprintId = savedSprint._id;
+    const projectId = savedProject._id;
 
-    console.log("projectid " + projectId);
-    res.redirect(`/mainpage/main-screen-project-id-edit/${projectId}`);
+    // Update the project ID in groupSchema and sprintSchema
+    await groupSchema.findByIdAndUpdate(savedGroup._id, { projectid: projectId });
+    await sprintSchema.findByIdAndUpdate(savedSprint._id, { projectid: projectId });
+
+    res.redirect(`/mainpage/bugscreen`);
 
   } catch (err) {
     console.log(err);
+    // Handle the error
   }
 });
-
-// put request VV
-
-
-
-
 //VV logout button
 
 router.delete('/logout', (req, res, next) => {
