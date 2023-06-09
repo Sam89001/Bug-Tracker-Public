@@ -40,7 +40,11 @@ i am working!
   <% projects.forEach(project => { %>
     <div class="projectName"> <%= project.projectName %></div>
       <div class="projectLink">
-        <a href="/mainpage/bugscreen/<%= project.projectName %>/<%= project._id %>"><%= project.projectName %> Project</a>
+        <% const projectId = project._id.toString(); %>
+        <% if (firstSprintsMap.has(projectId)) { %>
+          <% const sprint = firstSprintsMap.get(projectId); %>
+          <a href="/mainpage/bugscreen/<%= project.projectName %>/<%= sprint.sprintName %>/<%= project._id %>/<%= sprint._id %>"><%= project.projectName %> Project</a>
+        <% } %>
       </div>
   <% }) %>
 </div>
