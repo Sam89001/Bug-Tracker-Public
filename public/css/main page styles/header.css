@@ -15,12 +15,46 @@
 }
 
 .leftsection{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
   height: 100px;
   width: 800px;
   max-width: 800px;
   background-color: orchid;
+}
+
+.create-sprint-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 150px;
   
 }
+.create-sprint-button{
+  display: flex;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100px;
+  height: 40px;
+  background-color: blanchedalmond;
+
+  color: black;
+  font-size: 12px;
+  justify-content: center;
+  align-items: center;
+}
+.create-sprint-button:hover{
+  padding: 10px;
+  width: 120px;
+  height: 50px;
+  font-size: 14px;
+}
+
 
 .middlesection {
   display: flex;

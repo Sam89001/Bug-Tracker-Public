@@ -1,0 +1,79 @@
+.createSprint{
+    z-index: 300;
+    position: fixed;
+    
+    height: 500px;
+    width: 300px;
+    background-color: aquamarine;
+    padding: 20px;
+
+    top: 20%;
+    left: 48%; 
+    margin-top: -100px;   
+    margin-left: -250px; 
+
+    border-radius: 30px;
+    opacity: 0;
+    visibility: hidden;
+ 
+    top: 20%;
+    left: 45%; 
+    margin-top: -100px;   
+    margin-left: -250px; 
+ }
+
+ #createSprintForm.active{
+    width: 700px;
+    height: 750px;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.3s; 
+ }
+
+
+.createBug{
+    z-index: 300;
+    position: fixed;
+    
+    height: 500px;
+    width: 300px;
+    background-color: lightgreen;
+    padding: 20px;
+
+    top: 20%;
+    left: 48%; 
+    margin-top: -100px;   
+    margin-left: -250px; 
+
+    border-radius: 30px;
+    opacity: 0;
+    visibility: hidden;
+ 
+    top: 20%;
+    left: 45%; 
+    margin-top: -100px;   
+    margin-left: -250px; 
+ }
+
+ #createBug.active{
+    width: 700px;
+    height: 750px;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.3s; 
+ }
+
+ .popup-close-button {
+    display: block;
+	float: right;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	transition:0.3s;
+}
+
+.popup-close-button:hover{
+	width: 40px;
+	height: 40px;
+	box-shadow: 20px 20px 20px rgba(0,0,0,0.1);
+}

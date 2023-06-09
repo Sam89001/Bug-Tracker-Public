@@ -1,0 +1,45 @@
+.titles {
+    display: flex;
+}
+
+.titleContainer {
+    background-color: red;
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+}
+
+.bugFilterContainer {
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    margin-left: 12px;
+}
+
+.sprintSelectionContainer {
+    background-color: lightgreen;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+}
+
+.sectionOne {
+    background-color: rgb(212, 212, 194);
+    
+}
+
+.sectionTwo {
+    background-color: rgb(212, 212, 194);
+    
+}
+
+.sectionThree {
+    background-color: rgb(212, 212, 194);
+    
+}

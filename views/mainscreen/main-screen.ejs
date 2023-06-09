@@ -1,8 +1,8 @@
 <head>
   <title>Login</title>    
   <link rel="icon" href="/icons/icon.ico">
-  <link rel="stylesheet" href="css/base screen styles/base screen.css">
-  <link rel="stylesheet" href="css/base screen styles/popup.css">
+  <link rel="stylesheet" href="css/home screen styles/home screen.css">
+  <link rel="stylesheet" href="css/home screen styles/popup.css">
   <script src="javascript/Base_Screen.js"></script>
 
 </head>
@@ -15,18 +15,6 @@ Hello <%= username %>
 <b></b>
 
 i am working!
-
-<form action="/mainpage/logout?_method=DELETE" method="POST">
-    
-  <button type="submit">Log Out</button>
-  </form>
-  
-<a href="mainpage/user-account-details/<%= id %>/edit">Edit Account</a>
-
-
-<!-- ^^^^ ignore me im-->
-
-<div class="createProjButton" onclick="openProjectPopUp()">Create Project</div>
 
 <div class="popUpCreateProject" id="popUp">
 
@@ -43,3 +31,16 @@ i am working!
   
 </div>
 </div>
+
+<!-- VVVVV ignore me im working-->
+
+<div class="createProjButton" onclick="openProjectPopUp()">Create Project</div>
+
+<div class="projectsGrid"></div>
+
+<form action="/mainpage/logout?_method=DELETE" method="POST">
+    
+  <button type="submit">Log Out</button>
+  </form>
+  
+<a href="mainpage/user-account-details/<%= id %>/edit">Edit Account</a>

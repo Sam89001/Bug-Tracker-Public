@@ -12,11 +12,42 @@
     <link rel="stylesheet" href="/css/main page styles/sidebar.css">
     <link rel="stylesheet" href="/css/main page styles/notes.css">
     <link rel="stylesheet" href="/css/main page styles/popup-note.css">
+    <link rel="stylesheet" href="/css/main page styles/titles.css">
+    <link rel="stylesheet" href="/css/main page styles/popup-forms.css">
     <script src="/javascript/Main_Screen.js"></script>
     
 </head>
 
 <body id="body">
+  
+  <div class="createSprintContainer">
+    <div class="createSprint" id="createSprintForm">
+      <img class="popup-close-button" src="/icons/close-circle-outline.svg" onclick="closeSprintForm()">
+      <form>
+
+      </form>
+    </div>
+  </div>
+
+  <div class="createBugContainer">
+    <div class="createBug" id="createBug">
+      <img class="popup-close-button" src="/icons/close-circle-outline.svg" onclick="closeBugForm()">
+      <form action="/mainpage/bugscreen" method="POST">
+        <p>Bug Name:</p>
+        <input class="bugNameBox" type="text" required="text">
+        <p>Bug Summary:</p>
+        <input class="bugSummaryBox" type="text" required="text">
+        <p>Bug Priority:</p>
+        <input class="bugPriorityBox" type="text" required="text">
+        <p>Bug Area:</p>
+        <input class="bugAreaBox" type="text" required="text">
+        <p>Assigned To:</p>
+        <input class="x" type="text" required="text">
+        <p>Bug Due Date:</p>
+        <input class="bugTimeFrameBox" type="text" required="text">
+      </form>
+    </div>
+  </div>
 
   <div class="popupNote" id="popupnote">
     <img class="popup-close-button" src="/icons/close-circle-outline.svg" onclick="closeBigNote()">
@@ -36,8 +67,15 @@
   </div>  
 
   <main class="main" id="blur">
+    
     <header class="header-bugtracker">
       <div class="leftsection">
+        <div class="create-sprint-container">
+          <div class="create-sprint-button" onclick="openSprintForm()">Create Sprint</div>
+        </div>
+        <!-- will have sprint button to create a new sprint-->
+        <!-- will have project settings -->
+        <!-- will have to main menu button-->
       </div>
       <div class="middlesection">
         <div class="headerlogo">
@@ -46,7 +84,8 @@
       </div>
 			
       <div class="right-section">
-        <div class="report-bug-button-container"><button class="report-bug-button">Report a bug</button></div>
+        <div class="report-bug-button-container">
+          <button class="report-bug-button" onclick="openBugForm()">Report a bug</button></div>
           
         <div class="settings-container">
           <img class="settings-icon" src="/icons/cog.svg">
@@ -71,7 +110,21 @@
 
     </nav>
 
-    
+<section class="titles">
+  <div class="bugFilterContainer">
+    <div class="sectionOne">Bug filter here</div> <!-- bug filter, will be fixed-->
+  </div>
+  
+  <div class="titleContainer">
+    <div class="sectionTwo">Sprint Title Here</div> <!-- Title here, needs to be fr-->
+  </div>
+
+  <div class="sprintSelectionContainer">
+    <div class="sectionThree">Sprint Select Here(dropdown)</div> <!-- sprint filter, will be fixed-->
+  </div>
+
+
+</section>    
 
 <section class="grid-format" >
   <div class="notes-grid-background">

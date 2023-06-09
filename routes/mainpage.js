@@ -20,6 +20,9 @@ router.get('/', checkAuthenticated, userDetailsCheck, (req, res) => {
   const username = req.user.username; 
   const id = req.user._id // Extract the username from req.user
   res.render('mainscreen/main-screen', { username: username, id: id, projectId: projectId });
+
+
+  
 });
 
 //just edit inside this code block here VVV
@@ -27,10 +30,6 @@ router.get('/', checkAuthenticated, userDetailsCheck, (req, res) => {
 
 
 //working past here
-
-router.get('/bugscreen', checkAuthenticated, userDetailsCheck, (req, res) => {
-  res.render('mainscreen/bug-page');
-});
 
 router.get('/user-account-details', checkAuthenticated, (req, res) => {
   const username = req.user.username;
@@ -82,21 +81,24 @@ router.put('/:id', checkAuthenticated, async (req, res) => {
 router.post('/', async (req, res, next) => {
   try {
     const id = req.user.id;
+    const projectName = req.body.projectname;
+    const sprintName = req.body.sprintname
+    const groupName = req.body.groupname
 
     // Save the data to the database
     const projectSave = new projectSchema({
       userid: id,
       groupid: ' ',
-      projectName: req.body.projectname
+      projectName: projectName
     });
     const groupSave = new groupSchema({
       userid: id,
       projectid: ' ',
-      groupName: req.body.groupname
+      groupName: groupName
     });
     const sprintSave = new sprintSchema({
       projectid: ' ',
-      sprintName: req.body.sprintname
+      sprintName: sprintName
     });
 
     const savedProject = await projectSave.save();
@@ -104,17 +106,28 @@ router.post('/', async (req, res, next) => {
     const savedSprint = await sprintSave.save();
 
     const projectId = savedProject._id;
+    const groupId = savedGroup._id;
+    const sprintId = savedSprint._id
 
     // Update the project ID in groupSchema and sprintSchema
     await groupSchema.findByIdAndUpdate(savedGroup._id, { projectid: projectId });
     await sprintSchema.findByIdAndUpdate(savedSprint._id, { projectid: projectId });
+    await projectSchema.findByIdAndUpdate(savedProject._id, { groupid: groupId });
 
-    res.redirect(`/mainpage/bugscreen`);
+    res.redirect(`/mainpage/bugscreen/${projectName}/${sprintName}/${projectId}/${sprintId}`); //want this to be in this format, /mainpage/bugscreen/:/projectId/:/sprintId
 
   } catch (err) {
     console.log(err);
     // Handle the error
   }
+});
+
+router.get('/bugscreen/:projectName/:sprintName/:projectId/:sprintId', checkAuthenticated, userDetailsCheck, (req, res) => { 
+  const projectId = req.params.projectId
+  const sprintId = req.params.sprintId
+  const projectName = req.params.projectName
+  const sprintName = req.params.sprintName
+  res.render('mainscreen/bug-page', { projectName, sprintName, projectId, sprintId }); //want this to be in this format, /mainpage/bugscreen/:/projectId/:/sprintId
 });
 //VV logout button
 
