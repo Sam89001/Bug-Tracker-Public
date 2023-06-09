@@ -11,22 +11,41 @@ const groupMemberSchema = require('../models/groupMemberSchema');
 
 let projectId 
 
-router.get('/', checkAuthenticated, userDetailsCheck, (req, res) => {
+router.get('/', checkAuthenticated, userDetailsCheck, async (req, res) => {
   if (!req.user) {
     res.redirect('/login');
     return;
   }
   
-  const username = req.user.username; 
-  const id = req.user._id // Extract the username from req.user
-  res.render('mainscreen/main-screen', { username: username, id: id, projectId: projectId });
-
-
+  const username = req.user.firstname; 
+  const id = req.user._id; // Extract the ID from req.user
   
+  try {
+    const projects = await projectSchema.find({ userid: id });
+    const sprints = await sprintSchema.find({ projectid: { $in: projects.map(p => p._id) } });
+
+    // Access the properties of each project and sprint as needed
+    projects.forEach(project => {
+      const projectId = project._id;
+      
+      // Access the sprints related to the current project
+      const projectSprints = sprints.filter(sprint => sprint.projectid.equals(projectId));
+      
+      // Get an array of sprint IDs for the current project
+      const sprintIds = projectSprints.map(sprint => sprint._id);
+
+      // Do something with the project and its related sprints
+      console.log('Project:', projectId, project.projectName);
+      console.log('Sprints:', projectSprints);
+      console.log('Sprint IDs:', sprintIds);
+    });
+
+    res.render('mainscreen/main-screen', { firstname: username, id: id, projects: projects });
+  } catch (err) {
+    console.error(err);
+    // Handle the error
+  }
 });
-
-//just edit inside this code block here VVV
-
 
 
 //working past here

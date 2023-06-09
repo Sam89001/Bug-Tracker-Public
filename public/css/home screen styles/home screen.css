@@ -14,3 +14,16 @@
     width: 150px;
 
 }
+
+.projectsGrid {
+    display: grid;
+    grid-template-columns: 100px 100px;
+    background-color: antiquewhite;
+}
+
+.projectName {
+    display: inline-block;
+}
+.projectLink {
+    display: inline-block;
+}

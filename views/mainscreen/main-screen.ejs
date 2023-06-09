@@ -9,7 +9,7 @@
 
 
 
-Hello <%= username %>
+Hello <%= firstname %>
 
 <b></b>
 <b></b>
@@ -36,7 +36,14 @@ i am working!
 
 <div class="createProjButton" onclick="openProjectPopUp()">Create Project</div>
 
-<div class="projectsGrid"></div>
+<div class="projectsGrid">
+  <% projects.forEach(project => { %>
+    <div class="projectName"> <%= project.projectName %></div>
+      <div class="projectLink">
+        <a href="/mainpage/bugscreen/<%= project.projectName %>/<%= project._id %>"><%= project.projectName %> Project</a>
+      </div>
+  <% }) %>
+</div>
 
 <form action="/mainpage/logout?_method=DELETE" method="POST">
     
