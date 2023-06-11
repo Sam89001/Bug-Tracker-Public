@@ -26,10 +26,14 @@ router.get('/', checkAuthenticated, userDetailsCheck, async (req, res) => {
   
     try {
       const bugs = await bugSchema.find({ sprintId: sprintId });
-      res.render('mainscreen/bug-page', { id, projectName, sprintName, projectId, sprintId, bugs: bugs });
+      const newSprints = await sprintSchema.find({ projectid: projectId });
+      //console.log(newSprints)
+      res.render('mainscreen/bug-page', { id, projectName, sprintName, projectId, sprintId, bugs: bugs, newSprints: newSprints});
     } catch (err) {
       console.error(err);
     }
+
+    
   
     // Periodically load and update data every 2 minutes
    /* setInterval(async () => {
@@ -66,4 +70,28 @@ router.post('/:id/:projectName/:sprintName/:projectId/:sprintId/newbug', async (
   }
 });
 
+router.post('/:id/:projectName/:sprintName/:projectId/:sprintId/newsprint', async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const projectId = req.params.projectId;
+    const sprintId = req.params.sprintId;
+    const projectName = req.params.projectName;
+    const sprintName = req.params.sprintName;
+    
+    const newSprintSave = new sprintSchema({
+      projectid: req.params.projectId,
+      sprintName: req.body.sprintName  
+    })
+    const savedNewSprint = await newSprintSave.save();
+    const newSprintId = savedNewSprint._id
+    const newSprintName = savedNewSprint.sprintName
+
+    res.redirect(`/mainpage/bugscreen/${id}/${projectName}/${newSprintName}/${projectId}/${newSprintId}`);
+  } catch (err) {
+    console.log(err)
+    res.render('mainscreen/errorPosting', {
+      errorMessage: 'Error'
+    });
+  }
+});
 module.exports = router;

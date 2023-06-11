@@ -23,8 +23,10 @@
   <div class="createSprintContainer">
     <div class="createSprint" id="createSprintForm">
       <img class="popup-close-button" src="/icons/close-circle-outline.svg" onclick="closeSprintForm()">
-      <form>
-
+      <form action="/mainpage/bugscreen/<%= id %>/<%= projectName %>/<%= sprintName %>/<%= projectId %>/<%= sprintId %>/newsprint"method="POST">
+        <p>Sprint Name:</p>
+        <input class="sprintNameBox" name="sprintName" type="text" required="text">
+        <button type="submit">Create New Sprint</button> 
       </form>
     </div>
   </div>
@@ -136,7 +138,26 @@
   </div>
 
   <div class="sprintSelectionContainer">
-    <div class="sectionThree">Sprint Select Here(dropdown)</div> <!-- sprint filter, will be fixed-->
+    <form action="">
+      <select id="newSprintSelect" onchange="loadNewSprint()"> 
+        <% newSprints.forEach(newSprint => {%>
+          <option value="<% newSprint._id %>"><%= newSprint.sprintName %></option>
+        <% })  %>
+      </select>
+
+      <script>
+        function loadNewSprint() {
+          const selectElement = document.getElementById('newSprintSelect');
+          const selectedIndex = selectElement.selectedIndex;
+          const selectedOption = selectElement.options[selectedIndex];
+          const newSprintId = selectedOption.value;
+          const newSprintName = selectedOption.text;
+  
+          console.log("Selected newSprint._id:", newSprintId);
+          console.log("Selected newSprint.sprintName:", newSprintName);
+        }
+      </script>        
+    </form>
   </div>
 
 
@@ -158,7 +179,6 @@
           <div class="description"> <%= bug.bugSummary %> </div>
           </div>
           <% }) %>         
-
         </div>
   </div>
   
@@ -247,5 +267,4 @@
 
 
 </body>
-
 </html>

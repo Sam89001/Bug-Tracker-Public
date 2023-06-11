@@ -28,7 +28,7 @@ router.get('/', checkAuthenticated, userDetailsCheck, async (req, res) => {
     // Access the properties of each project and sprint as needed
     projects.forEach(project => {
       const projectId = project._id;
-      console.log('Project:', projectId, project.projectName);
+      //console.log('Project:', projectId, project.projectName);
     });
 
     sprints.forEach(sprint => {
@@ -38,7 +38,7 @@ router.get('/', checkAuthenticated, userDetailsCheck, async (req, res) => {
       }
     })
 
-    console.log(firstSprintsMap);
+   // console.log(firstSprintsMap);
     
     res.render('mainscreen/main-screen', { firstname: username, id: id, projects: projects, firstSprintsMap: firstSprintsMap });
   } catch (err) {

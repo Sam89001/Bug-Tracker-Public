@@ -6,7 +6,8 @@ const groupSchema = new mongoose.Schema({
         required: true
     },
     projectid: {
-
+        type: String,
+        required: true
     },
     groupName: {
         type: String,
