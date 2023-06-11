@@ -138,15 +138,18 @@
   </div>
 
   <script>
-    function loadNewSprint(newSprintId) {
-      alert("onchange event triggered with value: " + newSprintId);
+    function loadNewSprint(selectElement) {
+      const newSprintId = selectElement.value;
+      const newSprintName = selectElement.options[selectElement.selectedIndex].text;
+      alert("onchange event triggered with value: " + newSprintId + " and "+ newSprintName);
 
+      const redirectLink = '/mainpage/bugscreen/' + id + '/' + projectName + '/' + newSprintName + '/' + projectId + '/' + newSprintId;
     }
   </script>
   
 
   <div class="sprintSelectionContainer">
-      <select id="newSprintSelect" onchange="loadNewSprint(this.value)">
+      <select id="newSprintSelect" onchange="loadNewSprint(this)">
         <% newSprints.forEach(newSprint => { %>
           <% const newSprintName = newSprint.sprintName %>
           <option value="<%= newSprint._id %>" ><%= newSprintName %></option>
