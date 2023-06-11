@@ -23,7 +23,8 @@
     "mongodb": "^5.4.0",
     "mongoose": "^7.1.1",
     "passport": "^0.6.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "websocket": "^1.0.34"
   },
   "devDependencies": {
     "dotenv": "^16.0.3",

@@ -3,6 +3,7 @@
 }
 
 .titleContainer {
+    font-size: 20px;
     background-color: red;
     display: flex;
     flex-direction: row;
@@ -13,6 +14,7 @@
 }
 
 .bugFilterContainer {
+    font-size: 20px;
     background-color: aqua;
     display: flex;
     align-items: center;
@@ -22,6 +24,7 @@
 }
 
 .sprintSelectionContainer {
+    font-size: 20px;
     background-color: lightgreen;
     display: flex;
     align-items: center;

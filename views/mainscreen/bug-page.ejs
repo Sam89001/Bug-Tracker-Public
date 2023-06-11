@@ -150,15 +150,15 @@
     <div class="grid-section">
       
       <% bugs.filter(bug => bug.bugProgress === 'To-Do').forEach(bug => { %>
-         <div class="note" onclick="openBigNote()">
+        <div class="note" onclick="openBigNote()">
           <div class="bug-title-row"> 
             <div class="bug-title"> <%= bug.bugName %> </div>
-            <div class="urgency"> <!-- circle that changes colour depending on urgency, traffic light system--></div>
+            <div class="urgency" data-urgency="<%= bug.bugPriority %>" name="urgency"></div>
           </div>
           <div class="description"> <%= bug.bugSummary %> </div>
           </div>
-          <% }) %>
-   
+          <% }) %>         
+
         </div>
   </div>
   
@@ -167,13 +167,12 @@
   <div class="notes-grid-background">
       <p class="grid-title"> In-Progress x</p>  
       <div class="grid-section">
-      <!-- needs to have a script to enlarge, make and remove divs automatically-->
       
       <% bugs.filter(bug => bug.bugProgress === 'In-Progress').forEach(bug => { %>
         <div class="note" onclick="openBigNote()">
          <div class="bug-title-row"> 
            <div class="bug-title"> <%= bug.bugName %> </div>
-           <div class="urgency"> <!-- circle that changes colour depending on urgency, traffic light system--></div>
+           <div class="urgency" data-urgency="<%= bug.bugPriority %>" name="urgency"> </div>
          </div>
          <div class="description"> <%= bug.bugSummary %> </div>
          </div>
@@ -187,13 +186,13 @@
     <div class="notes-grid-background">
         <p class="grid-title"> Code Review x</p>  
         <div class="grid-section">
-        <!-- needs to have a script to enlarge, make and remove divs automatically-->
+        
         
         <% bugs.filter(bug => bug.bugProgress === 'Code-Review').forEach(bug => { %>
           <div class="note" onclick="openBigNote()">
            <div class="bug-title-row"> 
              <div class="bug-title"> <%= bug.bugName %> </div>
-             <div class="urgency"> <!-- circle that changes colour depending on urgency, traffic light system--></div>
+             <div class="urgency" data-urgency="<%= bug.bugPriority %>" name="urgency"></div>
            </div>
            <div class="description"> <%= bug.bugSummary %> </div>
            </div>
@@ -208,13 +207,12 @@
         <div class="notes-grid-background">
           <p class="grid-title"> Completed x</p>  
             <div class="grid-section">
-            <!-- needs to have a script to enlarge, make and remove divs automatically-->
               
             <% bugs.filter(bug => bug.bugProgress === 'Completed').forEach(bug => { %>
               <div class="note" onclick="openBigNote()">
                <div class="bug-title-row"> 
                  <div class="bug-title"> <%= bug.bugName %> </div>
-                 <div class="urgency"> <!-- circle that changes colour depending on urgency, traffic light system--></div>
+                 <div class="urgency" data-urgency="<%= bug.bugPriority %>" name="urgency"></div>
                </div>
                <div class="description"> <%= bug.bugSummary %> </div>
                </div>
@@ -224,7 +222,26 @@
           </div>
         </div>
   
-  
+        <script>
+          const urgencyColours = async () => {
+            try {
+              const priorityColours = document.querySelectorAll('.urgency');
+              priorityColours.forEach(priorityColour => {
+                const priorityValue = priorityColour.dataset.urgency;
+                if (priorityValue === '1') {
+                  priorityColour.style.backgroundColor = 'green';
+                } else if (priorityValue === '2') {
+                  priorityColour.style.backgroundColor = 'orange';
+                } else {
+                  priorityColour.style.backgroundColor = 'brown';
+                }
+              });
+            } catch (err) {
+              console.log(err);
+            }
+          }
+          urgencyColours();
+        </script>
   </section>
 </main>
 

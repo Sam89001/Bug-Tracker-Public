@@ -77,10 +77,10 @@
 }
 
 .urgency{
+    background-color: black;
     place-self: center;
     height: 20px;
     width: 20px;
-    background-color: brown;
     border-radius: 10px;
 }
 

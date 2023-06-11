@@ -3,6 +3,7 @@ const router = express.Router();
 const methodOverride = require('method-override');
 const passport = require('passport');
 const { checkAuthenticated, checkNotAuthenticated, userDetailsCheck } = require('../functions/authentication-check.js');
+const { urgencyColour } = require('../public/javascript/Main_Screen.js')
 const AccountSchema = require('../models/accountsSchema');
 const projectSchema = require('../models/projectSchema');
 const sprintSchema = require('../models/sprintSchema');
@@ -16,25 +17,25 @@ router.get('/', checkAuthenticated, userDetailsCheck, async (req, res) => {
     res.redirect('/mainpage')
   });
 
-router.get('/:id/:projectName/:sprintName/:projectId/:sprintId', checkAuthenticated, userDetailsCheck, async (req, res) => { 
-    const id = req.params.id
-    const projectId = req.params.projectId
-    const sprintId = req.params.sprintId
-    const projectName = req.params.projectName
-    const sprintName = req.params.sprintName
+  router.get('/:id/:projectName/:sprintName/:projectId/:sprintId', checkAuthenticated, userDetailsCheck, async (req, res) => { 
+    const id = req.params.id;
+    const projectId = req.params.projectId;
+    const sprintId = req.params.sprintId;
+    const projectName = req.params.projectName;
+    const sprintName = req.params.sprintName;
+  
     try {
-      const bugs = await bugSchema.find({ sprintId: sprintId })
-     
-      bugs.forEach(bug => {
-        const bugData = bug.toString()
-        console.log(bugData)
-      })
-
-      res.render('mainscreen/bug-page', { id, projectName, sprintName, projectId, sprintId, bugs: bugs});
+      const bugs = await bugSchema.find({ sprintId: sprintId });
+      res.render('mainscreen/bug-page', { id, projectName, sprintName, projectId, sprintId, bugs: bugs });
     } catch (err) {
       console.error(err);
-    }    
-});
+    }
+  
+    // Periodically load and update data every 2 minutes
+   /* setInterval(async () => {
+      await loadData();
+    }, 60000); */
+  });
 
 router.post('/:id/:projectName/:sprintName/:projectId/:sprintId/newbug', async (req, res, next) => {
   try {
