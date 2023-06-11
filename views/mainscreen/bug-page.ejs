@@ -142,23 +142,27 @@
 
 </section>    
 
+<!-- To Do Section-->
+
 <section class="grid-format" >
   <div class="notes-grid-background">
-    <p class="grid-title"> To-Do x</p>  
+    <p class="grid-title"> To-Do x</p> 
     <div class="grid-section">
-      <!-- needs to have a script to enlarge, make and remove divs automatically-->
-      <div class="note" onclick="openBigNote()">
-        <!-- background colour, yellow for now--> 
+      
+      <% bugs.forEach(bug => { %>
+         <div class="note" onclick="openBigNote()">
           <div class="bug-title-row"> 
-            <div class="bug-title"> bug 1 </div>
+            <div class="bug-title"> <%= bug.bugName %> </div>
             <div class="urgency"> <!-- circle that changes colour depending on urgency, traffic light system--></div>
           </div>
-        <div class="description"> bug </div>
-      </div>
-    
-    </div>
+          <div class="description"> <%= bug.bugSummary %> </div>
+          </div>
+          <% }) %>
+   
+        </div>
   </div>
   
+<!-- In Progress Section-->
 
   <div class="notes-grid-background">
       <p class="grid-title"> In-Progress x</p>  
@@ -181,29 +185,30 @@
       </div>
     </div>
 
+    <!-- Code Review Section -->
+
     <div class="notes-grid-background">
         <p class="grid-title"> Code Review x</p>  
         <div class="grid-section">
         <!-- needs to have a script to enlarge, make and remove divs automatically-->
         
-          
-    
         
         </div>
       </div>
 
-      
+        <!-- Completed Section -->
      
         <div class="notes-grid-background">
           <p class="grid-title"> Completed x</p>  
             <div class="grid-section">
             <!-- needs to have a script to enlarge, make and remove divs automatically-->
             
-
            
             </div>
           </div>
         </div>
+  
+  
   </section>
 </main>
 

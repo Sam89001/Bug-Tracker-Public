@@ -16,13 +16,26 @@ router.get('/', checkAuthenticated, userDetailsCheck, async (req, res) => {
     res.redirect('/mainpage')
   });
 
-router.get('/:id/:projectName/:sprintName/:projectId/:sprintId', checkAuthenticated, userDetailsCheck, (req, res) => { 
+router.get('/:id/:projectName/:sprintName/:projectId/:sprintId', checkAuthenticated, userDetailsCheck, async (req, res) => { 
     const id = req.params.id
     const projectId = req.params.projectId
     const sprintId = req.params.sprintId
     const projectName = req.params.projectName
     const sprintName = req.params.sprintName
-    res.render('mainscreen/bug-page', { id, projectName, sprintName, projectId, sprintId }); 
+    try {
+      const bugs = await bugSchema.find({ sprintId: sprintId })
+     
+      bugs.forEach(bug => {
+        const bugData = bug.toString()
+        console.log(bugData)
+      })
+
+      res.render('mainscreen/bug-page', { id, projectName, sprintName, projectId, sprintId, bugs: bugs});
+    } catch (err) {
+      console.error(err);
+    }
+
+    
 });
 
 router.post('/:id/:projectName/:sprintName/:projectId/:sprintId/newbug', async (req, res, next) => {
