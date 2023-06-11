@@ -149,7 +149,7 @@
     <p class="grid-title"> To-Do x</p> 
     <div class="grid-section">
       
-      <% bugs.forEach(bug => { %>
+      <% bugs.filter(bug => bug.bugProgress === 'To-Do').forEach(bug => { %>
          <div class="note" onclick="openBigNote()">
           <div class="bug-title-row"> 
             <div class="bug-title"> <%= bug.bugName %> </div>
@@ -169,18 +169,15 @@
       <div class="grid-section">
       <!-- needs to have a script to enlarge, make and remove divs automatically-->
       
-        <div class="note" onclick="openBigNote()" id="note">
-          <!-- background colour, yellow for now--> 
-          <div class="bug-title-row"> 
-            <div class="bug-title"> bug 1 </div>
-            <div class="urgency"> 
-              <!-- circle that changes colour depending on urgency, traffic light system-->
-            </div>
-          </div>
-          <div class="description"> bug 1 oh nOOO</div>
-        </div>
-  
-       
+      <% bugs.filter(bug => bug.bugProgress === 'In-Progress').forEach(bug => { %>
+        <div class="note" onclick="openBigNote()">
+         <div class="bug-title-row"> 
+           <div class="bug-title"> <%= bug.bugName %> </div>
+           <div class="urgency"> <!-- circle that changes colour depending on urgency, traffic light system--></div>
+         </div>
+         <div class="description"> <%= bug.bugSummary %> </div>
+         </div>
+         <% }) %>
       
       </div>
     </div>
@@ -192,7 +189,17 @@
         <div class="grid-section">
         <!-- needs to have a script to enlarge, make and remove divs automatically-->
         
+        <% bugs.filter(bug => bug.bugProgress === 'Code-Review').forEach(bug => { %>
+          <div class="note" onclick="openBigNote()">
+           <div class="bug-title-row"> 
+             <div class="bug-title"> <%= bug.bugName %> </div>
+             <div class="urgency"> <!-- circle that changes colour depending on urgency, traffic light system--></div>
+           </div>
+           <div class="description"> <%= bug.bugSummary %> </div>
+           </div>
+           <% }) %>
         
+
         </div>
       </div>
 
@@ -202,7 +209,16 @@
           <p class="grid-title"> Completed x</p>  
             <div class="grid-section">
             <!-- needs to have a script to enlarge, make and remove divs automatically-->
-            
+              
+            <% bugs.filter(bug => bug.bugProgress === 'Completed').forEach(bug => { %>
+              <div class="note" onclick="openBigNote()">
+               <div class="bug-title-row"> 
+                 <div class="bug-title"> <%= bug.bugName %> </div>
+                 <div class="urgency"> <!-- circle that changes colour depending on urgency, traffic light system--></div>
+               </div>
+               <div class="description"> <%= bug.bugSummary %> </div>
+               </div>
+               <% }) %>             
            
             </div>
           </div>

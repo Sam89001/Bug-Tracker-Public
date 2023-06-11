@@ -33,9 +33,7 @@ router.get('/:id/:projectName/:sprintName/:projectId/:sprintId', checkAuthentica
       res.render('mainscreen/bug-page', { id, projectName, sprintName, projectId, sprintId, bugs: bugs});
     } catch (err) {
       console.error(err);
-    }
-
-    
+    }    
 });
 
 router.post('/:id/:projectName/:sprintName/:projectId/:sprintId/newbug', async (req, res, next) => {
