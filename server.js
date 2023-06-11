@@ -38,9 +38,9 @@ app.set('layout', 'layouts/layout');
 // Routes should come after middleware declarations
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
-app.use('/mainpage', mainpageRouter);
 app.use('/mainpage/bugscreen', bugscreenRouter);
-//app.use('/logout', mainpageRouter);
+app.use('/mainpage', mainpageRouter);
+
 
 // Database connections...
 

@@ -36,6 +36,7 @@ i am working!
 
 <div class="createProjButton" onclick="openProjectPopUp()">Create Project</div>
 
+<p>Projects: </p>
 <div class="projectsGrid">
   <% projects.forEach(project => { %>
     <div class="projectName"> <%= project.projectName %></div>
@@ -43,7 +44,7 @@ i am working!
         <% const projectId = project._id.toString(); %>
         <% if (firstSprintsMap.has(projectId)) { %>
           <% const sprint = firstSprintsMap.get(projectId); %>
-          <a href="/mainpage/bugscreen/<%= project.projectName %>/<%= sprint.sprintName %>/<%= project._id %>/<%= sprint._id %>"><%= project.projectName %> Project</a>
+          <a href="/mainpage/bugscreen/<%= id %>/<%= project.projectName %>/<%= sprint.sprintName %>/<%= project._id %>/<%= sprint._id %>"><%= project.projectName %></a>
         <% } %>
       </div>
   <% }) %>

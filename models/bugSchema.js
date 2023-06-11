@@ -5,14 +5,46 @@ const bugSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    sectionId: {
+    sprintId: {
         type: String,
         required: true
     },
     userId: {
         type: String,
         required: true
-    }
+    },
+    bugName: {
+        type: String,
+        required: true
+    },
+    bugSummary: {
+        type: String,
+        required: true
+    },
+    bugPriority: {
+        type: String,
+        required: true
+    },
+    bugType: {
+        type: String,
+        required: true
+    },
+    bugArea: {
+        type: String,
+        required: true
+    },
+    bugAssignedToo: {
+        type: String,
+        required: true
+    },
+    bugTimeFrame: {
+        type: String,
+        required: true
+    },
+    bugProgress: {
+        type: String,
+        required: true
+    },
     
 })
 

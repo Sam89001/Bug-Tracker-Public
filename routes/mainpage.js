@@ -37,8 +37,6 @@ router.get('/', checkAuthenticated, userDetailsCheck, async (req, res) => {
         firstSprintsMap.set(projectId, sprint);
       }
     })
-    
-    //firstSprintsMap.toString()
 
     console.log(firstSprintsMap);
     
@@ -135,7 +133,7 @@ router.post('/', async (req, res, next) => {
     await sprintSchema.findByIdAndUpdate(savedSprint._id, { projectid: projectId });
     await projectSchema.findByIdAndUpdate(savedProject._id, { groupid: groupId });
 
-    res.redirect(`/mainpage/bugscreen/${projectName}/${sprintName}/${projectId}/${sprintId}`); //want this to be in this format, /mainpage/bugscreen/:/projectId/:/sprintId
+    res.redirect(`/mainpage/bugscreen/${id}/${projectName}/${sprintName}/${projectId}/${sprintId}`); //want this to be in this format, /mainpage/bugscreen/:/projectId/:/sprintId
 
   } catch (err) {
     console.log(err);
