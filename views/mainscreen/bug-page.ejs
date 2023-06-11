@@ -137,30 +137,25 @@
     <div class="sectionTwo"><%= projectName %></div> <!-- Title here, needs to be fr-->
   </div>
 
-  <div class="sprintSelectionContainer">
-    <form action="">
-      <select id="newSprintSelect" onchange="loadNewSprint()"> 
-        <% newSprints.forEach(newSprint => {%>
-          <option value="<% newSprint._id %>"><%= newSprint.sprintName %></option>
-        <% })  %>
-      </select>
+  <script>
+    function loadNewSprint(newSprintId) {
+      alert("onchange event triggered with value: " + newSprintId);
 
-      <script>
-        function loadNewSprint() {
-          const selectElement = document.getElementById('newSprintSelect');
-          const selectedIndex = selectElement.selectedIndex;
-          const selectedOption = selectElement.options[selectedIndex];
-          const newSprintId = selectedOption.value;
-          const newSprintName = selectedOption.text;
+    }
+  </script>
   
-          console.log("Selected newSprint._id:", newSprintId);
-          console.log("Selected newSprint.sprintName:", newSprintName);
-        }
-      </script>        
-    </form>
+
+  <div class="sprintSelectionContainer">
+      <select id="newSprintSelect" onchange="loadNewSprint(this.value)">
+        <% newSprints.forEach(newSprint => { %>
+          <% const newSprintName = newSprint.sprintName %>
+          <option value="<%= newSprint._id %>" ><%= newSprintName %></option>
+        <% }); %>
+      </select>
   </div>
-
-
+  
+  
+    
 </section>    
 
 <!-- To Do Section-->

@@ -27,13 +27,11 @@ router.get('/', checkAuthenticated, userDetailsCheck, async (req, res) => {
     try {
       const bugs = await bugSchema.find({ sprintId: sprintId });
       const newSprints = await sprintSchema.find({ projectid: projectId });
-      //console.log(newSprints)
+      console.log(newSprints)
       res.render('mainscreen/bug-page', { id, projectName, sprintName, projectId, sprintId, bugs: bugs, newSprints: newSprints});
     } catch (err) {
       console.error(err);
     }
-
-    
   
     // Periodically load and update data every 2 minutes
    /* setInterval(async () => {
