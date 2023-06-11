@@ -150,6 +150,7 @@ router.get('/bugscreen/:projectName/:sprintName/:projectId/:sprintId', checkAuth
   const sprintName = req.params.sprintName
   res.render('mainscreen/bug-page', { projectName, sprintName, projectId, sprintId }); //want this to be in this format, /mainpage/bugscreen/:/projectId/:/sprintId
 });
+
 //VV logout button
 
 router.delete('/logout', (req, res, next) => {

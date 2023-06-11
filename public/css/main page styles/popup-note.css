@@ -89,6 +89,7 @@ filter: blur(15px);
 .popup-deadline,
 .popup-bugenvironment,
 .popup-bugdescription,
+.popup-bugassignto,
 .popup-bugassignby {
 	color: rgb(100, 100, 100);
     background-color: rgb(228, 224, 190);
@@ -108,9 +109,10 @@ filter: blur(15px);
 }
 
 .popup-bugdescription{
-	height: 400px;
+	height: 350px;
 }
 
-.popup-bugassignby{
-	height: 50px;
+.popup-bugassignby,
+.popup-bugassignto{
+	height: 40px;
 }

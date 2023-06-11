@@ -29,6 +29,7 @@ app.use(passport.session());
 const indexRouter = require('./routes/index');
 const loginRouter = require('./routes/login');
 const mainpageRouter = require('./routes/mainpage');
+const bugscreenRouter = require('./routes/bugscreen');
 
 app.set('views', 'views');
 app.set('view engine', 'ejs');
@@ -38,6 +39,7 @@ app.set('layout', 'layouts/layout');
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/mainpage', mainpageRouter);
+app.use('/mainpage/bugscreen', bugscreenRouter);
 //app.use('/logout', mainpageRouter);
 
 // Database connections...

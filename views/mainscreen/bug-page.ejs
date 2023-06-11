@@ -38,13 +38,26 @@
         <p>Bug Summary:</p>
         <input class="bugSummaryBox" type="text" required="text">
         <p>Bug Priority:</p>
-        <input class="bugPriorityBox" type="text" required="text">
-        <p>Bug Area:</p>
+        <select class="bugPriorityBox" type="text" required=true>
+          <option value="1">Low Priority</option>
+          <option value="2" selected="selected">Medium Priority</option>
+          <option value="3">High Priority</option>
+          </select>
+        <p>Bug Type:</p>
+        <input class="bugTypeBox" type="text" required="text">
+        <p>Bug Environment:</p>
         <input class="bugAreaBox" type="text" required="text">
         <p>Assigned To:</p>
         <input class="x" type="text" required="text">
-        <p>Bug Due Date:</p>
+        <p>Bug Deadline:</p>
         <input class="bugTimeFrameBox" type="text" required="text">
+        <p>Bug Priority:</p>
+        <select class="bugPriorityBox" type="text" required=true>
+          <option value="To-Do">To Do</option>
+          <option value="In-Progress" selected="selected">In Progress</option>
+          <option value="Code-Review">Code Review</option>
+          <option value="Completed">Completed</option>
+          </select>
       </form>
     </div>
   </div>
@@ -63,7 +76,8 @@
     </div>
     <div class="popup-bugenvironment">Bug Environment</div>
     <div class="popup-bugdescription">Bug Description</div>
-    <div class="popup-bugassignby">Bug was assigned to</div>
+    <div class="popup-bugassignto">Bug was assigned to</div>
+    <div class="popup-bugassignby">Bug was by</div>
   </div>  
 
   <main class="main" id="blur">
