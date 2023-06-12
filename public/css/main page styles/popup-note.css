@@ -79,7 +79,6 @@ filter: blur(15px);
 .popup-urgency{
    height: 40px;
    width: 40px;
-   background-color: brown;
    border-radius: 20px;
 }
 

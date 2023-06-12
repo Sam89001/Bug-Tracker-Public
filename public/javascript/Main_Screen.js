@@ -1,11 +1,16 @@
-function openBigNote()
+const bugSchema = require('../../models/bugSchema');
+
+function openBigNote(bugId)
 {
+    const definedBugId = bugId
     var blur = document.getElementById('blur')
     blur.classList.toggle('active')
     var popupnote = document.getElementById('popupnote')
     popupnote.classList.toggle('active')
 		//above this is working
 		//below is experimental
+
+    alert(definedBugId)
 }
 
 //test function
