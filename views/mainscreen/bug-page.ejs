@@ -139,17 +139,30 @@
 
   <script>
     function loadNewSprint(selectElement) {
+      const id = '<%= id %>';
+      const projectId = '<%= projectId %>';
+      const projectName = '<%= projectName %>';
+
       const newSprintId = selectElement.value;
       const newSprintName = selectElement.options[selectElement.selectedIndex].text;
-      alert("onchange event triggered with value: " + newSprintId + " and "+ newSprintName);
 
-      //const redirectLink = '/mainpage/bugscreen/' + id + '/' + projectName + '/' + newSprintName + '/' + projectId + '/' + newSprintId;
+      const encodedSprintName = encodeURIComponent(newSprintName)
+
+      const redirectLink = '/mainpage/bugscreen/' + id + '/' + projectName + '/' + newSprintName + '/' + projectId + '/' + newSprintId;
+      
+      //alert("onchange event triggered with value: " + redirectLink);
+
+      window.location.href = redirectLink;
     }
   </script>
+
   
 
   <div class="sprintSelectionContainer">
-      <select id="newSprintSelect" onchange="loadNewSprint(this)">
+      <p class="sprintName">Current Sprint:&nbsp;&nbsp;&nbsp;<%= sprintName; %>&nbsp;</p>
+      
+      <select class="selectionBox" id="newSprintSelect" onchange="loadNewSprint(this)">
+        <option value="" disabled selected selected="selected">Select a sprint</option>
         <% newSprints.forEach(newSprint => { %>
           <% const newSprintName = newSprint.sprintName %>
           <option value="<%= newSprint._id %>" ><%= newSprintName %></option>

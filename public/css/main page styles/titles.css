@@ -24,12 +24,20 @@
 }
 
 .sprintSelectionContainer {
-    font-size: 20px;
+    font-size: 14px;
     background-color: lightgreen;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 400px;
+}
+
+.sprintName {
+    display: inline;
+}
+
+.selectionBox {
+    margin-left: 10px;
 }
 
 .sectionOne {
