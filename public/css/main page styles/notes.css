@@ -98,3 +98,15 @@
     word-break: break-word;
     background-color: rgb(228, 224, 190);
 }
+
+/* values to be hidden */
+
+.bugID,
+.bug-type,
+.bug-deadline,
+.bug-environment,
+.bug-assignto,
+.bug-assignby
+ {
+    visibility: hidden;
+}

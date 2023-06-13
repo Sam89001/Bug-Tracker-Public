@@ -55,8 +55,8 @@
         <input class="bugTimeFrameBox" name="bugTimeFrame" type="text" required="text">
         <p>Bug Priority:</p>
         <select class="bugProgressBox" name="bugProgress" type="text" required=true>
-          <option value="To-Do">To Do</option>
-          <option value="In-Progress" selected="selected">In Progress</option>
+          <option value="To-Do" selected="selected">To Do</option>
+          <option value="In-Progress" >In Progress</option>
           <option value="Code-Review">Code Review</option>
           <option value="Completed">Completed</option>
           </select>
@@ -181,11 +181,17 @@
       
       <% bugs.filter(bug => bug.bugProgress === 'To-Do').forEach(bug => { %>
         <div class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id'))">
-          <div class="bug-title-row">
-            <div class="bug-title"> <%= bug.bugName %> </div>
-            <div class="urgency" data-urgency="<%= bug.bugPriority %>" name="urgency"></div>
-          </div>
-          <div class="description"> <%= bug.bugSummary %> </div>
+           <div class="bug-title-row"> 
+             <div class="bug-title"> <%= bug.bugName %> </div>
+             <div class="urgency" data-urgency="<%= bug.bugPriority %>" name="urgency"></div>
+           </div>
+           <div class="description"> <%= bug.bugSummary %> </div>
+           <div class="bugID"> <%= bug._id %> </div>
+           <div class="bug-type"><%= bug.bugType %></div>
+           <div class="bug-deadline"><%= bug.bugTimeFrame %></div>
+           <div class="bug-environment"><%= bug.bugArea %></div>
+           <div class="bug-assignto"><%= bug.bugAssignedToo %></div>
+           <div class="bug-assignby"><%= id %></div>
         </div>
       <% }) %>
 
@@ -198,15 +204,21 @@
       <p class="grid-title"> In-Progress x</p>  
       <div class="grid-section">
       
-      <% bugs.filter(bug => bug.bugProgress === 'In-Progress').forEach(bug => { %>
-        <div class="note" onclick="openBigNote()">
-         <div class="bug-title-row"> 
-           <div class="bug-title"> <%= bug.bugName %> </div>
-           <div class="urgency" data-urgency="<%= bug.bugPriority %>" name="urgency"> </div>
-         </div>
-         <div class="description"> <%= bug.bugSummary %> </div>
-         </div>
-         <% }) %>
+        <% bugs.filter(bug => bug.bugProgress === 'In-Progress').forEach(bug => { %>
+          <div class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id'))">
+             <div class="bug-title-row"> 
+               <div class="bug-title"> <%= bug.bugName %> </div>
+               <div class="urgency" data-urgency="<%= bug.bugPriority %>" name="urgency"></div>
+             </div>
+             <div class="description"> <%= bug.bugSummary %> </div>
+             <div class="bugID"> <%= bug._id %> </div>
+             <div class="bug-type"><%= bug.bugType %></div>
+             <div class="bug-deadline"><%= bug.bugTimeFrame %></div>
+             <div class="bug-environment"><%= bug.bugArea %></div>
+             <div class="bug-assignto"><%= bug.bugAssignedToo %></div>
+             <div class="bug-assignby"><%= id %></div>
+          </div>
+        <% }) %>
       
       </div>
     </div>
@@ -218,15 +230,21 @@
         <div class="grid-section">
         
         
-        <% bugs.filter(bug => bug.bugProgress === 'Code-Review').forEach(bug => { %>
-          <div class="note" onclick="openBigNote()">
-           <div class="bug-title-row"> 
-             <div class="bug-title"> <%= bug.bugName %> </div>
-             <div class="urgency" data-urgency="<%= bug.bugPriority %>" name="urgency"></div>
-           </div>
-           <div class="description"> <%= bug.bugSummary %> </div>
-           </div>
-           <% }) %>
+          <% bugs.filter(bug => bug.bugProgress === 'Code-Review').forEach(bug => { %>
+            <div class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id'))">
+               <div class="bug-title-row"> 
+                 <div class="bug-title"> <%= bug.bugName %> </div>
+                 <div class="urgency" data-urgency="<%= bug.bugPriority %>" name="urgency"></div>
+               </div>
+               <div class="description"> <%= bug.bugSummary %> </div>
+               <div class="bugID"> <%= bug._id %> </div>
+               <div class="bug-type"><%= bug.bugType %></div>
+               <div class="bug-deadline"><%= bug.bugTimeFrame %></div>
+               <div class="bug-environment"><%= bug.bugArea %></div>
+               <div class="bug-assignto"><%= bug.bugAssignedToo %></div>
+               <div class="bug-assignby"><%= id %></div>
+            </div>
+          <% }) %>
         
 
         </div>
@@ -238,15 +256,21 @@
           <p class="grid-title"> Completed x</p>  
             <div class="grid-section">
               
-            <% bugs.filter(bug => bug.bugProgress === 'Completed').forEach(bug => { %>
-              <div class="note" onclick="openBigNote()">
-               <div class="bug-title-row"> 
-                 <div class="bug-title"> <%= bug.bugName %> </div>
-                 <div class="urgency" data-urgency="<%= bug.bugPriority %>" name="urgency"></div>
-               </div>
-               <div class="description"> <%= bug.bugSummary %> </div>
-               </div>
-               <% }) %>             
+              <% bugs.filter(bug => bug.bugProgress === 'Completed').forEach(bug => { %>
+                <div class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id'))">
+                   <div class="bug-title-row"> 
+                     <div class="bug-title"> <%= bug.bugName %> </div>
+                     <div class="urgency" data-urgency="<%= bug.bugPriority %>" name="urgency"></div>
+                   </div>
+                   <div class="description"> <%= bug.bugSummary %> </div>
+                   <div class="bugID"> <%= bug._id %> </div>
+                   <div class="bug-type"><%= bug.bugType %></div>
+                   <div class="bug-deadline"><%= bug.bugTimeFrame %></div>
+                   <div class="bug-environment"><%= bug.bugArea %></div>
+                   <div class="bug-assignto"><%= bug.bugAssignedToo %></div>
+                   <div class="bug-assignby"><%= id %></div>
+                </div>
+              <% }) %>    
            
             </div>
           </div>

@@ -7,9 +7,28 @@ function openBigNote(bugId) {
   var popupnote = document.getElementById('popupnote');
   popupnote.classList.toggle('active');
 
-  console.log(bugId)
-}
+  // Copy the values from the clicked div to the popup div
+  var clickedDiv = document.querySelector('[data-id="' + bugId + '"]');
+  var popupTitle = popupnote.querySelector('.popup-title');
+  var popupUrgency = popupnote.querySelector('.popup-urgency');
+  var popupBugType = popupnote.querySelector('.popup-bugtype');
+  var popupDeadline = popupnote.querySelector('.popup-deadline');
+  var popupBugEnvironment = popupnote.querySelector('.popup-bugenvironment');
+  var popupBugDescription = popupnote.querySelector('.popup-bugdescription');
+  var popupBugAssignTo = popupnote.querySelector('.popup-bugassignto');
+  var popupBugAssignBy = popupnote.querySelector('.popup-bugassignby');
+  
+  popupTitle.textContent = clickedDiv.querySelector('.bug-title').textContent;
+  popupUrgency.setAttribute('data-urgency', clickedDiv.querySelector('.urgency').getAttribute('data-urgency'));
+  popupBugType.textContent = clickedDiv.querySelector('.bug-type').textContent;
+  popupDeadline.textContent = clickedDiv.querySelector('.bug-deadline').textContent;
+  popupBugEnvironment.textContent = clickedDiv.querySelector('.bug-environment').textContent;
+  popupBugDescription.textContent = clickedDiv.querySelector('.description').textContent;
+  popupBugAssignTo.textContent = clickedDiv.querySelector('.bug-assignto').textContent;
+  popupBugAssignBy.textContent = clickedDiv.querySelector('.bug-assignby').textContent;
 
+  console.log(bugId);
+}
 
 
 function closeBigNote ()

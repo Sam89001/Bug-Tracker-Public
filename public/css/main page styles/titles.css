@@ -4,7 +4,6 @@
 
 .titleContainer {
     font-size: 20px;
-    background-color: red;
     display: flex;
     flex-direction: row;
     flex: 1;
@@ -15,7 +14,7 @@
 
 .bugFilterContainer {
     font-size: 20px;
-    background-color: aqua;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,7 +24,7 @@
 
 .sprintSelectionContainer {
     font-size: 14px;
-    background-color: lightgreen;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,16 +40,16 @@
 }
 
 .sectionOne {
-    background-color: rgb(212, 212, 194);
+
     
 }
 
 .sectionTwo {
-    background-color: rgb(212, 212, 194);
+
     
 }
 
 .sectionThree {
-    background-color: rgb(212, 212, 194);
+ 
     
 }
