@@ -11,7 +11,7 @@ const groupSchema = require('../models/groupSchema');
 const groupMemberSchema = require('../models/groupMemberSchema');
 const bugSchema = require('../models/bugSchema');
 
-
+let filteredBugId;
 
 router.get('/', checkAuthenticated, userDetailsCheck, async (req, res) => {
     res.redirect('/mainpage')
@@ -23,12 +23,13 @@ router.get('/', checkAuthenticated, userDetailsCheck, async (req, res) => {
     const sprintId = req.params.sprintId;
     const projectName = req.params.projectName;
     const sprintName = req.params.sprintName;
+    const filteredBugId = 'x' //what i want to populate with a value
   
     try {
       const bugs = await bugSchema.find({ sprintId: sprintId });
       const newSprints = await sprintSchema.find({ projectid: projectId });
-      console.log(newSprints)
-      res.render('mainscreen/bug-page', { id, projectName, sprintName, projectId, sprintId, bugs: bugs, newSprints: newSprints});
+      //console.log(newSprints)
+      res.render('mainscreen/bug-page', { id, projectName, sprintName, projectId, sprintId, bugs: bugs, newSprints: newSprints, filteredBugId: filteredBugId });
     } catch (err) {
       console.error(err);
     }
@@ -38,6 +39,7 @@ router.get('/', checkAuthenticated, userDetailsCheck, async (req, res) => {
       await loadData();
     }, 60000); */
   });
+
 
 router.post('/:id/:projectName/:sprintName/:projectId/:sprintId/newbug', async (req, res, next) => {
   try {

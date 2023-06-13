@@ -68,23 +68,21 @@
 
   <div class="popupNote" id="popupnote">
     <img class="popup-close-button" src="/icons/close-circle-outline.svg" onclick="closeBigNote()">
-    <% bugs.filter(bug => bug._id === definedBugId => { %>
-    <div class="popup-titlegrid"></div>
-      <div class="popup-title"><%= bug.bugName %></div>
+    <div class="popup-titlegrid">
+      <div class="popup-title"></div>
       <div class="popup-urgency-container">
-        <div class="popup-urgency" data-urgency="<%= bug.bugPriority %>" name="urgency"></div>
+        <div class="popup-urgency" data-urgency=""></div>
       </div>
     </div>
     <div class="popup-typegrid">
-      <div class="popup-bugtype"><%= bug.bugType %></div>
-    <div class="popup-deadline"><%= bug.bugTimeFrame %></div>
+      <div class="popup-bugtype"></div>
+      <div class="popup-deadline"></div>
     </div>
-    <div class="popup-bugenvironment"><%= bug.bugArea %></div>
-    <div class="popup-bugdescription"><%= bug.bugAssignedToo %></div>
-    <div class="popup-bugassignto"><%= bug.bugAssignedToo %></div>
-    <div class="popup-bugassignby"><%= id %></div>
-    <% }) %>
-  </div>  
+    <div class="popup-bugenvironment"></div>
+    <div class="popup-bugdescription"></div>
+    <div class="popup-bugassignto"></div>
+    <div class="popup-bugassignby"></div>
+  </div>
 
   <main class="main" id="blur">
     
@@ -257,7 +255,7 @@
         <script>
           const urgencyColours = async () => {
             try {
-              const priorityColours = document.querySelectorAll('.urgency .popup-urgency');
+              const priorityColours = document.querySelectorAll('.urgency');
               priorityColours.forEach(priorityColour => {
                 const priorityValue = priorityColour.dataset.urgency;
                 if (priorityValue === '1') {
