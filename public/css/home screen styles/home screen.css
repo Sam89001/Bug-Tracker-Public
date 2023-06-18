@@ -1,3 +1,42 @@
+
+
+.nameSection{
+    display: flex;
+    background-color: aqua;
+    height: 100px;
+    width: 100%;
+}
+
+.firstNameBox {
+    display: flex;
+    width: 1fr;
+    padding: 20px;
+    font-size: 30px;
+}
+
+.profilePictureBox {
+    display: flex;
+    background-color: red;
+    width: 1fr
+}
+
+.profilePicture {
+    display: flex;
+}
+
+.titlesSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: brown;
+}
+
+.projectsTitle,
+.secondSectionTitle {
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
 .createProjButton {
     background-color: blueviolet;
     color: white;
@@ -17,13 +56,37 @@
 
 .projectsGrid {
     display: grid;
-    grid-template-columns: 100px 100px;
+    grid-template-columns: 50% 1fr 1fr 1fr;
+    row-gap: 10px;
     background-color: antiquewhite;
+    float: left;
+    width:50%
 }
 
-.projectName {
+
+.projectName,
+.projectLink,
+.editProject,
+.deleteProject {
     display: inline-block;
+    margin-top: 10px;
 }
-.projectLink {
-    display: inline-block;
+
+.popUpCreateProject {
+
+}
+
+.popup-close-button{
+	display: block;
+	float: right;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	transition:0.3s;
+}
+
+.popup-close-button:hover{
+	width: 40px;
+	height: 40px;
+	box-shadow: 20px 20px 20px rgba(0,0,0,0.1);
 }

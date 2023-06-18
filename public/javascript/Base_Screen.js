@@ -10,6 +10,6 @@ function openProjectPopUp ()
 
 function closeProjectPopUp ()
 {
-    var popupnote = document.getElementById('popUpCreateProjectID')
+    var popupnote = document.getElementById('popUp')
     popupnote.classList.toggle('active')
 }

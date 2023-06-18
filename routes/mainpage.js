@@ -18,6 +18,7 @@ router.get('/', checkAuthenticated, userDetailsCheck, async (req, res) => {
   }
   
   const username = req.user.firstname; 
+  const lastname = req.user.lastname;
   const id = req.user._id; // Extract the ID from req.user
   
   try {
@@ -40,7 +41,7 @@ router.get('/', checkAuthenticated, userDetailsCheck, async (req, res) => {
 
    // console.log(firstSprintsMap);
     
-    res.render('mainscreen/main-screen', { firstname: username, id: id, projects: projects, firstSprintsMap: firstSprintsMap });
+    res.render('mainscreen/main-screen', { lastname: lastname, firstname: username, id: id, projects: projects, firstSprintsMap: firstSprintsMap });
   } catch (err) {
     console.error(err);
     // Handle the error

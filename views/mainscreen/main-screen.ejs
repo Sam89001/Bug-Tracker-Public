@@ -1,24 +1,66 @@
+<!DOCTYPE html>
+<html>
 <head>
   <title>Login</title>    
   <link rel="icon" href="/icons/icon.ico">
+  <link rel="stylesheet" href="/css/main page styles/general-main-page.css">
   <link rel="stylesheet" href="/css/home screen styles/home screen.css">
   <link rel="stylesheet" href="/css/home screen styles/popup.css">
   <script src="/javascript/Base_Screen.js"></script>
 
 </head>
 
+<body>
+
+<section>
+
+<div class="nameSection">
+  <div class="firstNameBox">
+    Hello <%= firstname %> <%= lastname %> 
+  </div>
+  <div class="profilePictureBox">
+    <div class="profilePicture">Test Text</div>
+  </div>
+</div>
+
+</section>  
 
 
-Hello <%= firstname %>
 
-<b></b>
-<b></b>
+<!-- VVVVV ignore me im working-->
+<section>
+<div class= "titlesSection">
+<div class="projectsTitle"> Projects</div>
+<div class="secondSectionTitle"> Section</div>
+</div>
 
-i am working!
+
+<div class="projectsGrid">
+  <% projects.forEach(project => { %>
+    <div class="projectName"> <%= project.projectName %></div>
+      <div class="projectLink">
+        <% const projectId = project._id.toString(); %>
+        <% if (firstSprintsMap.has(projectId)) { %>
+          <% const sprint = firstSprintsMap.get(projectId); %>
+          <a href="/mainpage/bugscreen/<%= id %>/<%= project.projectName %>/<%= sprint.sprintName %>/<%= project._id %>/<%= sprint._id %>"><%= project.projectName %></a>
+      </div>
+      <a class= "editProject" href="">Edit Project</a>
+      <a class= "deleteProject" href="">Delete Project</a>
+      <% } %>
+    <% }) %>
+  </div>     
+
+
+<div class="createProjButton" onclick="openProjectPopUp()">Create Project</div>
+
+</section>
+
+
 
 <div class="popUpCreateProject" id="popUp">
 
   <form action="/mainpage/" method="POST">
+    <img class="popup-close-button" src="/icons/close-circle-outline.svg" onclick="closeProjectPopUp()">
     <p> Project Name: </p>
     <input class="projectNameBox" name="projectname" type="text" placeholder="Project Name" required="text" minlength="2" maxlength="20">
     <p> Group Name: </p>
@@ -30,29 +72,13 @@ i am working!
   </form>
   
 </div>
-</div>
 
-<!-- VVVVV ignore me im working-->
 
-<div class="createProjButton" onclick="openProjectPopUp()">Create Project</div>
-
-<p> Projects </p>
-<div class="projectsGrid">
-  <% projects.forEach(project => { %>
-    <div class="projectName"> <%= project.projectName %></div>
-      <div class="projectLink">
-        <% const projectId = project._id.toString(); %>
-        <% if (firstSprintsMap.has(projectId)) { %>
-          <% const sprint = firstSprintsMap.get(projectId); %>
-          <a href="/mainpage/bugscreen/<%= id %>/<%= project.projectName %>/<%= sprint.sprintName %>/<%= project._id %>/<%= sprint._id %>"><%= project.projectName %></a>
-        <% } %>
-      </div>
-  <% }) %>
-</div>
-
-<form action="/mainpage/logout?_method=DELETE" method="POST">
-    
+<form action="/mainpage/logout?_method=DELETE" method="POST">   
   <button type="submit">Log Out</button>
-  </form>
+</form>
   
 <a href="mainpage/user-account-details/<%= id %>/edit">Edit Account</a>
+
+</body>
+</html>
