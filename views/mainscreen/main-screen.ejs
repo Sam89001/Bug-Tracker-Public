@@ -10,7 +10,7 @@
 
 </head>
 
-<body>
+<body onload="addTransitionClass()">
 
 <section>
 
@@ -37,7 +37,7 @@
 
 <div class="projectsGrid">
   <% projects.forEach(project => { %>
-    <div class="projectName"> <%= project.projectName %></div>
+    <div class="projectName" id="projectName" > <%= project.projectName %></div>
       <div class="projectLink">
         <% const projectId = project._id.toString(); %>
         <% if (firstSprintsMap.has(projectId)) { %>
@@ -47,6 +47,7 @@
       <a class= "editProject" href="/mainpage/projectEdit/<%= project._id %>/<%= %>">Edit Project</a>
       <form></form>
       <% } %>
+
     <% }) %>
   </div>     
 
