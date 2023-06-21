@@ -10,7 +10,7 @@
 
 </head>
 
-<body onload="addTransitionClass()">
+<body >
 
 <section>
 
@@ -37,20 +37,27 @@
 
 <div class="projectsGrid">
   <% projects.forEach(project => { %>
-    <div class="projectName" id="projectName" > <%= project.projectName %></div>
+    <div class="projectName" id="projectName_<%= project._id %>"> <%= project.projectName %></div>
       <div class="projectLink">
         <% const projectId = project._id.toString(); %>
         <% if (firstSprintsMap.has(projectId)) { %>
           <% const sprint = firstSprintsMap.get(projectId); %>
           <a href="/mainpage/bugscreen/<%= id %>/<%= project.projectName %>/<%= sprint.sprintName %>/<%= project._id %>/<%= sprint._id %>"><%= project.projectName %></a>
       </div>
-      <a class= "editProject" href="/mainpage/projectEdit/<%= project._id %>/<%= %>">Edit Project</a>
+      <a class="editProject" href="/mainpage/projectEdit/<%= project._id %>/<%= %>">Edit Project</a>
       <form></form>
       <% } %>
+  <% }) %>
+</div>
 
-    <% }) %>
-  </div>     
-
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var projectNames = document.querySelectorAll('.projectName');
+      projectNames.forEach(function(projectName) {
+        projectName.classList.toggle('active');
+      });
+    });
+  </script>
 
 <div class="createProjButton" onclick="openProjectPopUp()">Create Project</div>
 
