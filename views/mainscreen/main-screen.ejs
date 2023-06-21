@@ -44,8 +44,8 @@
           <% const sprint = firstSprintsMap.get(projectId); %>
           <a href="/mainpage/bugscreen/<%= id %>/<%= project.projectName %>/<%= sprint.sprintName %>/<%= project._id %>/<%= sprint._id %>"><%= project.projectName %></a>
       </div>
-      <a class= "editProject" href="">Edit Project</a>
-      <a class= "deleteProject" href="">Delete Project</a>
+      <a class= "editProject" href="/mainpage/projectEdit/<%= project._id %>/<%= %>">Edit Project</a>
+      <form></form>
       <% } %>
     <% }) %>
   </div>     

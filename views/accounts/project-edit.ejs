@@ -1,0 +1,16 @@
+project edit page for <%= projectId %>
+<b></b>
+<b></b>
+
+<section class="accEditSection">
+    <form action="/mainpage/<%= projectId %>/<%= groupId %>?_method=PUT" method="POST"> <!-- form action is where its getting the information from, POST is the fetch method for writing to databases-->
+        <p> Current Project Name: </p>
+        <input class="projectNameBox" type="text" name="projectName" placeholder="<%= projectName %>" minlength="1" required="text"> 
+        <p> Current Group Name: </p>
+        <input class="groupNameBox" type="text" name="groupName" placeholder="<%= groupName %>" minlength="1" required="text"> 
+        
+        <p> Below will be a screen that displays all sprints that you can edit</p>
+        <button type="submit">Update Project</button> 
+    </form>
+
+    <a href="/mainpage">Cancel</a>

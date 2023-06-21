@@ -150,6 +150,66 @@ router.get('/bugscreen/:projectName/:sprintName/:projectId/:sprintId', checkAuth
   res.render('mainscreen/bug-page', { projectName, sprintName, projectId, sprintId }); //want this to be in this format, /mainpage/bugscreen/:/projectId/:/sprintId
 });
 
+//VV buttons
+
+router.get('/projectEdit/:projectId', checkAuthenticated, userDetailsCheck, async (req, res) => {
+  
+  const projectId = req.params.projectId
+
+  try {
+
+    const project = await projectSchema.findById( projectId )
+    const group = await groupSchema.findOne({ projectid: projectId })
+
+    const projectName = project.projectName
+    const groupName = group.groupName
+    const groupId = group._id
+
+    res.render('accounts/project-edit', { projectId, projectName, groupName, groupId })
+    
+  } catch (err) {
+    console.log(err)
+    console.log("OH NO AN ERROR!!!!!")
+  }
+  
+})
+
+router.put('/:projectId/:groupId', async (req, res) => {
+  projectId = req.params.projectId
+  groupId = req.params.groupId
+  //res.send('Working Project Update ' + projectId)
+
+  try {
+
+    const projectName = req.body.projectName;
+    const groupName = req.body.groupName
+
+    const updatedProjectName = await projectSchema.findByIdAndUpdate(
+      projectId,
+      { $set: { projectName: projectName } },
+      { new: true }
+    );
+
+    const updatedGroupName = await groupSchema.findByIdAndUpdate(
+      groupId,
+      { $set: { groupName: groupName }},
+      { new: true}
+    );
+    
+    if (updatedProjectName && updatedGroupName) {
+      res.redirect('/mainpage');
+    } else {
+      res.redirect(`/mainpage/projectEdit/${projectId}`);
+    }
+  } catch (err) {
+    console.error(err);
+    res.redirect(`/mainpage/projectEdit/${projectId}`);
+  }
+});
+
+
+
+
 //VV logout button
 
 router.delete('/logout', (req, res, next) => {
