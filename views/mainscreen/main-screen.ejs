@@ -29,37 +29,46 @@
 
 <!-- VVVVV ignore me im working-->
 <section>
+
 <div class= "titlesSection">
-<div class="projectsTitle"> Projects</div>
+<div class="projectsTitle">   
+  <div class="title">Projects</div>
+  <div class="createProjButton" onclick="openProjectPopUp()">Create Project</div>
+</div>
 <div class="secondSectionTitle"> Section</div>
 </div>
 
 
 <div class="projectsGrid">
-  <% projects.forEach(project => { %>
-    <div class="projectName" id="projectName_<%= project._id %>"> <%= project.projectName %></div>
+  
+  <% projects.forEach((project, index) => { %>
+    <div class="projectContainer" id="projectContainer">
+      <div class="projectName" id="<%= project._id %>"><%= project.projectName %></div>
       <div class="projectLink">
-        <% const projectId = project._id.toString(); %>
-        <% if (firstSprintsMap.has(projectId)) { %>
-          <% const sprint = firstSprintsMap.get(projectId); %>
-          <a href="/mainpage/bugscreen/<%= id %>/<%= project.projectName %>/<%= sprint.sprintName %>/<%= project._id %>/<%= sprint._id %>"><%= project.projectName %></a>
+      <% const projectId = project._id.toString(); %>
+      <% if (firstSprintsMap.has(projectId)) { %>
+        <% const sprint = firstSprintsMap.get(projectId); %>
+        <a href="/mainpage/bugscreen/<%= id %>/<%= project.projectName %>/<%= sprint.sprintName %>/<%= project._id %>/<%= sprint._id %>"><%= project.projectName %></a>
+      <% } %>
       </div>
       <a class="editProject" href="/mainpage/projectEdit/<%= project._id %>/<%= %>">Edit Project</a>
       <form></form>
-      <% } %>
+    </div>
   <% }) %>
-</div>
 
   <script>
     window.addEventListener('DOMContentLoaded', function() {
-      var projectNames = document.querySelectorAll('.projectName');
-      projectNames.forEach(function(projectName) {
-        projectName.classList.toggle('active');
+      var projectNames = document.querySelectorAll('.projectContainer');
+      var delay = 300; // Adjust the delay duration here (in milliseconds)
+
+      projectNames.forEach(function(projectName, index) {
+        setTimeout(function() {
+          projectName.classList.add('active');
+        }, delay * index);
       });
     });
   </script>
-
-<div class="createProjButton" onclick="openProjectPopUp()">Create Project</div>
+</div>
 
 </section>
 

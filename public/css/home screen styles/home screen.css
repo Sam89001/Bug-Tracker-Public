@@ -32,9 +32,14 @@
 
 .projectsTitle,
 .secondSectionTitle {
+    display: flex;
     padding: 20px;
-    font-size: 20px;
     text-align: center;
+}
+
+.title {
+    width: 70%;
+    font-size: 30px;
 }
 
 .createProjButton {
@@ -51,12 +56,11 @@
     cursor: pointer;
     height: 30px;
     width: 150px;
-
 }
 
 .projectsGrid {
     display: grid;
-    grid-template-columns: 50% 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     row-gap: 10px;
     background-color: antiquewhite;
     float: left;
@@ -64,19 +68,27 @@
 }
 
 
-.projectName,
+.projectName {
+    display:flex;
+    width: 50%;
+}
+
 .projectLink,
 .editProject,
 .deleteProject {
-    display: inline-block;
-    margin-top: 10px;
+    display:flex;
+    width: 20%;
 }
 
-.projectName{
+.projectContainer{
+
+    display:flex;
+    background-color: rgb(199, 199, 199);
+    padding: 10px;
     opacity: 0;
-    transition: opacity 0.8s ease-in-out;
+    transition: opacity 0.4s ease-in-out;
 }
-.projectName.active{
+.projectContainer.active{
     opacity: 1;
 }
 

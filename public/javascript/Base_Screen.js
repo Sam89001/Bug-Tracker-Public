@@ -14,8 +14,10 @@ function closeProjectPopUp ()
     popupnote.classList.toggle('active')
 }
 
-function addTransitionClass() {
-    var projectName = document.getElementById('projectName');
-    projectName.classList.toggle('active')
-}
-  
+ /* function addTransitionClass() {
+    var projectNames = document.querySelectorAll('.projectName');
+    projectNames.forEach(function(projectName) {
+      projectName.classList.toggle('active');
+    });
+  }; */
+
