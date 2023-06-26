@@ -8,6 +8,7 @@ const projectSchema = require('../models/projectSchema');
 const sprintSchema = require('../models/sprintSchema');
 const groupSchema = require('../models/groupSchema');
 const groupMemberSchema = require('../models/groupMemberSchema');
+const bugSchema = require('../models/bugSchema');
 
 let projectId 
 
@@ -174,6 +175,8 @@ router.get('/projectEdit/:projectId', checkAuthenticated, userDetailsCheck, asyn
   
 })
 
+//V Update project/group name  *NEEDS TO HAVE AN OPTION TO ONLY UPDATE THE PROJECT OR GROUP NAME*
+
 router.put('/:projectId/:groupId', async (req, res) => {
   projectId = req.params.projectId
   groupId = req.params.groupId
@@ -207,7 +210,26 @@ router.put('/:projectId/:groupId', async (req, res) => {
   }
 });
 
+//vvv - Delete Project Section
 
+router.delete('/ProjectDelete/:projectId', async (req, res, next) => {
+  projectId = req.params.projectId
+
+  try {
+    const projectDel = await projectSchema.findOneAndDelete (({_id: projectId}))
+
+    const groupDel = await groupSchema.findOneAndDelete (({projectid: projectId}))
+
+    const sprintDel = await sprintSchema.deleteMany({ projectid: projectId })
+
+    const bugDel = await bugSchema.deleteMany({ projectId: projectId })
+
+  } catch (err) {
+    console.log(err)
+  }
+
+  res.redirect('/mainpage');
+})
 
 
 //VV logout button

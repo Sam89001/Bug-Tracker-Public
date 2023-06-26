@@ -52,8 +52,9 @@
       <% } %>
       </div>
       <a class="editProject" href="/mainpage/projectEdit/<%= project._id %>/<%= %>">Edit Project</a>
-      <form>
-      Delete</form>
+      <form method="post" action="/mainpage/ProjectDelete/<%= projectId %>?_method=DELETE">
+        <button type="submit">Delete</button>
+      </form>
     </div>
   <% }) %>
 
