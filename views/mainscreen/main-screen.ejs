@@ -48,7 +48,7 @@
       <% const projectId = project._id.toString(); %>
       <% if (firstSprintsMap.has(projectId)) { %>
         <% const sprint = firstSprintsMap.get(projectId); %>
-        <a href="/mainpage/bugscreen/<%= id %>/<%= project.projectName %>/<%= sprint.sprintName %>/<%= project._id %>/<%= sprint._id %>"><%= project.projectName %></a>
+        <a href="/mainpage/bugscreen/<%= id %>/<%= encodeURIComponent(project.projectName) %>/<%= encodeURIComponent(sprint.sprintName) %>/<%= project._id %>/<%= sprint._id %>"><%= project.projectName %></a>
       <% } %>
       </div>
       <a class="editProject" href="/mainpage/projectEdit/<%= project._id %>/<%= %>">Edit Project</a>
