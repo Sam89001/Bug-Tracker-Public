@@ -8,8 +8,8 @@
     height: 300px;
     width: 200px;
     padding: 20px;
-    background-color: aquamarine;
     opacity: 0;
+    border-radius: 30px;
    visibility: hidden;
 }
 

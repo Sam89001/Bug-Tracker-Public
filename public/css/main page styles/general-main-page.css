@@ -2,10 +2,11 @@ html,
 body{
 font-family: Montserrat, Arial;
 height: 100%;
+margin: 0;
 }
 
 main{
-margin: 0;
+
 padding-top: 150px;
 padding-left: 130px;
 padding-right: 18px;

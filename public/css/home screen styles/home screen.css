@@ -1,8 +1,9 @@
 
 
 .nameSection{
-    display: flex;
-    background-color: aqua;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* background-color: rgb(236, 231, 231); */
     height: 100px;
     width: 100%;
 }
@@ -10,24 +11,115 @@
 .firstNameBox {
     display: flex;
     width: 1fr;
+    min-width: 450px;
     padding: 20px;
-    font-size: 30px;
+    font-size: 50px;
+    animation: firstNameBox-load 500ms ease-in;
 }
 
-.profilePictureBox {
-    display: flex;
-    background-color: red;
-    width: 1fr
+@keyframes firstNameBox-load {
+    0% {
+        transform: translateY(-10%);
+        opacity: 0
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
-.profilePicture {
+
+
+.right-section {
     display: flex;
+    background-color: rgb(116, 199, 160);
+    width: 1fr;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
 }
+
+.second-section{
+    margin: 10px;
+    width: 200px;
+    height: 80px;
+    background-color: rgb(116, 131, 199);
+}
+
+.user-section {
+    display: flex;
+    background-color: rgb(161, 82, 177);
+    margin: 10px 10px 10px 0px;
+    width: 1fr;
+    align-items: center;
+    flex-direction: row;
+}
+
+
+.user-settings-container,
+.profile-Picture-container,
+.user-notifications-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+
+.profile-Picture-container {
+    height: 50px;
+    width: 50px;
+    padding: 10px
+}
+
+.user-notifications-container{
+    height:80px;
+    width:1fr;
+  }
+
+.user-settings-container{
+    height:80px;
+    width:1fr;
+  } 
+
+
+.profile-Picture {
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    background-color: rgb(58, 122, 206);
+}
+
+
+.settings-icon{
+    height: 60px;
+    cursor:pointer;
+    transition: transform 3s;
+  }
+  
+  
+.settings-icon:hover{
+    transform: rotate(180deg);
+  }
+    
+ 
+
+.notifications-icon{
+    height: 60px;
+    cursor:pointer;
+    transition: transform 1s;
+  }
+  
+.notifications-icon:hover{
+    transform: rotate(60deg);
+  }
+
+
 
 .titlesSection {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: brown;
+    background-color: rgb(199, 199, 199);
 }
 
 .projectsTitle,
@@ -61,6 +153,7 @@
 
 .projectsGrid {
     display: grid;
+    padding-top: 10px;
     grid-template-columns: 1fr;
     row-gap: 10px;
     background-color: antiquewhite;
@@ -87,7 +180,8 @@
 .projectContainer{
 
     display:flex;
-    background-color: rgb(199, 199, 199);
+    
+    background-color: rgb(216, 211, 211);
     padding: 10px;
     padding-right: 70px;
     opacity: 0;
@@ -95,6 +189,7 @@
 }
 .projectContainer.active{
     opacity: 1;
+    border-radius: 30px;
 }
 
 
