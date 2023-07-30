@@ -46,8 +46,14 @@
 
 <div class= "titlesSection">
 <div class="projectsTitle">   
-  <div class="title">Projects</div>
-  <div class="createProjButton" onclick="openProjectPopUp()">Create Project</div>
+  <div class="projectsTitleContentContainer"> 
+    <div class="titleContainer">
+      <div class="title">Projects</div>
+    </div>
+    <div class="createProjButtonContainer">
+      <div class="createProjButton" onclick="openProjectPopUp()">Create Project</div>
+    </div>
+  </div>
 </div>
 <div class="secondSectionTitle"> Groups</div>
 </div>
@@ -56,6 +62,7 @@
 <div class="projectsGrid">
   
   <% projects.forEach((project, index) => { %>
+   <div class="projectBoxContainer">
     <div class="projectContainer" id="projectContainer">
       <div class="projectName" id="<%= project._id %>"><%= project.projectName %></div>
       <div class="projectLink">
@@ -70,6 +77,7 @@
         <button type="submit">Delete</button>
       </form>
     </div>
+  </div> 
   <% }) %>
 
   <script>

@@ -4,11 +4,12 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     /* background-color: rgb(236, 231, 231); */
-    height: 100px;
+    height: 150px;
     width: 100%;
 }
 
 .firstNameBox {
+    align-items: center;
     display: flex;
     width: 1fr;
     min-width: 450px;
@@ -125,17 +126,40 @@
 .projectsTitle,
 .secondSectionTitle {
     display: flex;
-    padding: 20px;
-    text-align: center;
-    min-width: 410px;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.projectsTitleContentContainer {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    max-width: 830px;
+    min-width: 350px;
+}
+
+.titleContainer {
+    display: flex;
+    justify-content: left;
 }
 
 .title {
-    width: 85%;
+    display: flex;
     font-size: 30px;
 }
 
+.createProjButtonContainer {
+    display: flex;
+    justify-content: right;
+}
+
 .createProjButton {
+    display: flex;
     background-color: blueviolet;
     color: white;
     padding: 10px;
@@ -146,11 +170,9 @@
 }
 
 .createProjButton:hover {
-    cursor: pointer;
-    height: 30px;
-    width: 150px;
+    background-color: aqua;
+    color: black;
 }
-
 .projectsGrid {
     display: grid;
     padding-top: 10px;
@@ -159,8 +181,8 @@
     background-color: antiquewhite;
     float: left;
     width:50%;
-    min-width: 430px;
-    
+    min-width: 490px;
+    justify-content: center;
 }
 
 
@@ -176,16 +198,23 @@
     width: 25%;
     
 }
+.projectBoxContainer{
+    display: flex;
+    justify-content: center;
+}
 
 .projectContainer{
-
-    display:flex;
-    
-    background-color: rgb(216, 211, 211);
+    max-width: 750px;
+    min-width: 350px;
+    width: 100%;
     padding: 10px;
     padding-right: 70px;
+    display:flex;
+    background-color: rgb(216, 211, 211);
     opacity: 0;
     transition: opacity 0.4s ease-in-out;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 .projectContainer.active{
     opacity: 1;
