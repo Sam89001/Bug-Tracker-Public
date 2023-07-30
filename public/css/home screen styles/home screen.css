@@ -17,6 +17,7 @@
 
     align-items: center;
     justify-content: center;
+
 }
 
 .projectsTitleContentContainer {
@@ -75,6 +76,8 @@
     width:50%;
     min-width: 490px;
     justify-content: center;
+
+    box-shadow: 0px 5px 10px inset;
 }
 
 

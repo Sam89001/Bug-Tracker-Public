@@ -21,10 +21,18 @@
   </div>
 
   <div class="right-section">
+    
     <div class="second-section">
       <div class="test">cool</div>
     </div>
+    
     <div class="user-section">
+      <form action="/mainpage/logout?_method=DELETE" method="POST">   
+        <button type="submit">Log Out</button>
+      </form>
+        
+      <a href="mainpage/user-account-details/<%= id %>/edit">Edit Account</a>
+      
       <div class="user-settings-container">
         <img class="settings-icon" src="/icons/cog.svg">
       </div>
@@ -34,6 +42,7 @@
       <div class="profile-Picture-container">
         <div class="profile-Picture">Test</div>
       </div>
+    
     </div>
   </div>
 </div>
@@ -116,11 +125,7 @@
 </div>
 
 
-<form action="/mainpage/logout?_method=DELETE" method="POST">   
-  <button type="submit">Log Out</button>
-</form>
-  
-<a href="mainpage/user-account-details/<%= id %>/edit">Edit Account</a>
+
 
 </body>
 </html>
