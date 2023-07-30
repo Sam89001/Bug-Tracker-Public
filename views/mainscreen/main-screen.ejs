@@ -5,6 +5,7 @@
   <link rel="icon" href="/icons/icon.ico">
   <link rel="stylesheet" href="/css/main page styles/general-main-page.css">
   <link rel="stylesheet" href="/css/home screen styles/header.css">
+  <link rel="stylesheet" href="/css/home screen styles/projects.css">
   <link rel="stylesheet" href="/css/home screen styles/home screen.css">
   <link rel="stylesheet" href="/css/home screen styles/popup.css">
   <script src="/javascript/Base_Screen.js"></script>
@@ -74,7 +75,10 @@
   <% projects.forEach((project, index) => { %>
    <div class="projectBoxContainer">
     <div class="projectContainer" id="projectContainer">
+      <div class="projectNameContainer">
       <div class="projectName" id="<%= project._id %>"><%= project.projectName %></div>
+      </div>
+      <div class="projectLinkContainer">
       <div class="projectLink">
       <% const projectId = project._id.toString(); %>
       <% if (firstSprintsMap.has(projectId)) { %>
@@ -82,10 +86,15 @@
         <a href="/mainpage/bugscreen/<%= id %>/<%= project.projectName %>/<%= sprint.sprintName %>/<%= project._id %>/<%= sprint._id %>"><%= project.projectName %></a>
       <% } %>
       </div>
-      <a class="editProject" href="/mainpage/projectEdit/<%= project._id %>/<%= %>">Edit Project</a>
+    </div>
+      <div class="editProjectContainer">
+        <a class="editProject" href="/mainpage/projectEdit/<%= project._id %>/<%= %>">Edit Project</a>
+      </div>
+      <div class="projectDeleteContainer">
       <form method="post" action="/mainpage/ProjectDelete/<%= projectId %>?_method=DELETE">
         <button type="submit">Delete</button>
       </form>
+      </div>
     </div>
   </div> 
   <% }) %>

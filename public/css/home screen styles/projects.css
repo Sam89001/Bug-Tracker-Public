@@ -1,0 +1,77 @@
+.projectsGrid {
+    display: grid;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    grid-template-columns: 1fr;
+    row-gap: 15px;
+    background-color: aliceblue;
+    float: left;
+    width:50%;
+    min-width: 490px;
+    justify-content: center;
+
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2) inset;
+}
+
+
+.projectNameContainer {
+    display:flex;
+    width: 60%;
+}
+
+.projectDeleteContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projectName,
+.projectLink,
+.editProject {
+    padding: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 20px;
+    background-color: rgb(218, 214, 178);
+}
+
+
+
+.projectLinkContainer,
+.editProjectContainer,
+.deleteProject {
+    display:flex;
+    width: 25%;
+    
+}
+.projectBoxContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projectContainer{
+    max-width: 750px;
+    min-width: 350px;
+    width: 100%;
+    padding: 10px;
+    padding-right: 70px;
+    display:flex;
+    background-color: rgb(238, 232, 170);
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.projectContainer.active{
+    opacity: 1;
+    border-radius: 30px;
+}
+
+.projectContainer:hover {
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+    max-height: 70px;
+    max-width: 800px;
+}
+
+
