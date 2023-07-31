@@ -2,6 +2,10 @@
 <html>
 <head>
   <title>Login</title>    
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap" rel="stylesheet">
+
   <link rel="icon" href="/icons/icon.ico">
   <link rel="stylesheet" href="/css/main page styles/general-main-page.css">
   <link rel="stylesheet" href="/css/home screen styles/header.css">
@@ -62,7 +66,9 @@
       <div class="title">Projects</div>
     </div>
     <div class="createProjButtonContainer">
-      <div class="createProjButton" onclick="openProjectPopUp()">Create Project</div>
+      <div class="createProjButton" onclick="openProjectPopUp()">
+        <div>Create Project</div>
+      </div>
     </div>
   </div>
 </div>
@@ -73,7 +79,7 @@
 <div class="projectsGrid">
   
   <% projects.forEach((project, index) => { %>
-   <div class="projectBoxContainer">
+   <div class="projectBoxContainer" onclick="">
     <div class="projectContainer" id="projectContainer">
       <div class="projectNameContainer">
       <div class="projectName" id="<%= project._id %>"><%= project.projectName %></div>
@@ -83,7 +89,7 @@
       <% const projectId = project._id.toString(); %>
       <% if (firstSprintsMap.has(projectId)) { %>
         <% const sprint = firstSprintsMap.get(projectId); %>
-        <a href="/mainpage/bugscreen/<%= id %>/<%= project.projectName %>/<%= sprint.sprintName %>/<%= project._id %>/<%= sprint._id %>"><%= project.projectName %></a>
+        <a id="projectLink" href="/mainpage/bugscreen/<%= id %>/<%= project.projectName %>/<%= sprint.sprintName %>/<%= project._id %>/<%= sprint._id %>"><%= project.projectName %></a>
       <% } %>
       </div>
     </div>
@@ -110,6 +116,25 @@
         }, delay * index);
       });
     });
+
+    document.addEventListener('DOMContentLoaded', function() {
+    // Get all the projectBoxContainer elements
+    const projectBoxes = document.querySelectorAll('.projectBoxContainer');
+
+    // Add click event listener to each projectBoxContainer
+    projectBoxes.forEach(projectBox => {
+      projectBox.addEventListener('click', function() {
+        // Get the anchor tag within the clicked projectBoxContainer
+        const anchorTag = projectBox.querySelector('#projectLink');
+        
+        // Get the href value from the anchor tag
+        const href = anchorTag.getAttribute('href');
+
+        // Redirect to the link
+        window.location.href = href;
+      });
+    });
+  });
   </script>
 </div>
 

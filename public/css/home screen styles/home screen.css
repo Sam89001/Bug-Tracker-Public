@@ -4,7 +4,7 @@
 .titlesSection {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: rgb(199, 199, 199);
+    background-color: rgb(226, 238, 250);
 }
 
 .projectsTitle,
@@ -12,25 +12,26 @@
     display: flex;
     width: 99.9%;
     min-width: 487px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    height: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 
     align-items: center;
     justify-content: center;
 }
 
 .projectsTitle {
-    border-left: solid rgb(177, 175, 175) 0px;
-    border-right: solid rgb(177, 175, 175) 2px;
-    border-bottom: solid rgb(177, 175, 175) 0px;
-    border-top: solid rgb(177, 175, 175) 0px;
+    border-left: solid rgb(205, 221, 238) 0px;
+    border-right: solid rgb(205, 221, 238) 2px;
+    border-bottom: solid rgb(205, 221, 238) 2px;
+    border-top: solid rgb(205, 221, 238) 0px;
 }
 
 .secondSectionTitle {
-    border-left: solid rgb(177, 175, 175) 2px;
-    border-right: solid rgb(177, 175, 175) 0px;
-    border-bottom: solid rgb(177, 175, 175) 0px;
-    border-top: solid rgb(177, 175, 175) 0px;
+    border-left: solid rgb(205, 221, 238) 2px;
+    border-right: solid rgb(205, 221, 238) 0px;
+    border-bottom: solid rgb(205, 221, 238) 2px;
+    border-top: solid rgb(205, 221, 238) 0px;
 }
 
 .projectsTitleContentContainer {
@@ -52,9 +53,16 @@
 }
 
 .title {
-    padding-left: 10px;
+    padding-left: 15px;
+    padding-right: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 8px;
     display: flex;
-    font-size: 30px;
+    font-size: 45px;
+    font-weight: 550;
+    background-color: rgb(205, 221, 238);
+
 }
 
 .createProjButtonContainer {
@@ -64,19 +72,30 @@
 }
 
 .createProjButton {
-    margin-right: 10px;
     display: flex;
-    background-color: blueviolet;
-    color: white;
-    padding: 10px;
-    display: inline-block;
-    height: 20px;
-    text-align: center;
-    vertical-align: middle;
+    justify-content: center;
+    align-items: center;
+    
+    margin-right: 10px;
+    padding: 15px;
+    height: 15px;
+    width: 130px; 
+
+
+    border-radius: 10px;
+    background-color: rgb(238, 232, 170);
+    box-shadow: 10px 10px 15px rgba(219, 218, 198, 0.1);
+    color: black;
+    
 }
 
 .createProjButton:hover {
-    background-color: aqua;
-    color: black;
+    height: 25px; 
+    width: 140px; 
+    box-shadow: 5px 5px 15px rgba(219, 218, 198, 0.1);
+    
+
+    text-align: center;
+    vertical-align: middle;
 }
 

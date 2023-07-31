@@ -23,7 +23,7 @@
     text-align: center;
     margin: 8px;
     margin-bottom: 15px;
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(252, 252, 252);
     
 }
 
@@ -51,6 +51,8 @@
     width: 200px;
     box-shadow: 15px 15px 20px rgba(128, 127, 127, 0.2);
     cursor: pointer;
+
+    
 }
 
 .bug-title-row{
