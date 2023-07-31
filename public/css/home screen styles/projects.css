@@ -10,7 +10,8 @@
     min-width: 490px;
     justify-content: center;
 
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2) inset;
+    border-right: 4px;
+    box-shadow: 0px 7px 20px rgba(99, 98, 98, 0.2) inset; 
 }
 
 
@@ -59,14 +60,13 @@
     display:flex;
     background-color: rgb(238, 232, 170);
     opacity: 0;
-    transition: opacity 0.4s ease-in-out;
+    transition: opacity 0.4s ease-in-out, transform 1s;
     margin-left: 20px;
     margin-right: 20px;
 }
 .projectContainer.active{
     opacity: 1;
     border-radius: 30px;
-    transition: transform 1s;
 }
 
 .projectContainer:hover {

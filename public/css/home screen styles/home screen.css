@@ -22,16 +22,16 @@
 
 .projectsTitle {
     border-left: solid rgb(205, 221, 238) 0px;
-    border-right: solid rgb(205, 221, 238) 2px;
+    border-right: solid rgb(205, 221, 238) 1px;
     border-bottom: solid rgb(205, 221, 238) 2px;
-    border-top: solid rgb(205, 221, 238) 0px;
+    border-top: solid rgb(205, 221, 238) 2px;
 }
 
 .secondSectionTitle {
-    border-left: solid rgb(205, 221, 238) 2px;
+    border-left: solid rgb(205, 221, 238) 1px;
     border-right: solid rgb(205, 221, 238) 0px;
     border-bottom: solid rgb(205, 221, 238) 2px;
-    border-top: solid rgb(205, 221, 238) 0px;
+    border-top: solid rgb(205, 221, 238) 2px;
 }
 
 .projectsTitleContentContainer {
@@ -59,7 +59,7 @@
     padding-bottom: 5px;
     border-radius: 8px;
     display: flex;
-    font-size: 45px;
+    font-size: 40px;
     font-weight: 550;
     background-color: rgb(205, 221, 238);
 
@@ -87,6 +87,7 @@
     box-shadow: 10px 10px 15px rgba(219, 218, 198, 0.1);
     color: black;
     
+    transition: ease-in-out.1s;
 }
 
 .createProjButton:hover {

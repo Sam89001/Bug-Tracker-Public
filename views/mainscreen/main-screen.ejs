@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="/css/main page styles/general-main-page.css">
   <link rel="stylesheet" href="/css/home screen styles/header.css">
   <link rel="stylesheet" href="/css/home screen styles/projects.css">
+  <link rel="stylesheet" href="/css/home screen styles/groups.css">
   <link rel="stylesheet" href="/css/home screen styles/home screen.css">
   <link rel="stylesheet" href="/css/home screen styles/popup.css">
   <script src="/javascript/Base_Screen.js"></script>
@@ -79,7 +80,7 @@
 <div class="projectsGrid">
   
   <% projects.forEach((project, index) => { %>
-   <div class="projectBoxContainer" onclick="">
+   <div class="projectBoxContainer" >
     <div class="projectContainer" id="projectContainer">
       <div class="projectNameContainer">
       <div class="projectName" id="<%= project._id %>"><%= project.projectName %></div>
@@ -138,7 +139,12 @@
   </script>
 </div>
 
+
+<div class="groupsGrid"></div>
+
 </section>
+
+
 
 
 

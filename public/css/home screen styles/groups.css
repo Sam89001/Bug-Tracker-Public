@@ -1,0 +1,14 @@
+.groupsGrid {
+    display: grid;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    grid-template-columns: 1fr;
+    row-gap: 15px;
+    background-color: rgb(253, 252, 244);
+    float: left;
+    width:50%;
+    min-width: 490px;
+    justify-content: center;
+
+    box-shadow: 0px 7px 20px rgba(99, 98, 98, 0.2) inset; 
+}
