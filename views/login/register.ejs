@@ -1,24 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<title>Create an Account</title> 
 	<link rel="icon" href="/icons/icon.ico">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@700&family=Kanit:wght@700;800&family=Montserrat:wght@100;200;300;400&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/css/login styles/register.css">
+
 </head>
 <body>
 	<main>
 		<section class="accCreationSection">
+			
+			<div class="logoContainer">
+				<img class="logo" src="/icons/logo.svg">
+				</div>
+
+				<div class="loginSectionContainer">
+				<div class="signInTextContainer">
+				  <div class="signInText" onclick="location.href = '/login'">Sign In &nbsp; &nbsp;</div>
+				  <div class="registerText" onclick="location.href = '/login/register'">Reg</div>
+				</div>
+
+
 			<form action="/login" method="POST"> <!-- form action is where its getting the information from, POST is the fetch method for writing to databases-->
-					<input class="emailBox" type="email" name="email" placeholder="Email" required="text">
-				<!-- <input class="confEmailBox" type="email" name="confirmEmail" placeholder="Confirm Email" required> -->	
+				<input class="emailBox" type="email" name="email" placeholder="Email" required="text">
+				<input class="confEmailBox" type="email" name="confirmEmail" placeholder="Confirm Email" required> 
 				
 				<input class="usernameBox" type="text" name="username" placeholder="Username" required="text"> 
 				
 				<input class="passwordBox" type="password" name="password" placeholder="Password" maxlength="15" >
-				<!-- <input class="confPasswordBox" type="password" name="confirmPassword" placeholder="Confirm Password" maxlength="15" required> -->
+				<input class="confPasswordBox" type="password" name="confirmPassword" placeholder="Confirm Password" maxlength="15" required> 
 				
 				<button type="submit">Register</button> 
 			</form>
-			<!-- <a href="/login">Login</a> -->
+	
 		</section>
 	</main>
 </body>
