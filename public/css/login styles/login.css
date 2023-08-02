@@ -24,7 +24,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	max-height: 450px;
+	max-height: 400px;
 	height: 100%
 }
 
@@ -66,18 +66,18 @@ body {
 
 .signInTextContainer {
 	display: flex;
-	justify-content: left;
+	justify-content: space-between;
 	
 
 	max-height: 100px;
-	max-width: 380px;
+	max-width: 500px;
 	width: 100%;
 
 }
 
 .signInText, 
 .registerText {
-	font-size: 67px;
+	font-size: 85px;
 	font-weight: 500px;
 	font-family: Arimo;
 	transition: font-size ease-in-out 0.5s;
@@ -96,11 +96,11 @@ body {
 }
 
 .signInText:hover {
-	font-size: 70px;
+	font-size: 90px;
 
 }
 .registerText:hover {
-	font-size: 70px;
+	font-size: 90px;
 }
 
 @keyframes signIn-fadeIn {
