@@ -24,12 +24,12 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	max-height: 400px;
+	max-height: 350px;
 	height: 100%
 }
 
 .logo {
-    width: 370px; 
+    width: 300px; 
 	animation: logo-dropdown 400ms ease-in, logo-fadein 1400ms ease-in;	 
 }
 

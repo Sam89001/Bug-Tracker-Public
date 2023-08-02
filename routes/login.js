@@ -11,7 +11,7 @@ router.get('/', checkNotAuthenticated, (req, res) => {
   res.render('login/login');
 });
 
-router.get('/register', (req, res) => {
+router.get('/register', checkNotAuthenticated, (req, res) => {
   res.render('login/register', {
     email: new UserDetails(),
     password: new UserDetails(),
