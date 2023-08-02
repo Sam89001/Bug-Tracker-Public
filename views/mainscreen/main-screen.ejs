@@ -64,9 +64,9 @@
 <div class="projectsTitle">   
   <div class="projectsTitleContentContainer"> 
     <div class="titleContainer">
-      <div class="title">Projects</div>
+      <div class="title" id="title">Projects </div>
     </div>
-    <div class="createProjButtonContainer">
+      <div class="createProjButtonContainer">
       <div class="createProjButton" onclick="openProjectPopUp()">
         <div>Create Project</div>
       </div>
@@ -75,6 +75,17 @@
 </div>
 <div class="secondSectionTitle"> Groups</div>
 </div>
+
+<script>
+window.onload = function totalProjects(specificDivCount) {
+const specificDivs = document.querySelectorAll('.projectBoxContainer');
+specificDivCount = specificDivs.length;
+console.log(`Number of specific divs: ${specificDivCount}`);
+
+const titleElement = document.getElementById('title');
+    titleElement.textContent = `Projects: ${specificDivCount}`;
+  } 
+</script>
 
 
 <div class="projectsGrid">
@@ -136,7 +147,10 @@
       });
     });
   });
+
   </script>
+
+
 </div>
 
 
