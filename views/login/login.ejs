@@ -18,10 +18,6 @@
       <% if (messages.error) { %>
         <%= messages.error %>
           <% } %>
-
-
-      <form action="/login/login" method="POST">
-      
         <div class="logoContainer">
         <img class="logo" src="/icons/logo.svg">
         </div>
@@ -30,6 +26,8 @@
             <div class="signInText" onclick="location.href = '/login'">Sign In &nbsp; &nbsp;</div>
             <div class="registerText" onclick="location.href = '/login/register'">Reg</div>
           </div>
+
+          <form action="/login/login" method="POST">
           <div class="loginpass">
           <div class="loginDiv">
             <input class="login" type="email" name="login" placeholder="Email" required>
@@ -41,6 +39,7 @@
           <div class="loginButtonContainer">
             <button class="loginButton">Login</button>
           </div>
+          </form>
 
           <div class="buttonsContainer">
             <button class="createAccButton" onclick="location.href = '/login/register'">Create an Account
@@ -48,10 +47,6 @@
             <button class="forgotPassButton">Forgot Password?</button>
           </div>
         </div>
-    </form>
-
-   
-
   </section>
       
   </main>
