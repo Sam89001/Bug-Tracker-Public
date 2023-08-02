@@ -76,34 +76,43 @@ body {
 	display: flex;
 	justify-content: space-between;
 	
-
 	max-height: 100px;
-	max-width: 500px;
+	max-width: 600px;
 	width: 100%;
 
+    overflow: hidden;
 }
 
 .signInText, 
-.registerText {
+.registerText,
+.signInRightText {
 	font-size: 85px;
 	font-weight: 500px;
 	font-family: Arimo;
-	transition: font-size ease-in-out 0.5s;
+    overflow: hidden;
+    opacity: 0.7;
+
 }
 
 .signInText {
 	color: rgb(100, 100, 100);
-	opacity: 0.7;
-	animation: signIn-fadeIn 1000ms ease-in;
+    width: 0%;
+    animation: widthAdjustSignIn 800ms ease-in-out;
 }
 
 .registerText {
 	color: rgb(186, 198, 218);
-	opacity: 0.7;
-	animation: register-fadeIn 1400ms ease-in;
+	width: 70%;
+    animation: widthAdjustRegister 800ms ease-in-out;
 }
 
-.signInText:hover {
+.signInRightText {
+    color: rgb(100, 100, 100);
+    width: 30%;
+    animation: widthAdjustSignInRight 1600ms ease-in-out; 
+}
+
+.signInRightText:hover {
 	font-size: 90px;
 
 }
@@ -111,30 +120,47 @@ body {
 	font-size: 90px;
 }
 
-@keyframes signIn-fadeIn {
-	0% {
-		opacity: 0;
-	}
+@keyframes widthAdjustSignIn {
+    0% {
+        width: 70%;
+    }
 
-	40% {
-		opacity: 0;
-	}
-
-	100% {
-		opacity: 0.7;
-	}
+    100% {
+        width: 0%;
+    }
 }
 
-@keyframes register-fadeIn {
-	0% {
-		opacity: 0;
+@keyframes widthAdjustRegister {
+    0% {
+        width: 0%;
+    }
+
+    80% {
+		width: 70%
 	}
 
-	50% {
-		opacity: 0;
-	}
+    100% {
+        width: 70%;
+    }
+} 
 
-	100% {
-		opacity: 0.7;
-	}
+@keyframes widthAdjustSignInRight {
+    0% {
+        width: 0%;
+    }
+
+    25% {
+        width: 0%;
+    }
+
+    60% {
+        width: 30%;
+    }
+
+    100% {
+        width: 30%;
+    }
 }
+
+
+

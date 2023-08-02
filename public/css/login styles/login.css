@@ -25,7 +25,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	max-height: 350px;
-	height: 100%
+	height: 100%;
 }
 
 .logo {
@@ -67,35 +67,92 @@ body {
 .signInTextContainer {
 	display: flex;
 	justify-content: space-between;
-	
+	overflow: hidden;
 
 	max-height: 100px;
 	max-width: 500px;
 	width: 100%;
-
 }
 
-.signInText, 
-.registerText {
+.Blank, 
+.registerText,
+.signInRightText {
 	font-size: 85px;
 	font-weight: 500px;
 	font-family: Arimo;
-	transition: font-size ease-in-out 0.5s;
+	opacity: 0.7;
+	overflow: hidden;
 }
 
-.signInText {
+.Blank {
+	width: 0%;
+	color: rgb(186, 198, 218);
+	animation: Blank 700ms ease-in;
+	overflow: hidden;
+}
+
+.signInRightText {
 	color: rgb(100, 100, 100);
-	opacity: 0.7;
-	animation: signIn-fadeIn 1000ms ease-in;
+	animation: rightText 1000ms ease-in-out;
+	width: 65%;
 }
 
 .registerText {
 	color: rgb(186, 198, 218);
-	opacity: 0.7;
-	animation: register-fadeIn 1400ms ease-in;
+	animation: register-transition  2200ms ease-in-out;
+	width: 35%; 
+
 }
 
-.signInText:hover {
+@keyframes Blank {
+	0% {
+		width: 100%
+	}
+
+	100% {
+		width: 0%
+	}
+}
+
+@keyframes rightText {
+	0% {
+		width: 0%;
+	}
+	
+	80% {
+		width: 60%;
+	}
+
+	100% {
+		width: 63%;
+	}
+}
+
+
+@keyframes register-transition {
+	0% {
+		width: 0%;
+	}
+
+	25% {
+		width: 0%;
+	}
+
+	60% {
+		width: 35%;
+	}
+
+	100% {
+		width: 35%;
+	}
+}
+
+
+
+
+
+
+.signInRightText:hover {
 	font-size: 90px;
 
 }
@@ -103,33 +160,6 @@ body {
 	font-size: 90px;
 }
 
-@keyframes signIn-fadeIn {
-	0% {
-		opacity: 0;
-	}
-
-	40% {
-		opacity: 0;
-	}
-
-	100% {
-		opacity: 0.7;
-	}
-}
-
-@keyframes register-fadeIn {
-	0% {
-		opacity: 0;
-	}
-
-	50% {
-		opacity: 0;
-	}
-
-	100% {
-		opacity: 0.7;
-	}
-}
 
 .loginDiv,
 .passwordDiv {
