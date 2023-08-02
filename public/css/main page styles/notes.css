@@ -39,20 +39,22 @@
 .note{
     background-color: rgb(238, 232, 170);
     box-shadow: 5px 5px 15px rgba(219, 218, 198, 0.1);
-    height: 120px;
+    height: 113px;
     border-radius: 5px;
     transition: box-shadow 0.2s;
     transition: height 0.5s;
-
 }
 
 .note:hover{
-    height: 250px;
+    height: 240px;
     width: 200px;
     box-shadow: 15px 15px 20px rgba(128, 127, 127, 0.2);
     cursor: pointer;
-
     
+}
+
+.note:hover .description {
+  height: 165px; /* Change max-height on hover */
 }
 
 .bug-title-row{
@@ -93,13 +95,16 @@
     margin: 7px;
     padding: 5px;
     border-radius: 5px;
-    height: 1fr; 
+    height: 39px; 
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+
     word-break: break-word;
+    overflow: hidden;
     background-color: rgb(228, 224, 190);
+    transition: height 0.5s;
 }
+
+
 
 /* values to be hidden */
 

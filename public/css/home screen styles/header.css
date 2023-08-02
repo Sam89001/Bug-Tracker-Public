@@ -16,8 +16,11 @@
     width: 1fr;
     min-width: 450px;
     padding: 20px;
+
     font-size: 65px;
-    font-weight: 700;
+    font-family: Arimo;
+    font-weight: 500;
+    color: rgb(100, 100, 100);
     animation: firstNameBox-load 500ms ease-in;
 }
 

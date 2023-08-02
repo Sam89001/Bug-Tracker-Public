@@ -22,13 +22,13 @@
 
       <form action="/login/login" method="POST">
       
-        <div class="mainlogo">
+        <div class="logoContainer">
         <img class="logo" src="/icons/logo.svg">
         </div>
         <div class="loginSectionContainer">
           <div class="signInTextContainer">
-            <div class="signInText">Sign In &nbsp; &nbsp;</div>
-            <div class="registerText">Reg</div>
+            <div class="signInText" onclick="location.href = '/login'">Sign In &nbsp; &nbsp;</div>
+            <div class="registerText" onclick="location.href = '/login/register'">Reg</div>
           </div>
           <div class="loginpass">
           <div class="loginDiv">
@@ -38,22 +38,22 @@
             <input class="password" type="password" name="password" placeholder="Password" required>
           </div>
           </div>
-          <div class="login-button">
-            <button class="loginbutton">Login</button>
+          <div class="loginButtonContainer">
+            <button class="loginButton">Login</button>
+          </div>
+
+          <div class="buttonsContainer">
+            <button class="createAccButton" onclick="location.href = '/login/register'">Create an Account
+            </button>
+            <button class="forgotPassButton">Forgot Password?</button>
           </div>
         </div>
     </form>
-		
+
+   
+
   </section>
-
-    <section class="buttonLayoutSection">
-      <div class="buttons-div">
-        <button class="createAccButton" onclick="location.href = '/login/register';">Create an Account
-        </button>
-        <button class="forgotPassButton">Forgot Password?</button>
-      </div>
-
-    </section>
+      
   </main>
 </body>
 </html>

@@ -7,7 +7,7 @@
     background-color: rgb(226, 238, 250);
 }
 
-.projectsTitle,
+.projectsTitleContainer,
 .secondSectionTitle {
     display: flex;
     width: 99.9%;
@@ -20,7 +20,7 @@
     justify-content: center;
 }
 
-.projectsTitle {
+.projectsTitleContainer {
     border-left: solid rgb(205, 221, 238) 0px;
     border-right: solid rgb(205, 221, 238) 1px;
     border-bottom: solid rgb(205, 221, 238) 2px;
@@ -59,8 +59,11 @@
     padding-bottom: 10px;
     border-radius: 8px;
     display: flex;
+
+    color: rgb(100, 100, 100);
     font-size: 40px;
-    font-weight: 550;
+    font-family: Arimo;
+    font-weight: 400;
     background-color: rgb(205, 221, 238);
 
 }
