@@ -2,7 +2,7 @@ const bugSchema = require('../../models/bugSchema')
 
 function openBigNote(bugId) {
   const definedBugId = bugId;
-  var blur = document.getElementById('blur');
+  var blur = document.getElementById('blurBug');
   blur.classList.toggle('active');
   var popupnote = document.getElementById('popupnote');
   popupnote.classList.toggle('active');
@@ -31,9 +31,9 @@ function openBigNote(bugId) {
 }
 
 
-function closeBigNote ()
+function closeBigNote()
 {
-		var blur = document.getElementById('blur')
+		var blur = document.getElementById('blurBug')
     blur.classList.toggle('active')
     var popupnote = document.getElementById('popupnote')
     popupnote.classList.toggle('active')
@@ -42,7 +42,7 @@ function closeBigNote ()
 
 function openSprintForm()
 {
-  var blur = document.getElementById('blur')
+  var blur = document.getElementById('blurSprint')
   blur.classList.toggle('active')
   var popupnote = document.getElementById('createSprintForm')
   popupnote.classList.toggle('active')
@@ -51,7 +51,7 @@ function openSprintForm()
 
 function closeSprintForm()
 {
-  var blur = document.getElementById('blur')
+  var blur = document.getElementById('blurSprint')
     blur.classList.toggle('active')
     var popupnote = document.getElementById('createSprintForm')
     popupnote.classList.toggle('active')
@@ -60,7 +60,7 @@ function closeSprintForm()
 
 function openBugForm()
 {
-  var blur = document.getElementById('blur')
+  var blur = document.getElementById('blurNewBug')
   blur.classList.toggle('active')
   var popupnote = document.getElementById('createBug')
   popupnote.classList.toggle('active')
@@ -69,7 +69,7 @@ function openBugForm()
 
 function closeBugForm()
 {
-  var blur = document.getElementById('blur')
+  var blur = document.getElementById('blurNewBug')
     blur.classList.toggle('active')
     var popupnote = document.getElementById('createBug')
     popupnote.classList.toggle('active')

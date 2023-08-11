@@ -1,3 +1,5 @@
+
+
 .popUpCreateProject {
    
     position: fixed;
@@ -14,12 +16,13 @@
 }
 
 #popUp.active {
+    z-index: 500;
     height: 475px;
     width: 525px;
     background-color: rgb(253, 172, 172);
     visibility: visible;
-   opacity: 1;
-	 transition: 0.3s;
+    opacity: 1;
+	transition: 0.3s;
 
 }
 
@@ -31,7 +34,6 @@
 }
 
 .popUpCloseButtonSection {
-    display: flex;
     float: right;
     padding: 10px;
 }

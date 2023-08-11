@@ -2,6 +2,8 @@ function openProjectPopUp ()
 {
     var popupnote = document.getElementById('popUp')
     popupnote.classList.toggle('active')
+    var blur = document.getElementById('blur');
+    blur.classList.toggle('active');
 		//above this is working
 		//below is experimental
 }
@@ -12,6 +14,8 @@ function closeProjectPopUp ()
 {
     var popupnote = document.getElementById('popUp')
     popupnote.classList.toggle('active')
+    var blur = document.getElementById('blur');
+    blur.classList.toggle('active');
 }
 
  /* function addTransitionClass() {

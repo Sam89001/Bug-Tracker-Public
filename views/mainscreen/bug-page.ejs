@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap" rel="stylesheet">
     
     <link rel="icon" href="icons/icon.ico">
+    <link rel="stylesheet" href="/css/general styles/general.css">
     <link rel="stylesheet" href="/css/main page styles/general-main-page.css">
     <link rel="stylesheet" href="/css/main page styles/header.css">
     <link rel="stylesheet" href="/css/main page styles/sidebar.css">
@@ -19,6 +20,10 @@
 </head>
 
 <body id="body">
+
+  <div class="blurBug" id="blurBug" onclick="closeBigNote()"></div>
+  <div class="blurSprint" id="blurSprint" onclick="closeSprintForm()"></div>
+  <div class="blurNewBug" id="blurNewBug" onclick="closeBugForm()"></div>
   
   <div class="createSprintContainer">
     <div class="createSprint" id="createSprintForm">
@@ -84,7 +89,7 @@
     <div class="popup-bugassignby"></div>
   </div>
 
-  <main class="main" id="blur">
+  <main class="main" >
     
     <header class="header-bugtracker">
       <div class="leftsection">
