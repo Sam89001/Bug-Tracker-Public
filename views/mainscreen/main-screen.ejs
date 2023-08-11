@@ -160,24 +160,32 @@ const titleElement = document.getElementById('title');
 
 
 
+<section>
+  <div class="popUpCreateProject" id="popUp">
+    <form action="/mainpage/" method="POST">
+      
+      <div class="popupSectionContainer">
+        <div class="popUpCloseButtonSection">
+          <div class="popUpCloseButtonContainer">
+            <img class="popup-close-button" src="/icons/close-circle-outline.svg" onclick="closeProjectPopUp()">
+          </div>
+        </div>
+      </div>
+      
+      <div class="projectNameTitle"> Project Name: </div >
+      <input class="projectNameBox" name="projectname" type="text" placeholder="Project Name" required="text" minlength="2" maxlength="60">
+      <div class="groupNameTitle"> Group Name: </div >
+      <input class="groupNameBox" name="groupname" type="text" placeholder="Group Name" required="text" minlength="2" maxlength="60">
+      <div class="sprintNameTitle"> Sprint Name: </div >
+      <input class="sprintNameBox" name="sprintname" type="text" placeholder="Sprint Name" required="text" minlength="2" maxlength="60">
+      
+      <div class="submitButtonContainer">
+      <button class="submitButton" type="submit">Save</button>
+      </div>
 
-
-<div class="popUpCreateProject" id="popUp">
-
-  <form action="/mainpage/" method="POST">
-    <img class="popup-close-button" src="/icons/close-circle-outline.svg" onclick="closeProjectPopUp()">
-    <p> Project Name: </p>
-    <input class="projectNameBox" name="projectname" type="text" placeholder="Project Name" required="text" minlength="2" maxlength="20">
-    <p> Group Name: </p>
-    <input class="groupNameBox" name="groupname" type="text" placeholder="Group Name" required="text" minlength="2" maxlength="20">
-    <p> Sprint Name: </p>
-    <input class="sprintNameBox" name="sprintname" type="text" placeholder="Sprint Name" required="text" minlength="2" maxlength="20">
-    <p></p>
-    <button type="submit">Save</button>
-  </form>
-  
-</div>
-
+    </form>
+  </div>
+</section>
 
 
 
