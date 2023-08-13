@@ -14,28 +14,45 @@
 <body>
 	<main>
 		<section class="accCreationSection">
-			
+			<div class="returnContainer" onclick="location.href = '/login'">
+			<img class="return" src="/icons/arrow-back-outline.svg">
+			</div>
+
 			<div class="logoContainer">
 				<img class="logo" src="/icons/logo.svg">
-				</div>
+			</div>
 
 				<div class="loginSectionContainer">
 				<div class="signInTextContainer">
 				  <div class="signInText" onclick="location.href = '/login'">Log-In &nbsp; &nbsp;</div>
 				  <div class="registerText" onclick="location.href = '/login/register'">Register</div>
 				  <div class="signInRightText" onclick="location.href = '/login'">Log-In &nbsp; &nbsp;</div>
-				</div>
+			</div>
 
 
 			<form action="/login" method="POST"> <!-- form action is where its getting the information from, POST is the fetch method for writing to databases-->
-				<input class="emailBox" type="email" name="email" placeholder="Email" required="text">
-				<input class="confEmailBox" type="email" name="confirmEmail" placeholder="Confirm Email" required> 
+				<div class="emailSection">		
+					<div class="emailContainer">
+						<input class="emailBox" type="email" name="email" placeholder="Email" required="text">
+					</div>
+					<div class="confEmailContainer">
+						<input class="confEmailBox" type="email" name="confirmEmail" placeholder="Confirm Email" required> 
+					</div>
+				</div>		
 				
+				<div class="passwordSection">
+					<div class="passwordContainer">
+						<input class="passwordBox" type="password" name="password" placeholder="Password" maxlength="15" >
+					</div>
+					<div class="confPasswordContainer">
+						<input class="confPasswordBox" type="password" name="confirmPassword" placeholder="Confirm Password" maxlength="15" required> 
+					</div>
+				</div>
+
+				<div class="usernameContainer">
 				<input class="usernameBox" type="text" name="username" placeholder="Username" required="text"> 
-				
-				<input class="passwordBox" type="password" name="password" placeholder="Password" maxlength="15" >
-				<input class="confPasswordBox" type="password" name="confirmPassword" placeholder="Confirm Password" maxlength="15" required> 
-				
+				</div>
+
 				<button type="submit">Register</button> 
 			</form>
 	
