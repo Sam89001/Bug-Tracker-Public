@@ -18,14 +18,20 @@
     backdrop-filter: blur(10px);
  }
 
+.closeButtonSection {
+   background-color: rgb(76, 212, 169);
+   border-radius: 30px 30px 0px 0px;
+    height: 65px;
+    width: 100%;
+}
+
 .createSprint{
     z-index: 300;
     position: fixed;
     
-    height: 500px;
-    width: 300px;
-    background-color: aquamarine;
-    padding: 20px;
+    height: 200px;
+    width: 200px;
+    background-color: rgb(126, 240, 204);
 
     top: 20%;
     left: 48%; 
@@ -36,20 +42,50 @@
     opacity: 0;
     visibility: hidden;
  
-    top: 20%;
-    left: 45%; 
+    top: 40%;
+    left: 50%; 
     margin-top: -100px;   
     margin-left: -250px; 
  }
 
  #createSprintForm.active{
-    width: 700px;
-    height: 750px;
+    width: 400px;
+    height: 400px;
     visibility: visible;
     opacity: 1;
     transition: 0.3s; 
  }
 
+ .sprintNameTitle {
+   padding-top: 30px;
+    padding-bottom: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+ }
+
+ .sprintNameBox {
+   background-color: rgb(76, 212, 169);
+    width: 85%;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+ }
+
+ .sprintSubmitButtonContainer {
+   display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .sprintSubmitButton {
+   background-color: rgb(255, 232, 232);
+    padding: 10px;
+    border-radius: 10px;
+    margin: 40px 30px 30px 30px; 
+ }
+/* VV BUG FORM HERE*/
 
 .createBug{
     z-index: 300;

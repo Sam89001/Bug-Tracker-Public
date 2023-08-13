@@ -27,11 +27,17 @@
   
   <div class="createSprintContainer">
     <div class="createSprint" id="createSprintForm">
-      <img class="popup-close-button" src="/icons/close-circle-outline.svg" onclick="closeSprintForm()">
+      <div class="closeButtonSection">
+        <img class="popup-close-button" src="/icons/close-circle-outline.svg" onclick="closeSprintForm()">
+      </div>
       <form action="/mainpage/bugscreen/<%= id %>/<%= projectName %>/<%= sprintName %>/<%= projectId %>/<%= sprintId %>/newsprint"method="POST">
-        <p>Sprint Name:</p>
-        <input class="sprintNameBox" name="sprintName" type="text" required="text">
-        <button type="submit">Create New Sprint</button> 
+        <div class="sprintNameTitle">Sprint Name:</div>
+        <input class="sprintNameBox" name="sprintName" type="text" required="text" placeholder="Sprint Name Here">
+        
+        <div class="sprintSubmitButtonContainer">
+        <button class="sprintSubmitButton" type="submit">Create New Sprint</button> 
+        </div>  
+
       </form>
     </div>
   </div>
