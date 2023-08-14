@@ -1,5 +1,3 @@
-const bugSchema = require('../../models/bugSchema')
-
 function openBigNote(bugId) {
   const definedBugId = bugId;
   var blur = document.getElementById('blurBug');
@@ -17,9 +15,10 @@ function openBigNote(bugId) {
   var popupBugDescription = popupnote.querySelector('.popup-bugdescription');
   var popupBugAssignTo = popupnote.querySelector('.popup-bugassignto');
   var popupBugAssignBy = popupnote.querySelector('.popup-bugassignby');
+  var urgencyColour = clickedDiv.querySelector('.urgency')
   
   popupTitle.textContent = clickedDiv.querySelector('.bug-title').textContent;
-  popupUrgency.setAttribute('data-urgency', clickedDiv.querySelector('.urgency').getAttribute('data-urgency'));
+  popupUrgency.style.backgroundColor = urgencyColour.style.backgroundColor
   popupBugType.textContent = clickedDiv.querySelector('.bug-type').textContent;
   popupDeadline.textContent = clickedDiv.querySelector('.bug-deadline').textContent;
   popupBugEnvironment.textContent = clickedDiv.querySelector('.bug-environment').textContent;
@@ -27,9 +26,62 @@ function openBigNote(bugId) {
   popupBugAssignTo.textContent = clickedDiv.querySelector('.bug-assignto').textContent;
   popupBugAssignBy.textContent = clickedDiv.querySelector('.bug-assignby').textContent;
 
-  console.log(bugId);
+  //console.log(bugId);
+
+  const divWithId = document.getElementById('profile-picture-container')
+  const id = divWithId.dataset.name
+  const userId = id
+  const assignedByID = clickedDiv.querySelector('.bug-assignby').textContent;
+  
+  const editButtonContainer = document.getElementById('editButtonContainer')
+  const editButton = document.getElementById('edit-Button')
+
+  var condition = 'false'
+  
+  if (assignedByID == userId) {
+    condition = 'true'
+    console.log('YASSSSSSSSSSSSSSSSSSS')
+  } else {
+    condition = 'false'
+    console.log('NARRRRRRRRRRRRRRRRRRR')
+  }
+  
+
+  if (condition == 'true') {
+    editButtonContainer.classList.remove('editButtonContainer');
+    editButton.classList.remove('edit-Button');
+    console.log('This is the user id: ' + id)
+  } 
+
 }
 
+/*
+const verificationFuction = async() => {
+  try {
+  divWithId = document.getElementById('profile-picture-container')
+  id = divWithId.dataset.name
+
+  console.log(id)
+  
+    //^^ this should be working now
+
+    
+  const userId = id
+  const visibleCondition = document.getElementById('visibleCondition')
+  const condition = false
+
+  if (condition = false) {
+    visibleCondition.classList.remove('editButtonContainer');
+    console.log('This is the user id: ' + id)
+  } 
+  verificationFuction()
+
+  
+  } catch (err) {
+    console.log(err)
+  }
+  }
+*/
 
 function closeBigNote()
 {
@@ -106,4 +158,3 @@ const urgencyColour = async () => {
   }
 }
 
-module.exports = { urgencyColour };

@@ -80,6 +80,7 @@ filter: blur(15px);
    height: 40px;
    width: 40px;
    border-radius: 20px;
+   background-color: black;
 }
 
 /* want to make these fr's at some point */
@@ -89,7 +90,8 @@ filter: blur(15px);
 .popup-bugenvironment,
 .popup-bugdescription,
 .popup-bugassignto,
-.popup-bugassignby {
+.popup-bugassignby,
+.editButtonContainer {
 	color: rgb(100, 100, 100);
     background-color: rgb(228, 224, 190);
     font-size: 15px;
@@ -112,6 +114,43 @@ filter: blur(15px);
 }
 
 .popup-bugassignby,
-.popup-bugassignto{
+.popup-bugassignto,
+.edit-Button {
 	height: 40px;
 }
+
+.assignBySection {
+   display: flex;
+   flex-direction: row;
+   height: 40px;
+   width: 100%;
+   max-width: 700px;
+   justify-content: space-between;
+}
+
+
+.popup-bugassignby {
+   display: flex;
+   width: 100%;
+}
+
+.editButtonContainer {
+   height: 100%;
+   width: 20%; 
+   margin-left: 20px;
+}
+
+.edit-Button {
+   padding: 0px;
+   text-align: center;
+   vertical-align: middle;
+   width: 100%;
+}
+
+.editButtonContainer:hover {
+   background-color: rgb(170, 166, 125)
+}
+
+
+
+

@@ -77,12 +77,12 @@
     </div>
   </div>
 
-  <div class="popupNote" id="popupnote">
+  <div class="popupNote" id="popupnote" onload="verificationFuction()">
     <img class="popup-close-button" src="/icons/close-circle-outline.svg" onclick="closeBigNote()">
     <div class="popup-titlegrid">
       <div class="popup-title"></div>
       <div class="popup-urgency-container">
-        <div class="popup-urgency" data-urgency=""></div>
+        <div class="popup-urgency" data-urgency="" name="popup-urgency"></div>
       </div>
     </div>
     <div class="popup-typegrid">
@@ -92,8 +92,22 @@
     <div class="popup-bugenvironment"></div>
     <div class="popup-bugdescription"></div>
     <div class="popup-bugassignto"></div>
-    <div class="popup-bugassignby"></div>
+    <div class="assignBySection">
+      <div class="popup-bugassignby"></div>
+      <div class="editButtonContainer" id="editButtonContainer">
+        <div class="edit-Button" id="edit-Button"> Edit</div>
+      </div>
+    </div>
+    </div>
+
+
+    <form>
+
+    </form>
+
   </div>
+
+
 
   <main class="main" >
     
@@ -129,7 +143,7 @@
         <div class="help-container">
           <img class="help-icon" src="/icons/help-circle-outline.svg">
         </div>
-        <div class="profile-picture-container"></div>
+        <div class="profile-picture-container" id="profile-picture-container" data-name="<%= id %>"></div>
       </div>
     </header>
     
@@ -218,7 +232,7 @@
       <div class="grid-section">
       
         <% bugs.filter(bug => bug.bugProgress === 'In-Progress').forEach(bug => { %>
-          <div class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id'))">
+          <div class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id')), urgencyColours();">
              <div class="bug-title-row"> 
                <div class="bug-title"> <%= bug.bugName %> </div>
                <div class="urgency" data-urgency="<%= bug.bugPriority %>" name="urgency"></div>
@@ -270,7 +284,7 @@
             <div class="grid-section">
               
               <% bugs.filter(bug => bug.bugProgress === 'Completed').forEach(bug => { %>
-                <div class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id'))">
+                <div class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id')), verificationFuction();">
                    <div class="bug-title-row"> 
                      <div class="bug-title"> <%= bug.bugName %> </div>
                      <div class="urgency" data-urgency="<%= bug.bugPriority %>" name="urgency"></div>
@@ -303,7 +317,8 @@
                   priorityColour.style.backgroundColor = 'brown';
                 }
               });
-            } catch (err) {
+
+          } catch (err) {
               console.log(err);
             }
           }
