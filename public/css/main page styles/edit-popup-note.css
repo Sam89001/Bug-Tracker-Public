@@ -1,0 +1,101 @@
+.EditPopUp {
+    position: fixed;
+    width: 700px;
+    height: 750px;
+    padding: 20px;
+    opacity: 0;
+    background-color: aqua;
+
+    z-index: 400;
+
+    top: 20%;
+    left: 48%; /* these set the postitioning of a fixed element */
+    margin-top: -100px;  /* these typically need to be half the width and height of the div */
+    margin-left: -250px;
+    border-radius: 30px;
+    visibility: hidden;
+ }
+ 
+ #EditPopUp.active {
+    visibility: visible;
+    opacity: 1;
+ }
+
+ .Editpopup-close-button{
+	display: block;
+	float: right;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	transition:0.3s;
+}
+
+.Editpopup-close-button:hover{
+	width: 40px;
+	height: 40px;
+	box-shadow: 20px 20px 20px rgba(0,0,0,0.1);
+}
+
+
+.Editpopup-titlegrid {
+    height: 75px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+      
+ }
+
+ .Editpopup-title {
+    color: rgb(100, 100, 100);
+     background-color: rgb(228, 224, 190);
+     font-size: 15px;
+     display: flex;
+     flex-wrap: wrap;
+     flex-direction: row;
+     word-break: break-word;
+     justify-content: center;
+     align-items: center;
+
+     height: 75px;
+ }
+ 
+ .Editpopup-urgency-container {
+     display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ 
+ .Editpopup-urgency {
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    background-color: black;
+ }
+
+ .Editpopup-typegrid{
+    height: 50px;
+    width: 100%;
+   display: grid;
+   grid-template-columns: 2fr 1fr;
+    column-gap: 20px;
+ }
+
+ .Editpopup-bugtype,
+.Editpopup-deadline {
+    margin-bottom: 20px;
+}
+
+.Editpopup-bugtype,
+.Editpopup-deadline, 
+.Editpopup-bugenvironment,
+.Editpopup-bugdescription,
+.Editpopup-bugassignto {
+	color: rgb(100, 100, 100);
+    background-color: rgb(228, 224, 190);
+    font-size: 15px;
+    display: block;
+    word-break: break-word;
+	padding: 7px;
+    height: 33px;
+    margin-top: 20px;
+}

@@ -15,10 +15,10 @@ function openBigNote(bugId) {
   var popupBugDescription = popupnote.querySelector('.popup-bugdescription');
   var popupBugAssignTo = popupnote.querySelector('.popup-bugassignto');
   var popupBugAssignBy = popupnote.querySelector('.popup-bugassignby');
-  var urgencyColour = clickedDiv.querySelector('.urgency')
+  var urgencyColour = clickedDiv.querySelector('.urgency');
   
   popupTitle.textContent = clickedDiv.querySelector('.bug-title').textContent;
-  popupUrgency.style.backgroundColor = urgencyColour.style.backgroundColor
+  popupUrgency.style.backgroundColor = urgencyColour.style.backgroundColor;
   popupBugType.textContent = clickedDiv.querySelector('.bug-type').textContent;
   popupDeadline.textContent = clickedDiv.querySelector('.bug-deadline').textContent;
   popupBugEnvironment.textContent = clickedDiv.querySelector('.bug-environment').textContent;
@@ -36,7 +36,7 @@ function openBigNote(bugId) {
   const editButtonContainer = document.getElementById('editButtonContainer')
   const editButton = document.getElementById('edit-Button')
 
-  var condition = 'false'
+  var condition 
   
   if (assignedByID == userId) {
     condition = 'true'
@@ -47,41 +47,12 @@ function openBigNote(bugId) {
   }
   
 
-  if (condition == 'true') {
+  if (condition == 'false') {
     editButtonContainer.classList.remove('editButtonContainer');
     editButton.classList.remove('edit-Button');
     console.log('This is the user id: ' + id)
   } 
-
 }
-
-/*
-const verificationFuction = async() => {
-  try {
-  divWithId = document.getElementById('profile-picture-container')
-  id = divWithId.dataset.name
-
-  console.log(id)
-  
-    //^^ this should be working now
-
-    
-  const userId = id
-  const visibleCondition = document.getElementById('visibleCondition')
-  const condition = false
-
-  if (condition = false) {
-    visibleCondition.classList.remove('editButtonContainer');
-    console.log('This is the user id: ' + id)
-  } 
-  verificationFuction()
-
-  
-  } catch (err) {
-    console.log(err)
-  }
-  }
-*/
 
 function closeBigNote()
 {
@@ -90,6 +61,19 @@ function closeBigNote()
     var popupnote = document.getElementById('popupnote')
     popupnote.classList.toggle('active')
 
+}
+
+function loadEditNote() {
+  var Editpopupnote = document.getElementById('EditPopUp');
+  Editpopupnote.classList.toggle('active');
+
+  var EditpopupUrgency = popupnote.querySelector('.EditpopupUrgency');
+  EditpopupUrgency.style.backgroundColor = urgencyColour.style.backgroundColor
+}
+
+function closeEditNote() {
+  var Editpopupnote = document.getElementById('EditPopUp');
+  Editpopupnote.classList.toggle('active');
 }
 
 function openSprintForm()

@@ -15,12 +15,14 @@
     <link rel="stylesheet" href="/css/main page styles/popup-note.css">
     <link rel="stylesheet" href="/css/main page styles/titles.css">
     <link rel="stylesheet" href="/css/main page styles/popup-forms.css">
+    <link rel="stylesheet" href="/css/main page styles/edit-popup-note.css">
     <script src="/javascript/Main_Screen.js"></script>
     
 </head>
 
 <body id="body">
 
+  
   <div class="blurBug" id="blurBug" onclick="closeBigNote()"></div>
   <div class="blurSprint" id="blurSprint" onclick="closeSprintForm()"></div>
   <div class="blurNewBug" id="blurNewBug" onclick="closeBugForm()"></div>
@@ -85,29 +87,46 @@
         <div class="popup-urgency" data-urgency="" name="popup-urgency"></div>
       </div>
     </div>
+
     <div class="popup-typegrid">
       <div class="popup-bugtype"></div>
       <div class="popup-deadline"></div>
     </div>
+
     <div class="popup-bugenvironment"></div>
     <div class="popup-bugdescription"></div>
     <div class="popup-bugassignto"></div>
     <div class="assignBySection">
       <div class="popup-bugassignby"></div>
       <div class="editButtonContainer" id="editButtonContainer">
-        <div class="edit-Button" id="edit-Button"> Edit</div>
+        <div class="edit-Button" id="edit-Button" onclick="loadEditNote()"> Edit</div>
       </div>
     </div>
     </div>
 
-
-    <form>
-
-    </form>
-
   </div>
 
+  <div class="EditPopUp" id="EditPopUp">
+    <img class="Editpopup-close-button" src="/icons/close-circle-outline.svg" onclick="closeEditNote()">
+    <form>
+    <div class="Editpopup-titlegrid">
+      <input class="Editpopup-title">
+      <div class="Editpopup-urgency-container">
+        <div class="Editpopup-urgency" data-urgency="" name="Editpopup-urgency"></div>
+      </div>
+    </div>
 
+    <div class="Editpopup-typegrid">
+      <input class="Editpopup-bugtype">
+      <input class="Editpopup-deadline">
+    </div>
+
+    <input class="Editpopup-bugenvironment">
+    <input class="Editpopup-bugdescription">
+    <input class="Editpopup-bugassignto">
+
+    </form>    
+  </div>
 
   <main class="main" >
     

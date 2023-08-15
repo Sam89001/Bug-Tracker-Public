@@ -1,6 +1,5 @@
 
-
-.popupNote{
+.popupNote {
 
    /* positioning*/
    position: fixed;
@@ -22,7 +21,7 @@
    visibility: hidden;
 }
 
-#popupnote.active{
+#popupnote.active {
    width: 700px;
    height: 750px;
    visibility: visible;
@@ -50,7 +49,7 @@ filter: blur(15px);
 	box-shadow: 20px 20px 20px rgba(0,0,0,0.1);
 }
 
-.popup-titlegrid{
+.popup-titlegrid {
    height: 75px;
 	 width: 100%;
    display: grid;
@@ -58,7 +57,7 @@ filter: blur(15px);
 	 margin-bottom: 20px;
 }
 
-.popup-title{
+.popup-title {
    color: rgb(100, 100, 100);
     background-color: rgb(228, 224, 190);
     font-size: 15px;
@@ -70,13 +69,13 @@ filter: blur(15px);
     align-items: center;
 }
 
-.popup-urgency-container{
+.popup-urgency-container {
 	display: flex;
    justify-content: center;
    align-items: center;
 }
 
-.popup-urgency{
+.popup-urgency {
    height: 40px;
    width: 40px;
    border-radius: 20px;
@@ -109,7 +108,7 @@ filter: blur(15px);
    column-gap: 20px;
 }
 
-.popup-bugdescription{
+.popup-bugdescription {
 	height: 350px;
 }
 
@@ -145,12 +144,12 @@ filter: blur(15px);
    text-align: center;
    vertical-align: middle;
    width: 100%;
+   cursor: pointer;
 }
 
 .editButtonContainer:hover {
    background-color: rgb(170, 166, 125)
 }
-
 
 
 
