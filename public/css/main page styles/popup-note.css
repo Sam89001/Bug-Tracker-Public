@@ -138,6 +138,7 @@ filter: blur(15px);
    width: 20%; 
    margin-left: 20px;
    background-color: rgb(218, 155, 39);
+   border-radius: 20px;
 }
 
 .edit-Button {

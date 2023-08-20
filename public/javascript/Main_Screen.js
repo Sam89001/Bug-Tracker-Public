@@ -67,6 +67,7 @@ function loadEditNote() {
   var Editpopupnote = document.getElementById('EditPopUp');
   Editpopupnote.classList.toggle('active');
 
+
   //var EditpopupUrgency = popupnote.querySelector('.EditpopupUrgency');
   //EditpopupUrgency.style.backgroundColor = urgencyColour.style.backgroundColor
   
@@ -95,6 +96,7 @@ function loadEditNote() {
 function closeEditNote() {
   var Editpopupnote = document.getElementById('EditPopUp');
   Editpopupnote.classList.toggle('active');
+
 }
 
 function openSprintForm()
