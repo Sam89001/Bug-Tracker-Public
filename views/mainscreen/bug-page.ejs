@@ -107,8 +107,17 @@
   </div>
 
   <div class="EditPopUp" id="EditPopUp">
+    <div class="editPopUpSectionContainer">
     <img class="Editpopup-close-button" src="/icons/close-circle-outline.svg" onclick="closeEditNote()">
+    </div>
+
+    <div class="EditPopUpContainer">
     <form >
+    
+    <div class="NameUrgencyTitleContainer">
+      <div class= "editBugNameTitle">Bug Name:</div>
+      <div class="editBugUrgencyTitle">Bug Urgency:</div>
+    </div>  
 
     <div class="Editpopup-titlegrid">
       <input class="Editpopup-title">
@@ -117,14 +126,22 @@
       </div>
     </div>
 
+    <div class="TypeDeadlineTitleContainer">
+      <div class="editBugTypeTitle">Bug Type:</div>
+      <div class="editBugDeadlineTitle">Bug Deadline:</div>
+    </div>  
+
     <div class="Editpopup-typegrid">
       <input class="Editpopup-bugtype">
       <input class="Editpopup-deadline">
     </div>
 
     <div class="Editpopup-additionalFields">
+      <div class="editBugEnvironmentTitle">Bug Environment:</div>
       <input class="Editpopup-bugenvironment">
+      <div class="editBugDescriptionTitle">Bug Description:</div>
       <input class="Editpopup-bugdescription">
+      <div class="editBugAssignedToTitle">Assigned To:</div>
       <input class="Editpopup-bugassignto">
     </div>  
     </form>   
@@ -135,6 +152,7 @@
         <div></div>
       </div>
     </div>
+  </div>
   </div>
 
   <main class="main" >

@@ -1,10 +1,9 @@
 .EditPopUp {
     position: fixed;
-    width: 700px;
-    height: 750px;
-    padding: 20px;
+    width: 750px;
+    height: 790px;
     opacity: 0;
-    background-color: aqua;
+    background-color: rgb(240, 200, 125);
 
     z-index: 400;
 
@@ -16,47 +15,37 @@
     visibility: hidden;
  }
 
-
  #EditPopUp.active {
     visibility: visible;
     opacity: 1;
  }
 
- .Editpopup-close-button{
-	display: block;
-	float: right;
-	width: 30px;
-	height: 30px;
-	cursor: pointer;
-	transition:0.3s;
-}
-
-.Editpopup-close-button:hover{
-	width: 40px;
-	height: 40px;
-	box-shadow: 20px 20px 20px rgba(0,0,0,0.1);
-}
+ .EditPopUpContainer {
+    padding: 20px;
+    width: 710px;
+    height: 700px;
+ }
 
 
 .Editpopup-titlegrid {
-    height: 75px;
+    height: 50px;
     width: 100%;
     display: grid;
     grid-template-columns: 2fr 1fr;
-    margin-bottom: 20px;    
+    margin-bottom: 15px;    
  }
 
  .Editpopup-typegrid{
-    height: 100px;
+    height: 60px;
     width: 100%;
    display: grid;
    grid-template-columns: 2fr 1fr;
     column-gap: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
  }
 
  .Editpopup-additionalFields {
-    height: 400px;
+    height: 375px;
     width: 100%;
     margin-bottom: 20px;
  }
@@ -72,7 +61,7 @@
      justify-content: center;
      align-items: center;
 
-     height: 75px;
+     height: 50px;
  }
  
  .Editpopup-urgency-container {
@@ -89,10 +78,7 @@
  }
 
  
- .Editpopup-bugtype,
-.Editpopup-deadline {
-    margin-bottom: 20px;
-}
+
 
 .Editpopup-bugtype,
 .Editpopup-deadline, 
@@ -105,12 +91,12 @@
     display: block;
     word-break: break-word;
 	padding: 7px;
-    height: 40px;
-    margin-top: 20px;
+    height: 40px;;
 }
 
 .Editpopup-bugenvironment,
-.Editpopup-bugassignto {
+.Editpopup-bugassignto,
+.Editpopup-bugdescription {
     width: 97%;
 }
 
@@ -124,4 +110,53 @@
     padding: 7px;
     height: 33px;
     color: rgb(100, 100, 100);
+}
+
+.editPopUpSectionContainer {
+    background-color: rgb(218, 155, 39);
+    border-radius: 30px 30px 0px 0px;
+    width: 100%;
+    height: 60px;
+
+}
+
+
+.Editpopup-close-button{
+	display: block;
+	float: right;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	transition:0.3s;
+}
+
+.Editpopup-close-button:hover{
+	width: 40px;
+	height: 40px;
+	box-shadow: 20px 20px 20px rgba(0,0,0,0.1);
+}
+
+
+.NameUrgencyTitleContainer,
+.TypeDeadlineTitleContainer {
+    
+    display: flex;
+    justify-content: space-between;
+    width: 91%;
+    margin-bottom: 5px;
+}
+
+.editBugNameTitle,
+.editBugUrgencyTitle,
+.editBugTypeTitle,
+.editBugDeadlineTitle,
+.editBugEnvironmentTitle {
+    height: 25px;
+}
+
+
+.editBugDescriptionTitle,
+.editBugAssignedToTitle {
+    height: 25px;
+    margin-top: 10px;
 }
