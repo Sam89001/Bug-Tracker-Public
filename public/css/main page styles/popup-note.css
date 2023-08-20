@@ -137,6 +137,7 @@ filter: blur(15px);
    height: 100%;
    width: 20%; 
    margin-left: 20px;
+   background-color: rgb(218, 155, 39);
 }
 
 .edit-Button {
@@ -145,10 +146,12 @@ filter: blur(15px);
    vertical-align: middle;
    width: 100%;
    cursor: pointer;
+   
 }
 
 .editButtonContainer:hover {
-   background-color: rgb(170, 166, 125)
+   color: aliceblue;
+   background-color: rgb(165, 114, 20);
 }
 
 

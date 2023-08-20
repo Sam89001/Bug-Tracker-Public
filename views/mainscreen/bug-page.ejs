@@ -82,20 +82,20 @@
   <div class="popupNote" id="popupnote" onload="verificationFuction()">
     <img class="popup-close-button" src="/icons/close-circle-outline.svg" onclick="closeBigNote()">
     <div class="popup-titlegrid">
-      <div class="popup-title"></div>
+      <div class="popup-title" id="popup-title"></div>
       <div class="popup-urgency-container">
         <div class="popup-urgency" data-urgency="" name="popup-urgency"></div>
       </div>
     </div>
 
     <div class="popup-typegrid">
-      <div class="popup-bugtype"></div>
-      <div class="popup-deadline"></div>
+      <div class="popup-bugtype" id="popup-bugtype"></div>
+      <div class="popup-deadline" id="popup-deadline"></div>
     </div>
 
-    <div class="popup-bugenvironment"></div>
-    <div class="popup-bugdescription"></div>
-    <div class="popup-bugassignto"></div>
+    <div class="popup-bugenvironment" id="popup-bugenvironment"></div>
+    <div class="popup-bugdescription" id="popup-bugdescription"></div>
+    <div class="popup-bugassignto" id="popup-bugassignto"></div>
     <div class="assignBySection">
       <div class="popup-bugassignby"></div>
       <div class="editButtonContainer" id="editButtonContainer">
@@ -120,7 +120,7 @@
     </div>  
 
     <div class="Editpopup-titlegrid">
-      <input class="Editpopup-title">
+      <input class="Editpopup-title" id="Editpopup-title" type="text">
       <div class="Editpopup-urgency-container">
         <div class="Editpopup-urgency" data-urgency="" name="Editpopup-urgency"></div>
       </div>
@@ -132,17 +132,17 @@
     </div>  
 
     <div class="Editpopup-typegrid">
-      <input class="Editpopup-bugtype">
-      <input class="Editpopup-deadline">
+      <input class="Editpopup-bugtype" id="Editpopup-bugtype">
+      <input class="Editpopup-deadline" id="Editpopup-deadline">
     </div>
 
     <div class="Editpopup-additionalFields">
       <div class="editBugEnvironmentTitle">Bug Environment:</div>
-      <input class="Editpopup-bugenvironment">
+      <input class="Editpopup-bugenvironment" id="Editpopup-bugenvironment">
       <div class="editBugDescriptionTitle">Bug Description:</div>
-      <textarea class="Editpopup-bugdescription"></textarea>
+      <textarea class="Editpopup-bugdescription" id="Editpopup-bugdescription"></textarea>
       <div class="editBugAssignedToTitle">Assigned To:</div>
-      <input class="Editpopup-bugassignto">
+      <input class="Editpopup-bugassignto" id="Editpopup-bugassignto">
     </div>  
     </form>   
     

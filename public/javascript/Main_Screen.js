@@ -67,8 +67,29 @@ function loadEditNote() {
   var Editpopupnote = document.getElementById('EditPopUp');
   Editpopupnote.classList.toggle('active');
 
-  var EditpopupUrgency = popupnote.querySelector('.EditpopupUrgency');
-  EditpopupUrgency.style.backgroundColor = urgencyColour.style.backgroundColor
+  //var EditpopupUrgency = popupnote.querySelector('.EditpopupUrgency');
+  //EditpopupUrgency.style.backgroundColor = urgencyColour.style.backgroundColor
+  
+  var popuptitle = document.getElementById('popup-title')
+  var popupbugtype = document.getElementById('popup-bugtype')
+  var popupdeadline = document.getElementById('popup-deadline')
+  var popupbugenvironment = document.getElementById('popup-bugenvironment')
+  var popupbugdescription = document.getElementById('popup-bugdescription')
+  var popupbugassignto = document.getElementById('popup-bugassignto')
+
+  var Editpopuptitle = document.getElementById('Editpopup-title')
+  var Editpopupbugtype = document.getElementById('Editpopup-bugtype')
+  var Editpopupdeadline = document.getElementById('Editpopup-deadline')
+  var Editpopupbugenvironment = document.getElementById('Editpopup-bugenvironment')
+  var Editpopupbugdescription = document.getElementById('Editpopup-bugdescription')
+  var Editpopupbugassignto = document.getElementById('Editpopup-bugassignto')
+
+  Editpopuptitle.value = popuptitle.textContent
+  Editpopupbugtype.value = popupbugtype.textContent
+  Editpopupdeadline.value = popupdeadline.textContent
+  Editpopupbugenvironment.value = popupbugenvironment.textContent
+  Editpopupbugdescription.value = popupbugdescription.textContent
+  Editpopupbugassignto.value = popupbugassignto.textContent
 }
 
 function closeEditNote() {
