@@ -103,6 +103,7 @@
 .Editpopup-bugdescription {
     height: 200px;
     width: 97%;
+    resize: none;
 }
 
 .Editpopup-bugassignby {
