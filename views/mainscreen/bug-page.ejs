@@ -27,7 +27,18 @@
   <div class="blurSprint" id="blurSprint" onclick="closeSprintForm()"></div>
   <div class="blurNewBug" id="blurNewBug" onclick="closeBugForm()"></div>
 
-  <% urlPopstateVerification() %>
+  <script>
+    window.addEventListener("popstate", function (event) {
+    const currentUrl = new URL(window.location.href);
+    
+    if (currentUrl.searchParams.has("bugId")) {
+  
+      currentUrl.searchParams.delete("bugId");
+  
+      history.replaceState(null, null, currentUrl.toString());
+    }
+  });
+  </script>
   
   <div class="createSprintContainer">
     <div class="createSprint" id="createSprintForm">
