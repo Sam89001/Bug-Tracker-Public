@@ -1,18 +1,5 @@
 let currentBugId;
 
-function urlPopstateVerification() {
-  window.addEventListener("popstate", function (event) {
-    const currentUrl = new URL(window.location.href);
-    
-    if (currentUrl.searchParams.has("bugId")) {
-  
-      currentUrl.searchParams.delete("bugId");
-  
-      history.replaceState(null, null, currentUrl.toString());
-    }
-  });
-}
-
 function urlAdjustment(bugId) {
   const currentUrl = window.location.href;
   const newUrl = new URL(currentUrl);
@@ -30,6 +17,18 @@ function urlAdjustment(bugId) {
   console.log(newUrl);
 }
 
+function formActionApply() {
+          
+  const urlParams = new URLSearchParams(window.location.search);
+  const queryParamValue = urlParams.get('bugId');
+
+  const bugId = `?bugId=${queryParamValue}&_method=PUT`
+
+  const form = document.getElementById('editBugForm');
+  // this needs to append, rather than replace
+  form.action += bugId 
+
+}
 
 function openBigNote(bugId) {
   const definedBugId = bugId;

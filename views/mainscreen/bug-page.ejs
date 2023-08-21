@@ -28,16 +28,20 @@
   <div class="blurNewBug" id="blurNewBug" onclick="closeBugForm()"></div>
 
   <script>
-    window.addEventListener("popstate", function (event) {
-    const currentUrl = new URL(window.location.href);
-    
-    if (currentUrl.searchParams.has("bugId")) {
+    function popStateVerificationCheck() {
+        window.addEventListener("popstate", function (event) {
+          const currentUrl = new URL(window.location.href);
+
+          if (currentUrl.searchParams.has("bugId")) {
+          
+          currentUrl.searchParams.delete("bugId");
   
-      currentUrl.searchParams.delete("bugId");
-  
-      history.replaceState(null, null, currentUrl.toString());
+          history.replaceState(null, null, currentUrl.toString());
+          }
+        });
+
+        //^ this works, just now needs to close the popup
     }
-  });
   </script>
   
   <div class="createSprintContainer">
@@ -60,6 +64,7 @@
   <div class="createBugContainer">
     <div class="createBug" id="createBug">
       <img class="popup-close-button" src="/icons/close-circle-outline.svg" onclick="closeBugForm()">
+
       <form action="/mainpage/bugscreen/<%= id %>/<%= projectName %>/<%= sprintName %>/<%= projectId %>/<%= sprintId %>/newbug" method="POST">
         <p>Bug Name:</p>
         <input class="bugNameBox" name="bugName" type="text" required="text">
@@ -112,7 +117,7 @@
     <div class="assignBySection">
       <div class="popup-bugassignby"></div>
       <div class="editButtonContainer" id="editButtonContainer">
-        <div class="edit-Button" id="edit-Button" onclick="loadEditNote()"> Edit</div>
+        <div class="edit-Button" id="edit-Button" onclick="loadEditNote(), formActionApply()"> Edit</div>
       </div>
     </div>
     </div>
@@ -126,16 +131,16 @@
 
     <div class="EditPopUpContainer">
 
-    <form>
+    <form action="/<%= id %>/<%= projectName %>/<%= sprintName %>/<%= projectId %>/<%= sprintId %>" id="editBugForm" method="POST">
       <div class="NameUrgencyTitleContainer">
         <div class= "editBugNameTitle">Bug Name:</div>
         <div class="editBugUrgencyTitle">Bug Urgency:</div>
       </div>  
 
       <div class="Editpopup-titlegrid">
-        <input class="Editpopup-title" id="Editpopup-title" type="text">
+        <input class="Editpopup-title" id="Editpopup-title" type="text" name="Editpopuptitle">
         <div class="Editpopup-urgency-container">
-          <div class="Editpopup-urgency" data-urgency="" name="Editpopup-urgency"></div>
+          <div class="Editpopup-urgency" data-urgency="" name="Editpopupurgency"></div>
         </div>
       </div>
 
@@ -145,29 +150,28 @@
       </div>  
 
       <div class="Editpopup-typegrid">
-        <input class="Editpopup-bugtype" id="Editpopup-bugtype">
-        <input class="Editpopup-deadline" id="Editpopup-deadline">
+        <input class="Editpopup-bugtype" id="Editpopup-bugtype" name="Editpopupbugtype">
+        <input class="Editpopup-deadline" id="Editpopup-deadline" name="Editpopupdeadline">
       </div>
 
       <div class="Editpopup-additionalFields">
         <div class="editBugEnvironmentTitle">Bug Environment:</div>
-        <input class="Editpopup-bugenvironment" id="Editpopup-bugenvironment">
+        <input class="Editpopup-bugenvironment" id="Editpopup-bugenvironment" name="Editpopupbugenvironment">
         <div class="editBugDescriptionTitle">Bug Description:</div>
-        <textarea class="Editpopup-bugdescription" id="Editpopup-bugdescription"></textarea>
+        <textarea class="Editpopup-bugdescription" id="Editpopup-bugdescription" name="Editpopupbugdescription"></textarea>
         <div class="editBugAssignedToTitle">Assigned To:</div>
-        <input class="Editpopup-bugassignto" id="Editpopup-bugassignto">
+        <input class="Editpopup-bugassignto" id="Editpopup-bugassignto" name="Editpopupbugassignto">
       </div>  
-    </form>   
-    
-    <div class="buttonSection">
-      <div class="cancelButtonContainer">
-        <div class="cancelButton" onclick="closeEditNote()">Cancel</div>
-      </div>
 
-      <div class="doneButtonContainer">
-        <div class="doneButton">Done</div>
-      </div>   
-    </div>
+      <div class="buttonSection">
+        <div class="cancelButtonContainer">
+          <div class="cancelButton" onclick="closeEditNote()">Cancel</div>
+        </div>
+        <div class="doneButtonContainer">
+          <button class="doneButton" type="submit">Done</button>
+        </div>   
+      </div>
+    </form>   
   </div>
   </div>
 
@@ -269,7 +273,7 @@
     <div class="grid-section">    
       
       <% bugs.filter(bug => bug.bugProgress === 'To-Do').forEach(bug => { %>
-        <div class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id'))">
+        <div id="clickedNote" class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id'))">
            <div class="bug-title-row"> 
              <div class="bug-title"> <%= bug.bugName %> </div>
              <div class="urgency" data-urgency="<%= bug.bugPriority %>" name="urgency"></div>
@@ -294,7 +298,7 @@
       <div class="grid-section">
       
         <% bugs.filter(bug => bug.bugProgress === 'In-Progress').forEach(bug => { %>
-          <div class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id')), urgencyColours();">
+          <div id="clickedNote" class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id')), urgencyColours();">
              <div class="bug-title-row"> 
                <div class="bug-title"> <%= bug.bugName %> </div>
                <div class="urgency" data-urgency="<%= bug.bugPriority %>" name="urgency"></div>
@@ -320,7 +324,7 @@
         
         
           <% bugs.filter(bug => bug.bugProgress === 'Code-Review').forEach(bug => { %>
-            <div class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id'))">
+            <div id="clickedNote" class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id'))">
                <div class="bug-title-row"> 
                  <div class="bug-title"> <%= bug.bugName %> </div>
                  <div class="urgency" data-urgency="<%= bug.bugPriority %>" name="urgency"></div>
@@ -346,7 +350,7 @@
             <div class="grid-section">
               
               <% bugs.filter(bug => bug.bugProgress === 'Completed').forEach(bug => { %>
-                <div class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id')), verificationFuction();">
+                <div id="clickedNote" class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id')), verificationFuction();">
                    <div class="bug-title-row"> 
                      <div class="bug-title"> <%= bug.bugName %> </div>
                      <div class="urgency" data-urgency="<%= bug.bugPriority %>" name="urgency"></div>

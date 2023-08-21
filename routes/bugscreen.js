@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const methodOverride = require('method-override');
 const passport = require('passport');
-const { checkAuthenticated, checkNotAuthenticated, userDetailsCheck } = require('../functions/authentication-check.js');
+const { checkAuthenticated, checkNotAuthenticated, userDetailsCheck, urlRefreshVerification } = require('../functions/authentication-check.js');
 const { urgencyColour } = require('../public/javascript/Main_Screen.js')
 const AccountSchema = require('../models/accountsSchema');
 const projectSchema = require('../models/projectSchema');
@@ -30,6 +30,9 @@ router.get('/', checkAuthenticated, userDetailsCheck, async (req, res) => {
       const newSprints = await sprintSchema.find({ projectid: projectId });
       //console.log(newSprints)
       res.render('mainscreen/bug-page', { id, projectName, sprintName, projectId, sprintId, bugs: bugs, newSprints: newSprints, filteredBugId: filteredBugId });
+      
+      urlRefreshVerification()
+
     } catch (err) {
       console.error(err);
     }
@@ -95,23 +98,45 @@ router.post('/:id/:projectName/:sprintName/:projectId/:sprintId/newsprint', asyn
   }
 });
 
-router.get('/:id/:projectId/:bugid', checkAuthenticated, async (req, res, next) => {
-  try {
 
-  } catch {
-
-  }
-}) 
-
-router.put('/:id/:projectId/:bugid', checkAuthenticated, async (req, res, next) => {
+router.put('/:id/:projectName/:sprintName/:projectId/:sprintId', async (req, res, next) => {
   try {
     const id = req.params.id;
-    const projectid = req.params.projectId;
+    const projectId = req.params.projectId;
+    const sprintId = req.params.sprintId;
+    const projectName = req.params.projectName;
+    const sprintName = req.params.sprintName;
+    const bugId = req.query.bugId;
 
-    bugid = bugSchema.findById
-  } catch {
+    const bugName = req.body.Editpopuptitle
+    //const bugPriority = req.body.Editpopupurgency
+    const bugType = req.body.Editpopupbugtype
+    const bugTimeFrame = req.body.Editpopupdeadline
+    const bugArea = req.body.Editpopupbugenvironment
+    const bugSummary = req.body.Editpopupbugdescription
+    const bugAssignedToo = req.body.Editpopupbugassignto
+    
+    console.log('bugId')
 
+    const updateBug = await bugSchema.findByIdAndUpdate(
+      bugId,
+      { $set: { bugName: bugName, bugType: bugType, bugTimeFrame: bugTimeFrame, bugArea: bugArea, bugSummary: bugSummary, bugAssignedToo: bugAssignedToo}},
+      { new: true }
+    )
+
+    if (updatedUser) {
+      res.redirect(`/mainpage/bugscreen/${id}/${projectName}/${sprintName}/${projectId}/${sprintId}`);
+    } else {
+      res.redirect(`mainpage/error`);
+    }
+  } catch (err) {
+    console.error(err);
+    res.redirect(`/mainpage/error`);
   }
 })
+
+router.get('/mainpage/error', checkAuthenticated, userDetailsCheck, async (req, res) => {
+  res.render('/mainscreen/errorPosting')
+});
 
 module.exports = router;
