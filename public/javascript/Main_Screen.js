@@ -25,7 +25,6 @@ function formActionApply() {
   const bugId = `?bugId=${queryParamValue}&_method=PUT`
 
   const form = document.getElementById('editBugForm');
-  // this needs to append, rather than replace
   form.action += bugId 
 
 }

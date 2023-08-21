@@ -116,7 +116,7 @@ router.put('/:id/:projectName/:sprintName/:projectId/:sprintId', async (req, res
     const bugSummary = req.body.Editpopupbugdescription
     const bugAssignedToo = req.body.Editpopupbugassignto
     
-    console.log('bugId')
+    console.log(bugId)
 
     const updateBug = await bugSchema.findByIdAndUpdate(
       bugId,
@@ -124,10 +124,10 @@ router.put('/:id/:projectName/:sprintName/:projectId/:sprintId', async (req, res
       { new: true }
     )
 
-    if (updatedUser) {
+    if (updateBug) {
       res.redirect(`/mainpage/bugscreen/${id}/${projectName}/${sprintName}/${projectId}/${sprintId}`);
     } else {
-      res.redirect(`mainpage/error`);
+      res.redirect(`/mainpage/error`);
     }
   } catch (err) {
     console.error(err);
