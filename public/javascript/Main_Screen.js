@@ -1,3 +1,36 @@
+let currentBugId;
+
+function urlPopstateVerification() {
+  window.addEventListener("popstate", function (event) {
+    const currentUrl = new URL(window.location.href);
+    
+    if (currentUrl.searchParams.has("bugId")) {
+  
+      currentUrl.searchParams.delete("bugId");
+  
+      history.replaceState(null, null, currentUrl.toString());
+    }
+  });
+}
+
+function urlAdjustment(bugId) {
+  const currentUrl = window.location.href;
+  const newUrl = new URL(currentUrl);
+
+  if (!newUrl.searchParams.has("bugId")) {
+    // If 'bugId' doesn't exist in the URL, append it
+    newUrl.searchParams.append("bugId", bugId);
+  } else {
+    // If 'bugId' exists in the URL, remove it
+    newUrl.searchParams.delete("bugId");
+  }
+
+  // Push the updated URL
+  history.pushState(null, null, newUrl);
+  console.log(newUrl);
+}
+
+
 function openBigNote(bugId) {
   const definedBugId = bugId;
   var blur = document.getElementById('blurBug');
@@ -27,7 +60,12 @@ function openBigNote(bugId) {
   popupBugAssignBy.textContent = clickedDiv.querySelector('.bug-assignby').textContent;
 
   //console.log(bugId);
+  currentBugId = bugId;
+  urlAdjustment(bugId)
 
+//V verification code
+
+  
   const divWithId = document.getElementById('profile-picture-container')
   const id = divWithId.dataset.name
   const userId = id
@@ -40,10 +78,10 @@ function openBigNote(bugId) {
   
   if (assignedByID == userId) {
     condition = 'true'
-    console.log('YASSSSSSSSSSSSSSSSSSS')
+    //console.log('YASSSSSSSSSSSSSSSSSSS')
   } else {
     condition = 'false'
-    console.log('NARRRRRRRRRRRRRRRRRRR')
+    //console.log('NARRRRRRRRRRRRRRRRRRR')
   }
   
 
@@ -60,6 +98,10 @@ function closeBigNote()
     blur.classList.toggle('active')
     var popupnote = document.getElementById('popupnote')
     popupnote.classList.toggle('active')
+
+    if (currentBugId !== undefined) {
+      urlAdjustment(currentBugId);
+    }
 
 }
 

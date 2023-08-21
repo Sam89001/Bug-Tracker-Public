@@ -26,6 +26,8 @@
   <div class="blurBug" id="blurBug" onclick=""></div>
   <div class="blurSprint" id="blurSprint" onclick="closeSprintForm()"></div>
   <div class="blurNewBug" id="blurNewBug" onclick="closeBugForm()"></div>
+
+  <% urlPopstateVerification() %>
   
   <div class="createSprintContainer">
     <div class="createSprint" id="createSprintForm">
@@ -112,38 +114,38 @@
     </div>
 
     <div class="EditPopUpContainer">
-    <form >
-    
-    <div class="NameUrgencyTitleContainer">
-      <div class= "editBugNameTitle">Bug Name:</div>
-      <div class="editBugUrgencyTitle">Bug Urgency:</div>
-    </div>  
 
-    <div class="Editpopup-titlegrid">
-      <input class="Editpopup-title" id="Editpopup-title" type="text">
-      <div class="Editpopup-urgency-container">
-        <div class="Editpopup-urgency" data-urgency="" name="Editpopup-urgency"></div>
+    <form>
+      <div class="NameUrgencyTitleContainer">
+        <div class= "editBugNameTitle">Bug Name:</div>
+        <div class="editBugUrgencyTitle">Bug Urgency:</div>
+      </div>  
+
+      <div class="Editpopup-titlegrid">
+        <input class="Editpopup-title" id="Editpopup-title" type="text">
+        <div class="Editpopup-urgency-container">
+          <div class="Editpopup-urgency" data-urgency="" name="Editpopup-urgency"></div>
+        </div>
       </div>
-    </div>
 
-    <div class="TypeDeadlineTitleContainer">
-      <div class="editBugTypeTitle">Bug Type:</div>
-      <div class="editBugDeadlineTitle">Bug Deadline:</div>
-    </div>  
+      <div class="TypeDeadlineTitleContainer">
+        <div class="editBugTypeTitle">Bug Type:</div>
+        <div class="editBugDeadlineTitle">Bug Deadline:</div>
+      </div>  
 
-    <div class="Editpopup-typegrid">
-      <input class="Editpopup-bugtype" id="Editpopup-bugtype">
-      <input class="Editpopup-deadline" id="Editpopup-deadline">
-    </div>
+      <div class="Editpopup-typegrid">
+        <input class="Editpopup-bugtype" id="Editpopup-bugtype">
+        <input class="Editpopup-deadline" id="Editpopup-deadline">
+      </div>
 
-    <div class="Editpopup-additionalFields">
-      <div class="editBugEnvironmentTitle">Bug Environment:</div>
-      <input class="Editpopup-bugenvironment" id="Editpopup-bugenvironment">
-      <div class="editBugDescriptionTitle">Bug Description:</div>
-      <textarea class="Editpopup-bugdescription" id="Editpopup-bugdescription"></textarea>
-      <div class="editBugAssignedToTitle">Assigned To:</div>
-      <input class="Editpopup-bugassignto" id="Editpopup-bugassignto">
-    </div>  
+      <div class="Editpopup-additionalFields">
+        <div class="editBugEnvironmentTitle">Bug Environment:</div>
+        <input class="Editpopup-bugenvironment" id="Editpopup-bugenvironment">
+        <div class="editBugDescriptionTitle">Bug Description:</div>
+        <textarea class="Editpopup-bugdescription" id="Editpopup-bugdescription"></textarea>
+        <div class="editBugAssignedToTitle">Assigned To:</div>
+        <input class="Editpopup-bugassignto" id="Editpopup-bugassignto">
+      </div>  
     </form>   
     
     <div class="buttonSection">

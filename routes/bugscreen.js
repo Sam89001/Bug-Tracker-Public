@@ -94,4 +94,24 @@ router.post('/:id/:projectName/:sprintName/:projectId/:sprintId/newsprint', asyn
     });
   }
 });
+
+router.get('/:id/:projectId/:bugid', checkAuthenticated, async (req, res, next) => {
+  try {
+
+  } catch {
+
+  }
+}) 
+
+router.put('/:id/:projectId/:bugid', checkAuthenticated, async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const projectid = req.params.projectId;
+
+    bugid = bugSchema.findById
+  } catch {
+
+  }
+})
+
 module.exports = router;
