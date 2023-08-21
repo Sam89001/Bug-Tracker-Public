@@ -28,6 +28,58 @@
     height: 700px;
  }
 
+ .editPopUpSectionContainer {
+    background-color: rgb(218, 155, 39);
+    border-radius: 30px 30px 0px 0px;
+    width: 100%;
+    height: 60px;
+
+}
+
+/*  ^^ Containers for notes  */
+
+.Editpopup-close-button{
+	display: block;
+	float: right;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	transition:0.3s;
+}
+
+.Editpopup-close-button:hover{
+	width: 40px;
+	height: 40px;
+	box-shadow: 20px 20px 20px rgba(0,0,0,0.1);
+}
+
+/*  ^^ Close buttons  */
+
+.NameUrgencyTitleContainer,
+.TypeDeadlineTitleContainer {
+    
+    display: flex;
+    justify-content: space-between;
+    width: 91%;
+    margin-bottom: 5px;
+}
+
+.editBugNameTitle,
+.editBugUrgencyTitle,
+.editBugTypeTitle,
+.editBugDeadlineTitle,
+.editBugEnvironmentTitle {
+    height: 25px;
+}
+
+
+.editBugDescriptionTitle,
+.editBugAssignedToTitle {
+    height: 25px;
+    margin-top: 10px;
+}
+
+/*  ^^ Titles  */
 
 .Editpopup-titlegrid {
     height: 50px;
@@ -47,10 +99,12 @@
  }
 
  .Editpopup-additionalFields {
-    height: 375px;
+    height: 425px;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
  }
+
+ /*  ^^ Grids and formatting  */
 
  .Editpopup-title {
     color: rgb(100, 100, 100);
@@ -78,9 +132,6 @@
     border-radius: 20px;
     background-color: black;
  }
-
- 
-
 
 .Editpopup-bugtype,
 .Editpopup-deadline, 
@@ -115,53 +166,54 @@
     color: rgb(100, 100, 100);
 }
 
+/*  ^^ Fields  */
 
-
-
-.editPopUpSectionContainer {
-    background-color: rgb(218, 155, 39);
-    border-radius: 30px 30px 0px 0px;
-    width: 100%;
-    height: 60px;
-
-}
-
-.Editpopup-close-button{
-	display: block;
-	float: right;
-	width: 30px;
-	height: 30px;
-	cursor: pointer;
-	transition:0.3s;
-}
-
-.Editpopup-close-button:hover{
-	width: 40px;
-	height: 40px;
-	box-shadow: 20px 20px 20px rgba(0,0,0,0.1);
-}
-
-
-.NameUrgencyTitleContainer,
-.TypeDeadlineTitleContainer {
-    
+.buttonSection {
     display: flex;
-    justify-content: space-between;
-    width: 91%;
-    margin-bottom: 5px;
+    height: 55px;
+    width: 275px;
+    float: right;
 }
 
-.editBugNameTitle,
-.editBugUrgencyTitle,
-.editBugTypeTitle,
-.editBugDeadlineTitle,
-.editBugEnvironmentTitle {
-    height: 25px;
+.doneButtonContainer,
+.cancelButtonContainer {
+    display: flex;
+    height: 100%;
+   width: 50%; 
+   border-radius: 20px;
+   justify-content: space-between;
 }
 
-
-.editBugDescriptionTitle,
-.editBugAssignedToTitle {
-    height: 25px;
-    margin-top: 10px;
+.doneButtonContainer {
+    margin-left: 20px;
+    background-color: rgb(87, 192, 233);
 }
+
+.cancelButtonContainer {
+    background-color: rgb(224, 87, 62);
+}
+
+.doneButton,
+.cancelButton {
+    padding: 15px;
+   text-align: center;
+   vertical-align: middle;
+   width: 100%;
+   cursor: pointer;
+}
+
+.doneButton:hover,
+.cancelButton:hover {
+    color: aliceblue; 
+    border-radius: 20px;
+}
+
+.doneButton:hover {
+    background-color: rgb(36, 128, 165);
+}
+
+.cancelButton:hover {
+    background-color: rgb(134, 39, 22);
+}
+
+/*  ^^ Buttons  */
