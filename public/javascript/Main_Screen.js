@@ -17,6 +17,24 @@ function urlAdjustment(bugId) {
   console.log(newUrl);
 }
 
+function urlRefreshVerification() {
+  const currentUrl = new URL(window.location.href);
+  
+  var blur = document.getElementById('blurBug')
+  var popupnote = document.getElementById('popupnote')
+
+  if (popupnote && popupnote.classList.contains('active')) {
+    blur.classList.toggle('active')
+    popupnote.classList.toggle('active')
+  }
+
+  if (currentUrl.searchParams.has("bugId")) {
+    currentUrl.searchParams.delete("bugId");
+    history.replaceState(null, null, currentUrl.toString());
+  }
+}
+
+
 function formActionApply() {
           
   const urlParams = new URLSearchParams(window.location.search);
@@ -175,19 +193,6 @@ function closeBugForm()
 
 }
 
-/* const loadData = async () => {
-  try {
-    const bugs = await bugSchema.find({ sprintId: sprintId });
-    bugs.forEach(bug => {
-      const bugData = bug.toString();
-      console.log(bugData);
-    });
-    // Update the existing data in the webpage
-    // For example, you can emit a socket event or use a templating engine to update the UI with the new data
-  } catch (err) {
-    console.error(err);
-  }
-}; */
 
 const urgencyColour = async () => {
   try {

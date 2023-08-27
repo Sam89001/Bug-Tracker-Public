@@ -28,20 +28,47 @@
   <div class="blurNewBug" id="blurNewBug" onclick="closeBugForm()"></div>
 
   <script>
-    function popStateVerificationCheck() {
-        window.addEventListener("popstate", function (event) {
-          const currentUrl = new URL(window.location.href);
+    function popStateVerificationCheck() {      
+      window.addEventListener("popstate", function (event) {
+        /*
+        var blur = document.getElementById('blurBug')
+        var popupnote = document.getElementById('popupnote') 
+        */ 
+        alert("Hello, world!");
 
-          if (currentUrl.searchParams.has("bugId")) {
-          
-          currentUrl.searchParams.delete("bugId");
-  
-          history.replaceState(null, null, currentUrl.toString());
+        const currentUrl = new URL(window.location.href);
+
+          if (popupnote && popupnote.classList.contains('active')) {
+            /* blur.classList.toggle('active')
+            popupnote.classList.toggle('active')   
+            currentUrl.searchParams.delete("bugId");
+            history.replaceState(null, null, currentUrl.toString());
+            */
           }
-        });
 
-        //^ this works, just now needs to close the popup
+      });      
+        //^ this works, just now needs to close the p opup
     }
+  </script>
+
+  <script>
+    window.onload = function() {
+
+    const currentUrl = new URL(window.location.href);
+      
+    var blur = document.getElementById('blurBug')
+    var popupnote = document.getElementById('popupnote')
+
+    if (popupnote && popupnote.classList.contains('active')) {
+    blur.classList.toggle('active')
+    popupnote.classList.toggle('active')
+    }
+
+    if (currentUrl.searchParams.has("bugId")) {
+    currentUrl.searchParams.delete("bugId");
+    history.replaceState(null, null, currentUrl.toString());
+    }
+    };
   </script>
   
   <div class="createSprintContainer">

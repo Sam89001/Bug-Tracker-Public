@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const methodOverride = require('method-override');
 const passport = require('passport');
-const { checkAuthenticated, checkNotAuthenticated, userDetailsCheck, urlRefreshVerification } = require('../functions/authentication-check.js');
+const { checkAuthenticated, checkNotAuthenticated, userDetailsCheck } = require('../functions/authentication-check.js');
 const { urgencyColour } = require('../public/javascript/Main_Screen.js')
 const AccountSchema = require('../models/accountsSchema');
 const projectSchema = require('../models/projectSchema');
@@ -30,8 +30,6 @@ router.get('/', checkAuthenticated, userDetailsCheck, async (req, res) => {
       const newSprints = await sprintSchema.find({ projectid: projectId });
       //console.log(newSprints)
       res.render('mainscreen/bug-page', { id, projectName, sprintName, projectId, sprintId, bugs: bugs, newSprints: newSprints, filteredBugId: filteredBugId });
-      
-      urlRefreshVerification()
 
     } catch (err) {
       console.error(err);
