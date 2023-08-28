@@ -114,7 +114,7 @@ router.put('/:id/:projectName/:sprintName/:projectId/:sprintId', async (req, res
     const bugSummary = req.body.Editpopupbugdescription
     const bugAssignedToo = req.body.Editpopupbugassignto
     
-    console.log(bugId)
+    //console.log(bugId)
 
     const updateBug = await bugSchema.findByIdAndUpdate(
       bugId,

@@ -107,16 +107,18 @@
  /*  ^^ Grids and formatting  */
 
  .Editpopup-title {
-    color: rgb(100, 100, 100);
-     background-color: rgb(228, 224, 190);
-     font-size: 15px;
      display: flex;
      flex-wrap: wrap;
      flex-direction: row;
-     word-break: break-word;
-     justify-content: center;
-     align-items: center;
+     
+     
 
+     color: rgb(100, 100, 100);
+     background-color: rgb(228, 224, 190);
+     font-size: 15px;
+     word-break: break-word;
+     padding: 7px;
+     border: none;
      height: 40px;
  }
  
@@ -138,13 +140,15 @@
 .Editpopup-bugenvironment,
 .Editpopup-bugdescription,
 .Editpopup-bugassignto {
-	color: rgb(100, 100, 100);
-    background-color: rgb(228, 224, 190);
-    font-size: 15px;
     display: block;
+    color: rgb(100, 100, 100);
+    background-color: rgb(228, 224, 190);
+
+    font-size: 15px;
     word-break: break-word;
-	padding: 7px;
+    padding: 7px;
     height: 30px;
+    border: none;
 }
 
 .Editpopup-bugenvironment,

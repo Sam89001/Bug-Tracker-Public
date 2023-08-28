@@ -89,8 +89,7 @@ filter: blur(15px);
 .popup-bugenvironment,
 .popup-bugdescription,
 .popup-bugassignto,
-.popup-bugassignby,
-.editButtonContainer {
+.popup-bugassignby {
 	color: rgb(100, 100, 100);
     background-color: rgb(228, 224, 190);
     font-size: 15px;
@@ -121,37 +120,56 @@ filter: blur(15px);
 .assignBySection {
    display: flex;
    flex-direction: row;
-   height: 40px;
+   height: 54px;
    width: 100%;
    max-width: 700px;
-   justify-content: space-between;
 }
 
 
 .popup-bugassignby {
    display: flex;
-   width: 100%;
+   width: 60%;
+}
+
+.popUpButtonSection {
+   float: right;
+   width: 60%;
+}
+
+
+.editButtonContainer,
+.deleteButtonContainer {
+   float: right;
+   margin-left: 20px;
+   width: 36%;
+   height: 100%;
+   border-radius: 20px;
+   cursor: pointer;
+}
+
+.edit-Button,
+.deleteButton {
+   padding: 15px;
+   text-align: center;
+   vertical-align: middle;
 }
 
 .editButtonContainer {
-   height: 100%;
-   width: 20%; 
-   margin-left: 20px;
-   background-color: rgb(218, 155, 39);
-   border-radius: 20px;
+   background-color: rgb(219, 172, 86);
 }
 
-.edit-Button {
-   text-align: center;
-   vertical-align: middle;
-   width: 100%;
-   cursor: pointer;
-   
+.deleteButtonContainer {
+   background-color: rgb(196, 107, 96);
 }
 
 .editButtonContainer:hover {
    color: aliceblue;
    background-color: rgb(165, 114, 20);
+}
+
+.deleteButtonContainer:hover {
+   color: aliceblue;
+   background-color: rgb(167, 73, 61);
 }
 
 
