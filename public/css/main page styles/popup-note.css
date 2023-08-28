@@ -5,7 +5,6 @@
    position: fixed;
    width: 300px;
    height: 100px;
-   padding: 20px;
    z-index: 300;
 
    top: 20%;
@@ -21,6 +20,10 @@
    visibility: hidden;
 }
 
+.popUpContainer {
+   padding: 20px;
+}
+
 #popupnote.active {
    width: 700px;
    height: 750px;
@@ -33,6 +36,12 @@
 filter: blur(15px);    
 } 
 
+.PopUpSectionContainer {
+   background-color: rgb(231, 199, 138);
+    border-radius: 30px 30px 0px 0px;
+    width: 100%;
+    height: 50px;
+}
 
 .popup-close-button{
 	display: block;
@@ -49,8 +58,30 @@ filter: blur(15px);
 	box-shadow: 20px 20px 20px rgba(0,0,0,0.1);
 }
 
+
+.popUpNameUrgencyTitleContainer,
+.popUpTypeDeadlineTitleContainer {
+    
+    display: flex;
+    justify-content: space-between;
+    width: 91%;
+    margin-bottom: 5px;
+}
+
+.popUpBugNameTitle,
+.popUpBugUrgencyTitle,
+.popUpBugTypeTitle,
+.popUpBugDeadlineTitle,
+.popUpBugEnvironmentTitle {
+    height: 25px;
+}
+
+
+
+
+
 .popup-titlegrid {
-   height: 75px;
+   height: 50px;
 	 width: 100%;
    display: grid;
    grid-template-columns: 2fr 1fr;
@@ -108,13 +139,11 @@ filter: blur(15px);
 }
 
 .popup-bugdescription {
-	height: 350px;
+	height: 250px;
 }
 
-.popup-bugassignby,
-.popup-bugassignto,
-.edit-Button {
-	height: 40px;
+.popup-bugassignto {
+	height: 33px;
 }
 
 .assignBySection {
@@ -129,12 +158,15 @@ filter: blur(15px);
 .popup-bugassignby {
    display: flex;
    width: 60%;
+   height: 75%;
 }
 
 .popUpButtonSection {
    float: right;
    width: 60%;
 }
+
+
 
 
 .editButtonContainer,
