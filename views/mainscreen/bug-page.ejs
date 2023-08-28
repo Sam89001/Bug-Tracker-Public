@@ -48,15 +48,22 @@
     };
 
     window.addEventListener("popstate", function (event) {
-            // Check if there's a code in the state object
+
+      const currentUrl = new URL(window.location.href);
+            
       var blur = document.getElementById('blurBug')
       var popupnote = document.getElementById('popupnote')
 
           if (popupnote && popupnote.classList.contains('active')) {
-                
-              // Perform your action with the code here
+
             blur.classList.toggle('active')
             popupnote.classList.toggle('active')
+
+          } 
+
+          if (currentUrl.searchParams.has("bugId")) {
+          currentUrl.searchParams.delete("bugId");
+          history.replaceState(null, null, currentUrl.toString());
           }
         });
   </script>
