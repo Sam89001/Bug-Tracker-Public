@@ -27,29 +27,6 @@
   <div class="blurSprint" id="blurSprint" onclick="closeSprintForm()"></div>
   <div class="blurNewBug" id="blurNewBug" onclick="closeBugForm()"></div>
 
-  <script>
-    function popStateVerificationCheck() {      
-      window.addEventListener("popstate", function (event) {
-        /*
-        var blur = document.getElementById('blurBug')
-        var popupnote = document.getElementById('popupnote') 
-        */ 
-        alert("Hello, world!");
-
-        const currentUrl = new URL(window.location.href);
-
-          if (popupnote && popupnote.classList.contains('active')) {
-            /* blur.classList.toggle('active')
-            popupnote.classList.toggle('active')   
-            currentUrl.searchParams.delete("bugId");
-            history.replaceState(null, null, currentUrl.toString());
-            */
-          }
-
-      });      
-        //^ this works, just now needs to close the p opup
-    }
-  </script>
 
   <script>
     window.onload = function() {
@@ -69,8 +46,23 @@
     history.replaceState(null, null, currentUrl.toString());
     }
     };
+
+    window.addEventListener("popstate", function (event) {
+            // Check if there's a code in the state object
+      var blur = document.getElementById('blurBug')
+      var popupnote = document.getElementById('popupnote')
+
+          if (popupnote && popupnote.classList.contains('active')) {
+                
+              // Perform your action with the code here
+            blur.classList.toggle('active')
+            popupnote.classList.toggle('active')
+          }
+        });
   </script>
   
+  
+
   <div class="createSprintContainer">
     <div class="createSprint" id="createSprintForm">
       <div class="closeButtonSection">
