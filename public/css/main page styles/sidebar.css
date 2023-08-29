@@ -12,26 +12,34 @@
       z-index: 100;
 } 
 
-.current-section{
-  background-color: rgb(216, 222, 228);
+.mainSectionButton,
+.section,
+.projectEditSectionButton {
+  color: rgb(68, 68, 68);
+  height: 125px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.section:hover,
+.mainSectionButton:hover,
+.projectEditSectionButton:hover {
   border-bottom: solid;
   border-width: 3px;
   border-color: rgb(184, 184, 184);
+  background-color: rgb(216, 222, 228);
 }
 
-.current-section,
-.section {
-  color: rgb(68, 68, 68);;
-  height: 125px;
-  display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    cursor: pointer;
-  cursor: pointer;
+.projectEditSectionButton {
+  font-size: 13px;
 }
 
-.section:hover {
+#mainSectionButtonID.selected,
+#projectEditSectionButtonID.selected {
   border-bottom: solid;
   border-width: 3px;
   border-color: rgb(184, 184, 184);

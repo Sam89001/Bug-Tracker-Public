@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/css/main page styles/popup-forms.css">
     <link rel="stylesheet" href="/css/main page styles/edit-popup-note.css">
     <script src="/javascript/Main_Screen.js"></script>
+    <script src="/javascript/Main_Screen_Navigation.js"></script>
     
 </head>
 
@@ -31,10 +32,22 @@
   <script>
     window.onload = function() {
 
+    //shows first webpage
+    const mainPage = document.getElementById('mainPage')
+    const mainSectionButton = document.getElementById('mainSectionButtonID')
+
+      mainPage.classList.toggle('active')
+      mainSectionButton.classList.toggle('selected')
+
+    //disables any active popups on load
+
     const currentUrl = new URL(window.location.href);
       
     var blur = document.getElementById('blurBug')
     var popupnote = document.getElementById('popupnote')
+    
+
+    
 
     if (popupnote && popupnote.classList.contains('active')) {
     blur.classList.toggle('active')
@@ -46,6 +59,8 @@
     history.replaceState(null, null, currentUrl.toString());
     }
     };
+
+    //adjusts url based on whether that have gone backwards or forwards
 
     window.addEventListener("popstate", function (event) {
 
@@ -239,55 +254,58 @@
   </div>
   </div>
 
-  <main class="main" >
-    
-    <header class="header-bugtracker">
-      <div class="leftsection">
-        <div class="main-menu-button-container">
-          <img class="main-menu" src="/icons/arrow-back-outline.svg" onclick="location.href = '/mainpage'">
-          
-        </div>
-        <div class="create-sprint-container">
-          <div class="create-sprint-button" onclick="openSprintForm()">Create Sprint</div>
-        </div>
-        <!-- will have sprint button to create a new sprint-->
-        <!-- will have project settings -->
+
+<nav class="Headers">
+  <header class="header-bugtracker">
+    <div class="leftsection">
+      <div class="main-menu-button-container">
+        <img class="main-menu" src="/icons/arrow-back-outline.svg" onclick="location.href = '/mainpage'">
         
       </div>
-      <div class="middlesection">
-        <div class="headerlogo">
-          <img class="logo" src="/icons/logo.svg">
-        </div>
+      <div class="create-sprint-container">
+        <div class="create-sprint-button" onclick="openSprintForm()">Create Sprint</div>
       </div>
-			
-      <div class="right-section">
-        <div class="report-bug-button-container">
-          <button class="report-bug-button" onclick="openBugForm()">Report a bug</button></div>
-          
-        <div class="settings-container">
-          <img class="settings-icon" src="/icons/cog.svg">
-        </div>
-        <div class="notifications-container">
-          <img class="notifications-icon" src="/icons/notifications.svg">
-        </div>
-        <div class="help-container">
-          <img class="help-icon" src="/icons/help-circle-outline.svg">
-        </div>
-        <div class="profile-picture-container" id="profile-picture-container" data-name="<%= id %>"></div>
+      <!-- will have sprint button to create a new sprint-->
+      <!-- will have project settings -->
+      
+    </div>
+    <div class="middlesection">
+      <div class="headerlogo">
+        <img class="logo" src="/icons/logo.svg">
       </div>
-    </header>
+    </div>
     
-    <nav class="sidebar">
-      <div class="current-section">Home</div>
-      <div class="section">button 2</div>
-      <div class="section">button 3</div>
-      <div class="section">button 4</div>
-      <div class="section">button 5</div>
-      <div class="section">button 6</div>
+    <div class="right-section">
+      <div class="report-bug-button-container">
+        <button class="report-bug-button" onclick="openBugForm()">Report a bug</button></div>
+        
+      <div class="settings-container">
+        <img class="settings-icon" src="/icons/cog.svg">
+      </div>
+      <div class="notifications-container">
+        <img class="notifications-icon" src="/icons/notifications.svg">
+      </div>
+      <div class="help-container">
+        <img class="help-icon" src="/icons/help-circle-outline.svg">
+      </div>
+      <div class="profile-picture-container" id="profile-picture-container" data-name="<%= id %>"></div>
+    </div>
+  </header>
+  
+  <nav class="sidebar" id="sidebar">
+    <div class="mainSectionButton" onclick="sideBarNavigation()" id="mainSectionButtonID">Home</div>
+    <div class="projectEditSectionButton" onclick="sideBarNavigation()" id="projectEditSectionButtonID">Project Settings</div>
+    <div class="section">button 3</div>
+    <div class="section">button 4</div>
+    <div class="section">button 5</div>
+    <div class="section">button 6</div>
+  </nav>
+  
+</nav>
 
-    </nav>
 
-<section class="titles">
+<main class="mainPage" id="mainPage" >
+  <section class="titles">
   <div class="bugFilterContainer">
     <div class="sectionOne">Bug filter here</div> <!-- bug filter, will be fixed-->
   </div>
@@ -324,14 +342,12 @@
         <% }); %>
       </select>
   </div>
-  
-  
-    
-</section>    
+
+  </section>    
 
 <!-- To Do Section-->
 
-<section class="grid-format" >
+  <section class="grid-format" >
   <div class="notes-grid-background">
     <p class="grid-title"> To-Do x</p> 
     <div class="grid-section">    
@@ -457,6 +473,9 @@
   </section>
 </main>
 
+<main class="projectSettingsPage" id="projectSettingsPage">
+<div>Working!</div>
 
+</main>
 </body>
 </html>
