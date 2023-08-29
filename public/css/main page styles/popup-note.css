@@ -72,26 +72,33 @@ filter: blur(15px);
 .popUpBugUrgencyTitle,
 .popUpBugTypeTitle,
 .popUpBugDeadlineTitle,
-.popUpBugEnvironmentTitle {
-    height: 25px;
+.popUpBugEnvironmentTitle,
+.popUpBugDescriptionTitle,
+.popUpBugAssignedToTitle,
+.popUpBugAssignedByTitle {
+   font-size: 15px;
+    height: 23px;
 }
-
-
-
-
 
 .popup-titlegrid {
    height: 50px;
 	 width: 100%;
    display: grid;
    grid-template-columns: 2fr 1fr;
-	 margin-bottom: 20px;
+	 margin-bottom: 15px;
+}
+
+.popup-assigngrid {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   column-gap: 20px;
+   margin-bottom: 8px;
 }
 
 .popup-title {
    color: rgb(100, 100, 100);
     background-color: rgb(228, 224, 190);
-    font-size: 15px;
+    font-size: 17px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -123,11 +130,11 @@ filter: blur(15px);
 .popup-bugassignby {
 	color: rgb(100, 100, 100);
     background-color: rgb(228, 224, 190);
-    font-size: 15px;
+    font-size: 17px;
     display: block;
     word-break: break-word;
 		padding: 7px;
-		margin-bottom: 20px;
+		margin-bottom: 15px;
 }
 
 .popup-typegrid{
@@ -135,39 +142,34 @@ filter: blur(15px);
    width: 100%;
   display: grid;
   grid-template-columns: 2fr 1fr;
-   column-gap: 20px;
+   column-gap: 15px;
 }
 
 .popup-bugdescription {
-	height: 250px;
+	height: 225px;
+}
+
+.assignBySection {
+   height: 50px;
+	 width: 100%;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   column-gap: 20px;
+   margin-bottom: 15px;
 }
 
 .popup-bugassignto {
 	height: 33px;
 }
 
-.assignBySection {
-   display: flex;
-   flex-direction: row;
-   height: 54px;
-   width: 100%;
-   max-width: 700px;
-}
-
-
 .popup-bugassignby {
-   display: flex;
-   width: 60%;
-   height: 75%;
+   height: 33px;
 }
 
 .popUpButtonSection {
    float: right;
    width: 60%;
 }
-
-
-
 
 .editButtonContainer,
 .deleteButtonContainer {
