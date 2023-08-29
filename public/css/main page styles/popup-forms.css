@@ -96,7 +96,7 @@
     height: 500px;
     width: 300px;
     background-color: lightgreen;
-    padding: 20px;
+    
 
     top: 20%;
     left: 48%; 
@@ -111,6 +111,10 @@
     left: 45%; 
     margin-top: -100px;   
     margin-left: -250px; 
+ }
+
+ .createBugFields {
+   padding: 20px;
  }
 
  #createBug.active{
