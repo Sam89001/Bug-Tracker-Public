@@ -133,7 +133,7 @@ router.put('/:id/:projectName/:sprintName/:projectId/:sprintId', async (req, res
   }
 })
 
-router.delete('/:id/:projectName/:sprintName/:projectId/:sprintId/deleteBug', async (req, res) => {
+router.delete('/deleteBug/:id/:projectName/:sprintName/:projectId/:sprintId/', async (req, res) => {
   try {
     const id = req.params.id;
     const projectId = req.params.projectId;

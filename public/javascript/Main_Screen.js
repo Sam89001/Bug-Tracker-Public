@@ -51,7 +51,7 @@ function formActionApplyDelete() {
   const urlParams = new URLSearchParams(window.location.search);
   const queryParamValue = urlParams.get('bugId');
 
-  const bugId = `?bugId=${queryParamValue}`
+  const bugId = `?bugId=${queryParamValue}&_method=DELETE`
   const form = document.getElementById('deleteBug');
   form.action += bugId 
 }

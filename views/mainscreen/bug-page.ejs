@@ -193,7 +193,7 @@
         <div class="editButtonContainer" id="editButtonContainer">
           <div class="edit-Button" id="edit-Button" onclick="loadEditNote(), formActionApply()"> Edit</div>
         </div>
-        <form method="post" action="/mainpage/bugscreen/<%= id %>/<%= projectName %>/<%= sprintName %>/<%= projectId %>/<%= sprintId %>/deleteBug" id="deleteBug">
+        <form method="post" action="/mainpage/bugscreen/deleteBug/<%= id %>/<%= projectName %>/<%= sprintName %>/<%= projectId %>/<%= sprintId %>" id="deleteBug">
           <div class="deleteButtonContainer">
             <button class="deleteButton" type="submit" id="edit-Button"> Delete</button>
           </div>
