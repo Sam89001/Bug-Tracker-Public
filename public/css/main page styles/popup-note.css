@@ -201,10 +201,17 @@ filter: blur(15px);
    background-color: rgb(165, 114, 20);
 }
 
-.deleteButtonContainer:hover {
+.deleteButtonContainer:hover,
+.deleteButton:hover {
    color: aliceblue;
    background-color: rgb(167, 73, 61);
 }
 
-
+.deleteButton {
+   background-color: rgb(196, 107, 96);
+   border-radius: 20px;
+   width: 100%;
+   border: none;
+   font-size: 15px;
+}
 

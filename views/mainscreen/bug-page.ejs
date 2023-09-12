@@ -144,7 +144,7 @@
     </div>
   </div>
 
-  
+
 
   <div class="popupNote" id="popupnote" onload="verificationFuction()">
     <div class="PopUpSectionContainer" id="EditPopUpContainer">
@@ -195,9 +195,9 @@
         <div class="editButtonContainer" id="editButtonContainer">
           <div class="edit-Button" id="edit-Button" onclick="loadEditNote(), formActionApply()"> Edit</div>
         </div>
-        <form method="post" action="/mainpage/bugscreen/deleteBug/<%= id %>/<%= projectName %>/<%= sprintName %>/<%= projectId %>/<%= sprintId %>" id="deleteBug">
+        <form method="post" action="/mainpage/bugscreen/deleteBug/<%= id %>/<%= projectName %>/<%= sprintName %>/<%= projectId %>/<%= sprintId %>" id="deleteBug" onsubmit="return confirmOverride()">
           <div class="deleteButtonContainer">
-            <button class="deleteButton" type="submit" id="edit-Button" onclick="confirmOverride()"> Delete</button>
+            <button class="deleteButton" type="submit" id="edit-Button" > Delete</button>
           </div>
         </form>
       </div>

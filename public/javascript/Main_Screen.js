@@ -35,35 +35,7 @@ function urlRefreshVerification() {
 }
 
 
-function formActionApply() {
-          
-  const urlParams = new URLSearchParams(window.location.search);
-  const queryParamValue = urlParams.get('bugId');
 
-  const bugId = `?bugId=${queryParamValue}&_method=PUT`
-
-  const form = document.getElementById('editBugForm');
-  form.action += bugId 
-
-}
-
-function formActionApplyDelete() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const queryParamValue = urlParams.get('bugId');
-
-  const bugId = `?bugId=${queryParamValue}&_method=DELETE`
-  const form = document.getElementById('deleteBug');
-  form.action += bugId 
-}
-
-function confirmOverride() {
-  const confirmation = window.confirm("Are you sure you want to delete?");
-        if (confirmation) {
-            return true; 
-        } else {
-            return false;
-        } //want to style this eventually, make it look more clean
-    }
 
 function openBigNote(bugId) {
   const definedBugId = bugId;
