@@ -17,3 +17,11 @@ padding-right: 18px;
     opacity: 1;
 }
 
+.mainPage {
+    min-height: 250px;
+    z-index: 50;
+}
+.projectSettingsPage {
+    display: flex;
+    margin-top: -550px;
+}
