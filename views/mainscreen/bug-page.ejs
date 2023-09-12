@@ -144,6 +144,8 @@
     </div>
   </div>
 
+  
+
   <div class="popupNote" id="popupnote" onload="verificationFuction()">
     <div class="PopUpSectionContainer" id="EditPopUpContainer">
     <img class="popup-close-button" src="/icons/close-circle-outline.svg" onclick="closeBigNote()">
@@ -195,7 +197,7 @@
         </div>
         <form method="post" action="/mainpage/bugscreen/deleteBug/<%= id %>/<%= projectName %>/<%= sprintName %>/<%= projectId %>/<%= sprintId %>" id="deleteBug">
           <div class="deleteButtonContainer">
-            <button class="deleteButton" type="submit" id="edit-Button"> Delete</button>
+            <button class="deleteButton" type="submit" id="edit-Button" onclick="confirmOverride()"> Delete</button>
           </div>
         </form>
       </div>

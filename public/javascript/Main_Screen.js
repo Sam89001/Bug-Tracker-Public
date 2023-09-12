@@ -56,6 +56,15 @@ function formActionApplyDelete() {
   form.action += bugId 
 }
 
+function confirmOverride() {
+  const confirmation = window.confirm("Are you sure you want to delete?");
+        if (confirmation) {
+            return true; 
+        } else {
+            return false;
+        } //want to style this eventually, make it look more clean
+    }
+
 function openBigNote(bugId) {
   const definedBugId = bugId;
   var blur = document.getElementById('blurBug');
