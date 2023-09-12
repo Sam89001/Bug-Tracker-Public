@@ -9,19 +9,17 @@ function sideBarNavigation() {
     sidebar.addEventListener("click", function(event) {
         const selectedTarget = event.target;
 
-        // Check if the clicked item is already selected
+       
         if (selectedTarget === previousTarget) {
             return; // Do nothing if it's the same item
         }
-
-        // Remove 'selected' class from the previousTarget
         previousTarget.classList.remove('selected');
 
-        // Add 'selected' class to the newly clicked item
+      
         selectedTarget.classList.add('selected');
         previousTarget = selectedTarget;
 
-        // Toggle the corresponding pages' 'active' class
+       
         if (selectedTarget === mainSectionButton) {
             mainPage.classList.add('active'); 
             projectSettingsPage.classList.remove('active');  //<<---this code will need to change to be more robust
