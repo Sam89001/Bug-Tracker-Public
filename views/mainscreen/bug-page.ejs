@@ -193,9 +193,11 @@
         <div class="editButtonContainer" id="editButtonContainer">
           <div class="edit-Button" id="edit-Button" onclick="loadEditNote(), formActionApply()"> Edit</div>
         </div>
-        <div class="deleteButtonContainer">
-          <div class="deleteButton" id="edit-Button"> Delete</div>
-        </div>
+        <form method="post" action="/mainpage/bugscreen/<%= id %>/<%= projectName %>/<%= sprintName %>/<%= projectId %>/<%= sprintId %>/deleteBug" id="deleteBug">
+          <div class="deleteButtonContainer">
+            <button class="deleteButton" type="submit" id="edit-Button"> Delete</button>
+          </div>
+        </form>
       </div>
     
     
@@ -353,7 +355,8 @@
     <div class="grid-section">    
       
       <% bugs.filter(bug => bug.bugProgress === 'To-Do').forEach(bug => { %>
-        <div id="clickedNote" class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id'))">
+
+        <div id="clickedNote" class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id')), formActionApplyDelete()">
            <div class="bug-title-row"> 
              <div class="bug-title"> <%= bug.bugName %> </div>
              <div class="urgency" data-urgency="<%= bug.bugPriority %>" name="urgency"></div>
@@ -378,7 +381,7 @@
       <div class="grid-section">
       
         <% bugs.filter(bug => bug.bugProgress === 'In-Progress').forEach(bug => { %>
-          <div id="clickedNote" class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id')), urgencyColours();">
+          <div id="clickedNote" class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id')), formActionApplyDelete()">
              <div class="bug-title-row"> 
                <div class="bug-title"> <%= bug.bugName %> </div>
                <div class="urgency" data-urgency="<%= bug.bugPriority %>" name="urgency"></div>
@@ -404,7 +407,7 @@
         
         
           <% bugs.filter(bug => bug.bugProgress === 'Code-Review').forEach(bug => { %>
-            <div id="clickedNote" class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id'))">
+            <div id="clickedNote" class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id')), formActionApplyDelete()">
                <div class="bug-title-row"> 
                  <div class="bug-title"> <%= bug.bugName %> </div>
                  <div class="urgency" data-urgency="<%= bug.bugPriority %>" name="urgency"></div>
@@ -430,7 +433,7 @@
             <div class="grid-section">
               
               <% bugs.filter(bug => bug.bugProgress === 'Completed').forEach(bug => { %>
-                <div id="clickedNote" class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id')), verificationFuction();">
+                <div id="clickedNote" class="note" data-id="<%= bug._id %>" onclick="openBigNote(this.getAttribute('data-id')), formActionApplyDelete()">
                    <div class="bug-title-row"> 
                      <div class="bug-title"> <%= bug.bugName %> </div>
                      <div class="urgency" data-urgency="<%= bug.bugPriority %>" name="urgency"></div>

@@ -97,7 +97,7 @@ router.post('/:id/:projectName/:sprintName/:projectId/:sprintId/newsprint', asyn
 });
 
 
-router.put('/:id/:projectName/:sprintName/:projectId/:sprintId', async (req, res, next) => {
+router.put('/:id/:projectName/:sprintName/:projectId/:sprintId', async (req, res) => {
   try {
     const id = req.params.id;
     const projectId = req.params.projectId;
@@ -130,6 +130,27 @@ router.put('/:id/:projectName/:sprintName/:projectId/:sprintId', async (req, res
   } catch (err) {
     console.error(err);
     res.redirect(`/mainpage/error`);
+  }
+})
+
+router.delete('/:id/:projectName/:sprintName/:projectId/:sprintId/deleteBug', async (req, res) => {
+  try {
+    const id = req.params.id;
+    const projectId = req.params.projectId;
+    const sprintId = req.params.sprintId;
+    const projectName = req.params.projectName;
+    const sprintName = req.params.sprintName;
+    const bugId = req.query.bugId
+
+    const projectDel = await bugSchema.findOneAndDelete (({_id: bugId}))
+
+    if (projectDel) {
+      res.redirect(`/mainpage/bugscreen/${id}/${projectName}/${sprintName}/${projectId}/${sprintId}`);
+    } else {
+      res.redirect(`/mainpage/error`);
+    }
+  } catch (err) {
+    console.log(err)
   }
 })
 

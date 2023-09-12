@@ -47,6 +47,15 @@ function formActionApply() {
 
 }
 
+function formActionApplyDelete() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const queryParamValue = urlParams.get('bugId');
+
+  const bugId = `?bugId=${queryParamValue}`
+  const form = document.getElementById('deleteBug');
+  form.action += bugId 
+}
+
 function openBigNote(bugId) {
   const definedBugId = bugId;
   var blur = document.getElementById('blurBug');
